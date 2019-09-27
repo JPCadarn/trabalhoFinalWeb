@@ -1,0 +1,77 @@
+CREATE TABLE usuarios (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	email VARCHAR(60) NOT NULL UNIQUE,
+	senha VARCHAR(60) NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	cpf VARCHAR(14) NOT NULL UNIQUE,
+	data_nascimento DATE NOT NULL
+);
+
+CREATE TABLE categorias (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	nome VARCHAR(60) NOT NULL UNIQUE
+);
+
+CREATE TABLE produtos ( 
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	nome VARCHAR(60) NOT NULL,
+	descricao TEXT NOT NULL,
+	valor NUMERIC(10, 2) NOT NULL,
+	categoria_id INT NOT NULL REFERENCES categorias(id),
+	imagem VARCHAR(200) NOT NULL,
+	teor_alcoolico NUMERIC(3, 2) DEFAULT 0.0
+);
+
+CREATE TABLE pedidos (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	usuario_id INT NOT NULL REFERENCES usuarios(id),
+	data DATE NOT NULL,
+	hora TIME NOT NULL
+);
+
+CREATE TABLE pedidos_itens (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	pedido_id INT NOT NULL REFERENCES pedidos(id),
+	produto_id INT NOT NULL REFERENCES produtos(id)
+);
+
+CREATE TABLE usuarios_acessos (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	usuario_id INT NOT NULL REFERENCES usuarios(id),
+	data DATE NOT NULL,
+	hora TIME NOT NULL
+);
+
+CREATE TABLE produtos_acessos (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	produto_id INT NOT NULL REFERENCES produtos(id),
+	data DATE NOT NULL,
+	hora TIME NOT NULL
+);
+
+CREATE TABLE carrinho (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	usuario_id INT NOT NULL REFERENCES usuarios(id),
+	produto_id INT NOT NULL REFERENCES produtos(id),
+	quantidade INT DEFAULT 1
+);
+
+CREATE TABLE avaliacoes (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	usuario_id INT NOT NULL REFERENCES usuarios(id),
+	produto_id INT NOT NULL REFERENCES produtos(id),
+	texto TEXT NOT NULL
+);
+
+CREATE TABLE enderecos (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	usuario_id INT NOT NULL REFERENCES usuarios(id),
+	cep VARCHAR[9] NOT NULL,
+	destinatario VARCHAR(100) NOT NULL,
+	logradouro VARCHAR(100) NOT NULL,
+	numero INT NOT NULL,
+	complemento VARCHAR(30),
+	cidade VARCHAR(30) NOT NULL,
+	estado VARCHAR(30) NOT NULL,
+	referencia VARCHAR(50)
+)

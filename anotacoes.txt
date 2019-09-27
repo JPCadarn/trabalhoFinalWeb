@@ -1,13 +1,13 @@
+TEMA:
+	-> Site de Bebidas;
 CLIENTE:
-- Senha criptografada;
+- Senha criptografada; //password_hash($senha, PASSWORD_BCRYPT);
 - Enviar email de boas vindas após o cadastro;
 - Área de pedidos;
 - Área da conta;
 - Carrinho;
 - Consultas frete (ajax);
 - Esqueci minha senha;
-- Ideias possíveis:
-	-> 
 - Cadastros:
 	-> Usuário,
 	-> Endereço,
