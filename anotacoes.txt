@@ -1,0 +1,25 @@
+CLIENTE:
+- Senha criptografada;
+- Enviar email de boas vindas após o cadastro;
+- Área de pedidos;
+- Área da conta;
+- Carrinho;
+- Consultas frete (ajax);
+- Esqueci minha senha;
+- Ideias possíveis:
+	-> 
+- Cadastros:
+	-> Usuário,
+	-> Endereço,
+	-> Avaliação
+_______________________________________________________
+ADMINISTRATIVO
+- Usuário administrativo (ADMIN, MASTER);
+- Importar arquivos por arquivo externo;
+- Visualizar histórico de compras;
+- Colocar produtos em destaque;
+- Visualizar produtos mais vendidos;
+- Visualizar produtos mais acessados;
+- Cadastros:
+	-> Categoria,
+	-> Produto
