@@ -12,6 +12,16 @@ CREATE TABLE categorias (
 	nome VARCHAR(60) NOT NULL UNIQUE
 );
 
+CREATE TABLE cartoes (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	usuario_id INT NOT NULL REFERENCES usuarios(id),
+	codigo_seguranca VARCHAR(60) NOT NULL,
+	numero VARCHAR(60) NOT NULL,
+	validade VARCHAR(5) NOT NULL,
+	debito_credito VARCHAR(1) NOT NULL,
+	nome_impresso VARCHAR(100) NOT NULL
+);
+
 CREATE TABLE produtos ( 
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	nome VARCHAR(60) NOT NULL,
@@ -32,7 +42,8 @@ CREATE TABLE pedidos (
 CREATE TABLE pedidos_itens (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	pedido_id INT NOT NULL REFERENCES pedidos(id),
-	produto_id INT NOT NULL REFERENCES produtos(id)
+	produto_id INT NOT NULL REFERENCES produtos(id),
+	quantidade INT NOT NULL
 );
 
 CREATE TABLE usuarios_acessos (
@@ -66,7 +77,7 @@ CREATE TABLE avaliacoes (
 CREATE TABLE enderecos (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	usuario_id INT NOT NULL REFERENCES usuarios(id),
-	cep VARCHAR[9] NOT NULL,
+	cep VARCHAR(9) NOT NULL,
 	destinatario VARCHAR(100) NOT NULL,
 	logradouro VARCHAR(100) NOT NULL,
 	numero INT NOT NULL,
@@ -74,4 +85,4 @@ CREATE TABLE enderecos (
 	cidade VARCHAR(30) NOT NULL,
 	estado VARCHAR(30) NOT NULL,
 	referencia VARCHAR(50)
-)
+);
