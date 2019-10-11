@@ -9,9 +9,10 @@ CLIENTE:
 - Consultas frete (ajax);
 - Esqueci minha senha;
 - Cadastros:
-	-> Usuário,
-	-> Endereço,
-	-> Avaliação
+	-> Usuário;
+	-> Endereço;
+	-> Avaliação;
+	-> Cartões;
 _______________________________________________________
 ADMINISTRATIVO
 - Usuário administrativo (ADMIN, MASTER);
@@ -21,5 +22,18 @@ ADMINISTRATIVO
 - Visualizar produtos mais vendidos;
 - Visualizar produtos mais acessados;
 - Cadastros:
-	-> Categoria,
-	-> Produto
+	-> Categoria;
+	-> Produto;
+	-> Produtos em Destaque;
+_______________________________________________________
+Workflow:
+	-> CRUD categorias;
+	-> CRUD produtos;
+	-> CRUD produtos em destaque;
+	-> Index do site;
+	-> Páginas de produtos;
+	-> CRUD usuários;
+	-> Login;
+	-> CRUD endereços;
+	-> CRUD cartões;
+	-> Avaliações;
