@@ -31,7 +31,7 @@ class CategoriaModel extends Conexao{
 			INSERT INTO categorias
 			(nome) 
 			VALUES 
-			(\''.$dados['nome'].'\')	
+			('.$dados['dados']['nome'].')	
 		';
 
 		return $this->executarQuery($sql);
@@ -40,7 +40,7 @@ class CategoriaModel extends Conexao{
 	function editar($dados){
 		$sql = '
 			UPDATE categorias
-			SET nome = \''.$dados['nome'].'\'
+			SET nome = \''.$dados['dados']['nome'].'\'
 			WHERE id = '.$dados['id'];
 		
 		return $this->executarQuery($sql);

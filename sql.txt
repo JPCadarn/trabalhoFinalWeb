@@ -12,7 +12,7 @@ CREATE TABLE categorias (
 	nome VARCHAR(60) NOT NULL UNIQUE
 );
 
-CREATE TABLE cartoes (
+CREATE TABLE cartaos (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	usuario_id INT NOT NULL REFERENCES usuarios(id),
 	codigo_seguranca VARCHAR(60) NOT NULL,
@@ -60,6 +60,12 @@ CREATE TABLE produtos_acessos (
 	hora TIME NOT NULL
 );
 
+CREATE TABLE produtos_destaque (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	produto_id INT NOT NULL REFERENCES produtos(id),
+	ordem INT NOT NULL
+);
+
 CREATE TABLE carrinho (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	usuario_id INT NOT NULL REFERENCES usuarios(id),
@@ -67,7 +73,7 @@ CREATE TABLE carrinho (
 	quantidade INT DEFAULT 1
 );
 
-CREATE TABLE avaliacoes (
+CREATE TABLE avaliacaos (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	usuario_id INT NOT NULL REFERENCES usuarios(id),
 	produto_id INT NOT NULL REFERENCES produtos(id),

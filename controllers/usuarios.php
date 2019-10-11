@@ -1,11 +1,11 @@
 <?php
 
-require_once('../models/categoria.php');
+require_once('../models/usuario.php');
 
-class CategoriasController{
+class UsuariosController{
 
 	function edit($dados){
-		$model = new CategoriaModel();
+		$model = new UsuarioModel();
 		if(!array_key_exists('id', $dados))
 			return false;
 
@@ -13,13 +13,13 @@ class CategoriasController{
 	}
 	
 	function read($id = null){
-		$model = new CategoriaModel();
+		$model = new UsuarioModel();
 		
 		return $model->getDados($id);
 	}
 	
 	function create($dados){
-		$model = new CategoriaModel();
+		$model = new UsuarioModel();
 		if(!array_key_exists('dados', $dados))
 			return false;
 
@@ -27,18 +27,11 @@ class CategoriasController{
 	}
 	
 	function delete($id){
-		$model = new CategoriaModel();
+		$model = new UsuarioModel();
 		if(!$id)
 			return false;
 
 		return $model->excluir($id);
 	}
 }
-
-// $classe = new CategoriasController();
-// $dados = [];
-// $dados['dados'] = [
-// 		'nome' => 'teste'
-// ];
-// $classe->create($dados);
 ?>

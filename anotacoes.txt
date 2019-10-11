@@ -27,13 +27,26 @@ ADMINISTRATIVO
 	-> Produtos em Destaque;
 _______________________________________________________
 Workflow:
-	-> CRUD categorias;
-	-> CRUD produtos;
-	-> CRUD produtos em destaque;
-	-> Index do site;
+	-> CRUD back categorias; ook
+	-> CRUD back produtos; ook
+	-> CRUD back produtos em destaque; ook
+	-> CRUD back usuários; ook
+	-> CRUD back endereços; ook
+	-> CRUD back cartões; ook
+	-> CRUD back avaliações; ook
+	-> CRUD pedidos; 
+	-> View index do site;
 	-> Páginas de produtos;
-	-> CRUD usuários;
+	-> Logs produto;
 	-> Login;
-	-> CRUD endereços;
-	-> CRUD cartões;
+	-> Logs usuário;
+	-> Cadastro de Usuário;
+	-> View categorias admin;
+	-> View produtos admin;
+	-> View produtos em destaque admin;
+	-> View usuários admin;
+	-> View pedidos admin;
 	-> Avaliações;
+	-> Tratar erros;
+	-> Esqueceu a senha;
+	-> Email de boas vindas;
