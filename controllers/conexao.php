@@ -8,6 +8,7 @@
 		function conectar(){
 			try{
 				$conexao = new mysqli($this::serverName, $this::userName, $this::senha, $this::dbName);
+				$conexao->autocommit(true);
 				return $conexao;
 			} catch(Exception $e){
 				return false;
@@ -18,11 +19,18 @@
 			$conexao->close();
 		}
 
-		function executarQuery($query, $conexao){
+		function executarQuery($query){
+			$conexao = $this->conectar();
 			$retorno = [];
 			$retorno = $conexao->query($query);
-			$retorno = $retorno->fetch_all(MYSQLI_ASSOC);
+			
+			if(is_object($retorno) OR is_array($retorno))
+				$retorno = $retorno->fetch_all(MYSQLI_ASSOC);
+			elseif(is_bool($retorno) AND !$retorno)
+				return $conexao->error;
 
+			$this->desconectar($conexao);
 			return $retorno;
 		}
 	}
+?>
