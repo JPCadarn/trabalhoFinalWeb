@@ -21,6 +21,6 @@ class CategoriasController extends Conexao{
 		
 	}
 }
-	$classe = new CategoriasController();
-	print_r($classe->conectar());
+	/*$classe = new CategoriasController();
+	print_r($classe->conectar());*/
 ?>
