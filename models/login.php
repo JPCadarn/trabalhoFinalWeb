@@ -1,6 +1,6 @@
 <?php
 
-class LoginModel {
+class LoginModel{
 	
 }
 

@@ -1,5 +1,5 @@
 <?php
-class CategoriaModel {
+class CategoriaModel{
 	function salvar($conexao, $dados){
 		
 	}
