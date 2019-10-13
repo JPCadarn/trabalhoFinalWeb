@@ -35,8 +35,8 @@ CREATE TABLE produtos (
 CREATE TABLE pedidos (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	usuario_id INT NOT NULL REFERENCES usuarios(id),
-	data DATE NOT NULL,
-	hora TIME NOT NULL
+	data VARCHAR(10) NOT NULL,
+	hora VARCHAR(8) NOT NULL
 );
 
 CREATE TABLE pedidos_itens (

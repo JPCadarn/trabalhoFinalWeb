@@ -1,11 +1,11 @@
 <?php
 
-require_once('../models/avaliacao.php');
+require_once('../models/pedido.php');
 
-class AvaliacaosController{
+class PedidosController{
 
 	function edit($dados){
-		$model = new AvaliacaoModel();
+		$model = new PedidoModel();
 		if(!array_key_exists('id', $dados))
 			return false;
 
@@ -13,13 +13,13 @@ class AvaliacaosController{
 	}
 	
 	function read($id = null){
-		$model = new AvaliacaoModel();
+		$model = new PedidoModel();
 	
 		return $model->getDados($id);
 	}
 	
 	function create($dados){
-		$model = new AvaliacaoModel();
+		$model = new PedidoModel();
 		if(!array_key_exists('dados', $dados))
 			return false;
 
@@ -27,7 +27,7 @@ class AvaliacaosController{
 	}
 	
 	function delete($id){
-		$model = new AvaliacaoModel();
+		$model = new PedidoModel();
 		if(!$id)
 			return false;
 

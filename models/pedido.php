@@ -1,6 +1,7 @@
 <?php
 
 require_once('conexao.php');
+date_default_timezone_set("America/Sao_Paulo");
 
 class PedidoModel extends Conexao{
 	function salvar($dados){
@@ -26,19 +27,45 @@ class PedidoModel extends Conexao{
 		return $this->executarQuery($sql);
 	}
 
-	function criar($dados){
+	function salvarCabecalhoPedido($cabecalho){
+		$data = date('d/m/Y');
+		$hora = date('H:i:s');
 		$sql = "
 			INSERT INTO pedidos
-			(usuario_id, produto_id, texto)
+			(usuario_id, data, hora)
 			VALUES 
 			(
-				{$dados['dados']['usuario_id']}, 
-				{$dados['dados']['produto_id']}'
-				'{$dados['dados']['texto']}'
+				{$cabecalho['usuario_id']}, 
+				'{$data}',
+				'{$hora}'
 			)
 		";
 		
 		return $this->executarQuery($sql);
+	}
+
+	function salvarItensPedido($id, $itens){
+		$sql = "
+			INSERT INTO pedidos_itens
+			(pedido_id, produto_id, quantidade)
+			VALUES 
+			(
+				{$id}, 
+				{$itens['produto_id']},
+				{$itens['quantidade']}
+			)
+		";
+
+		return $this->executarQuery($sql);
+	}
+
+	function criar($dados){
+		if(array_key_exists('itens', $dados) AND array_key_exists('cabecalho', $dados)){
+			if(salvarCabecalhoPedido($dados['cabecalho'] AND salvarItensPedido($dados['cabecalho']['id'], $dados['itens']))){
+				return true;
+			}
+		}else
+			return false;
 	}
 
 	function editar($dados){

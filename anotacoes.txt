@@ -34,7 +34,7 @@ Workflow:
 	-> CRUD back endereços; ook
 	-> CRUD back cartões; ook
 	-> CRUD back avaliações; ook
-	-> CRUD pedidos; 
+	-> CRUD pedidos; ook
 	-> View index do site;
 	-> Páginas de produtos;
 	-> Logs produto;

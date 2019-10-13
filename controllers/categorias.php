@@ -34,11 +34,4 @@ class CategoriasController{
 		return $model->excluir($id);
 	}
 }
-
-// $classe = new CategoriasController();
-// $dados = [];
-// $dados['dados'] = [
-// 		'nome' => 'teste'
-// ];
-// $classe->create($dados);
 ?>

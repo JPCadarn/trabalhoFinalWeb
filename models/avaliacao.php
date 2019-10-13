@@ -33,7 +33,7 @@ class AvaliacaoModel extends Conexao{
 			VALUES 
 			(
 				{$dados['dados']['usuario_id']}, 
-				{$dados['dados']['produto_id']}'
+				{$dados['dados']['produto_id']},
 				'{$dados['dados']['texto']}'
 			)
 		";
