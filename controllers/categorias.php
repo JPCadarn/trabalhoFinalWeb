@@ -1,6 +1,6 @@
 <?php
 
-require_once('../models/categoria.php');
+require_once(dirname(__FILE__).'/../models/categoria.php');
 
 class CategoriasController{
 
@@ -33,5 +33,28 @@ class CategoriasController{
 
 		return $model->excluir($id);
 	}
+
+	function countProdutos($id){
+		$model = new CategoriaModel();
+		
+		return $model->getCountProdutos($id);
+	}
 }
+	if(isset($_POST) and !empty($_POST)){
+		$classe = new CategoriasController();
+		$metodo = $_POST['metodo'];
+		unset($_POST['metodo']);
+		$dados = $_POST;
+		if($classe->$metodo($dados))
+			header('Location: ..\views\categorias');
+	}
+
+	if(!empty($_GET) AND isset($_GET['metodo'])){
+		$classe = new CategoriasController();
+		$metodo = $_GET['metodo'];
+		unset($_GET['metodo']);
+		$dados = $_GET;
+		if($classe->$metodo($dados))
+			header('Location: ..\categorias');
+	}
 ?>

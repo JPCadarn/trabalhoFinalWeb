@@ -26,15 +26,13 @@ ADMINISTRATIVO
 	-> Produto;
 	-> Produtos em Destaque;
 _______________________________________________________
-Workflow:
-	-> CRUD back categorias; ook
-	-> CRUD back produtos; ook
-	-> CRUD back produtos em destaque; ook
-	-> CRUD back usuários; ook
-	-> CRUD back endereços; ook
-	-> CRUD back cartões; ook
-	-> CRUD back avaliações; ook
-	-> CRUD pedidos; ook
+ToDo:
+	-> Links da navbar;
+	-> Tirar foco do dropdown da navbar;
+	-> Categorias responsivo na navbar;
+	-> Definir cores;
+	-> Fazer logo;
+	-> Adicionar logo na navbar;
 	-> View index do site;
 	-> Páginas de produtos;
 	-> Logs produto;
@@ -50,3 +48,4 @@ Workflow:
 	-> Tratar erros;
 	-> Esqueceu a senha;
 	-> Email de boas vindas;
+	-> Dark Mode;

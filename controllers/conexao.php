@@ -30,6 +30,7 @@
 				return $conexao->error;
 
 			$this->desconectar($conexao);
+			
 			return $retorno;
 		}
 	}

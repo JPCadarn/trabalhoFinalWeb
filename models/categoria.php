@@ -1,6 +1,6 @@
 <?php
 
-require_once('conexao.php');
+require_once(dirname(__FILE__).'/../controllers/conexao.php');
 
 class CategoriaModel extends Conexao{
 	function salvar($dados){
@@ -17,32 +17,52 @@ class CategoriaModel extends Conexao{
 		return $excluido;
 	}
 
-	function getDados($id){
-		$sql = 'SELECT * FROM categorias ';
+	function getCountProdutos($id){
+		$where = null;
 
 		if($id)
-			$sql .= 'WHERE id = '.$id;
+			$where = ' WHERE categoria_id = '.$id;
+	
+		$sql = '
+			SELECT COUNT(*) as count
+			FROM produtos
+			'.$where.'
+			GROUP BY categoria_id';
+		
+		return $this->executarQuery($sql);
+	}
 
+	function getDados($id){
+		$where = null;
+
+		if($id)
+			$where = ' WHERE id = '.$id;
+	
+		$sql = '
+			SELECT * 
+			FROM categorias
+			'.$where;
 		return $this->executarQuery($sql);
 	}
 
 	function criar($dados){
-		$sql = '
+		$sql = "
 			INSERT INTO categorias
 			(nome) 
 			VALUES 
-			('.$dados['dados']['nome'].')	
-		';
+			('{$dados['dados']['nome']}')
+		";
 
 		return $this->executarQuery($sql);
 	}
 
 	function editar($dados){
-		$sql = '
+		$sql = "
 			UPDATE categorias
-			SET nome = \''.$dados['dados']['nome'].'\'
-			WHERE id = '.$dados['id'];
-		
+			SET nome = '{$dados['dados']['nome']}'
+			WHERE id = {$dados['id']};
+		";
+
 		return $this->executarQuery($sql);
 	}
 }
