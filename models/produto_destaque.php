@@ -1,6 +1,6 @@
 <?php
 
-require_once('conexao.php');
+require_once(dirname(__FILE__).'/../controllers/conexao.php');
 
 class ProdutoDestaqueModel extends Conexao{
 	function salvar($dados){
@@ -18,10 +18,14 @@ class ProdutoDestaqueModel extends Conexao{
 	}
 
 	function getDados($id){
-		$sql = 'SELECT * FROM produtos_destaque';
+		$sql = 'SELECT pd.*, p.imagem, p.nome, p.valor
+				FROM produtos_destaque pd
+				JOIN produtos p ON pd.produto_id = p.id';
 
 		if($id)
-			$sql .= ' WHERE id = '.$id;
+			$sql .= ' WHERE pd.id = '.$id;
+
+		$sql .= ' ORDER BY ordem ASC';
 
 		return $this->executarQuery($sql);
 	}

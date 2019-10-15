@@ -1,6 +1,6 @@
 <?php
 
-require_once('../models/cartao.php');
+require_once(dirname(__FILE__).'/../models/cartao.php');
 
 class CartaosController{
 

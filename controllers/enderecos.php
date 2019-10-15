@@ -1,6 +1,6 @@
 <?php
 
-require_once('../models/endereco.php');
+require_once(dirname(__FILE__).'/../models/endereco.php');
 
 class EnderecosController{
 

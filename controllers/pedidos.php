@@ -1,6 +1,6 @@
 <?php
 
-require_once('../models/pedido.php');
+require_once(dirname(__FILE__).'/../models/pedido.php');
 
 class PedidosController{
 

@@ -1,6 +1,6 @@
 <?php
 
-require_once('conexao.php');
+require_once(dirname(__FILE__).'/../controllers/conexao.php');
 date_default_timezone_set("America/Sao_Paulo");
 
 class PedidoModel extends Conexao{

@@ -1,6 +1,6 @@
 <?php
 
-require_once('conexao.php');
+require_once(dirname(__FILE__).'/../controllers/conexao.php');
 
 class CartaoModel extends Conexao{
 	function salvar($dados){

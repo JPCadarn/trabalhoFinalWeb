@@ -48,6 +48,40 @@
 			";
 		}
 
+		function selectProdutos($produtoSelecionado = ""){
+			require_once('../../controllers/produtos.php');
+			$controllerProdutos = new ProdutosController();
+			$produtos = $controllerProdutos->read();
+
+			if(empty($produtoSelecionado))
+				$default = null;
+			else
+				$default = "selected";
+
+			$tagSelect = "
+				<div class='input-field col s12'>
+					<select name='dados[produto_id]'>
+						<option value='' disabled ".$default.">Escolha um produto</option>
+			";
+
+			foreach($produtos as $produto){
+				if(empty($produtoSelecionado))
+					$default = null;
+				else
+					$default = "selected";
+					
+				$tagSelect .= "<option ".$default." value='{$produto['id']}'>{$produto['nome']}</option>";
+			}
+			
+			$tagSelect .= "
+					</select>
+					<label>Produto</label>
+				</div>
+			";
+			
+			echo $tagSelect;
+		}
+
 		function selectCategorias($categoriaSelecionada = ""){
 			require_once('../../controllers/categorias.php');
 			$controllerCategorias = new CategoriasController();

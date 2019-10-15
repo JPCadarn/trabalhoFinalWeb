@@ -1,6 +1,6 @@
 <?php
 
-require_once('../models/avaliacao.php');
+require_once(dirname(__FILE__).'/../models/avaliacao.php');
 
 class AvaliacaosController{
 
