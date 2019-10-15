@@ -48,7 +48,7 @@ ToDo:
 	-> Tratar erros;
 	-> Esqueceu a senha;
 	-> Email de boas vindas;
-	-> Dark Mode;
 	-> Colocar efeito wave nos botões;
 	-> Adicionar classe "hoverable" nos cards
 	-> Ajustar inputs dos modals pra s12;
+	-> Validações p/ não cadastrar mesmo email duas vezes;
