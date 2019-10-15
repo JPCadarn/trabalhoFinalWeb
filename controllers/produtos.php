@@ -1,6 +1,6 @@
 <?php
 
-require_once('../models/produto.php');
+require_once(dirname(__FILE__).'/../models/produto.php');
 
 class ProdutosController{
 
@@ -34,4 +34,21 @@ class ProdutosController{
 		return $model->excluir($id);
 	}
 }
+	if(isset($_POST) and !empty($_POST)){
+		$classe = new ProdutosController();
+		$metodo = $_POST['metodo'];
+		unset($_POST['metodo']);
+		$dados = $_POST;
+		if($classe->$metodo($dados))
+			header('Location: ..\views\produtos.php');
+	}
+
+	if(!empty($_GET) AND isset($_GET['metodo'])){
+		$classe = new ProdutosController();
+		$metodo = $_GET['metodo'];
+		unset($_GET['metodo']);
+		$dados = $_GET;
+		if($classe->$metodo($dados))
+			header('Location: ..\produtos.php');
+	}
 ?>

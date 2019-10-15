@@ -36,14 +36,16 @@ CREATE TABLE pedidos (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	usuario_id INT NOT NULL REFERENCES usuarios(id),
 	data VARCHAR(10) NOT NULL,
-	hora VARCHAR(8) NOT NULL
+	hora VARCHAR(8) NOT NULL,
+	valor_total NUMERIC(25, 2)
 );
 
 CREATE TABLE pedidos_itens (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	pedido_id INT NOT NULL REFERENCES pedidos(id),
 	produto_id INT NOT NULL REFERENCES produtos(id),
-	quantidade INT NOT NULL
+	quantidade INT NOT NULL,
+	valor_total NUMERIC(15, 2)
 );
 
 CREATE TABLE usuarios_acessos (

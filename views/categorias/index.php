@@ -77,8 +77,8 @@
 		 					</div>
 							 <div class='card-action'>
 		 						<a class='tooltipped' data-position='bottom' data-tooltip='Adicionar Produtos' href='#'> <i class='material-icons'>add</i></a>
-		 						<a class='tooltipped' data-position='bottom' data-tooltip='Editar Produto' href='editar.php?id={$categorias[$i]['id']}'> <i class='material-icons'>edit</i></a>
-		 						<a class='tooltipped' data-position='bottom' data-tooltip='Excluir Produto' href='excluir.php?id={$categorias[$i]['id']}&metodo=delete'> <i class='material-icons'>delete</i></a>
+		 						<a class='tooltipped' data-position='bottom' data-tooltip='Editar Categoria' href='editar.php?id={$categorias[$i]['id']}'> <i class='material-icons'>edit</i></a>
+		 						<a class='tooltipped' data-position='bottom' data-tooltip='Excluir Categoria' href='excluir.php?id={$categorias[$i]['id']}&metodo=delete'> <i class='material-icons'>delete</i></a>
 		 					</div>
 		 				</div>
 		 			</div>

@@ -10,7 +10,7 @@
 <?php
 	require_once('../../controllers/produtos.php');
 	$controller = new ProdutosController();
-	$produtos = $controller->read();
+    $produtos = $controller->read();
 ?>
 <body>
 	<ul id="dropdownCategorias" class="dropdown-content">
@@ -54,26 +54,39 @@
 	
 
 	<?php
-		
+		for($i = 0; $i < 7; $i++){
+            if($i % 3 == 0){
+				$tagRow = "<div class='row'>";
+				$tagFechaRow = null;
+			}elseif($i % 2 == 2){
+				$tagRow = null;
+				$tagFechaRow = "</div>";
+            }else{
+                $tagRow = null;
+				$tagFechaRow = null;
+            }
+            echo "
+                $tagRow
+                    <div class='col s4 m4'>
+                        <div class='card'>
+                            <div class='card-image'>
+                                <img src='>
+                                <span class='card-title'>Produto $i</span>
+                            </div>
+                            <div class='card-content'>
+                                <p>Categoria $i</p>
+                                <p>R$ $i</p>
+                            </div>
+                            <div class='card-action'>
+		 						<a class='tooltipped' data-position='bottom' data-tooltip='Editar Produto' href='editar.php?id={$produtos[$i]['id']}'> <i class='material-icons'>edit</i></a>
+		 						<a class='tooltipped' data-position='bottom' data-tooltip='Excluir Produto' href='excluir.php?id={$produtos[$i]['id']}&metodo=delete'> <i class='material-icons'>delete</i></a>
+		 					</div>
+                        </div>
+                    </div>
+                $tagFechaRow
+            ";
+        }
     ?>
-    <div class="row">
-        <div class="col s6 m6">
-            <div class="card">
-                <div class="card-image">
-                    <img src="">
-                    <span class="card-title"><?php echo $produto ?></span>
-                </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
 	<div class="fixed-action-btn">
 		<a href="add.php" class="btn-floating modal-trigger btn-large red">
