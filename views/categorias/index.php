@@ -9,51 +9,15 @@
   
 <?php
 	require_once('../../controllers/categorias.php');
+	require_once('../utils/ehtml.php');
 	$controller = new CategoriasController();
+	$ehtml = new Ehtml();
 	$categorias = $controller->read();
 ?>
 <body>
-	<ul id="dropdownCategorias" class="dropdown-content">
-		<?php
-		foreach($categorias as $categoria){
-			$tagListaCategorias = "
-				<li><a href='#!'>{$categoria['nome']}</a></li>
-			";
-			echo $tagListaCategorias;
-		}
-		?>
-	</ul>
-	<nav>
-		<div class="nav-wrapper">
-			<ul class="left">
-				<li>Logo</li>
-			</ul>
-			<a href="#" data-target="listaResponsivo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-			<ul class="brand-logo center">
-				<li>Categorias</li>
-			</ul>
-			<ul class="right hide-on-med-and-down">
-				<li><a href="sass.html">Sass</a></li>
-				<li><a href="badges.html">Components</a></li>
-				<li><a href="collapsible.html">Javascript</a></li>
-				<li>
-					<a class="dropdown-trigger" href="#!" data-target="dropdownCategorias">Dropdown
-						<i class="material-icons right">arrow_drop_down</i>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
-	<ul class="sidenav" id="listaResponsivo">
-		<li><a href="sass.html">Sass</a></li>
-		<li><a href="badges.html">Components</a></li>
-		<li><a href="collapsible.html">Javascript</a></li>
-		<li><a href="mobile.html">Mobile</a></li>
-	</ul>
-	
-
 	<?php
+		echo $ehtml->navBar('Categorias');
+
 		for($i = 0; $i < count($categorias); $i++){
 			$countCategoria = 0;
 			if($i % 2 == 0){

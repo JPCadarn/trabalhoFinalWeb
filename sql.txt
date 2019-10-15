@@ -29,7 +29,7 @@ CREATE TABLE produtos (
 	valor NUMERIC(10, 2) NOT NULL,
 	categoria_id INT NOT NULL REFERENCES categorias(id),
 	imagem VARCHAR(200) NOT NULL,
-	teor_alcoolico NUMERIC(3, 2) DEFAULT 0.0
+	teor_alcoolico NUMERIC(10, 2) DEFAULT 0.0
 );
 
 CREATE TABLE pedidos (

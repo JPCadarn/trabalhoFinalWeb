@@ -9,91 +9,55 @@
   
 <?php
 	require_once('../../controllers/produtos.php');
+	require_once('../utils/ehtml.php');
 	$controller = new ProdutosController();
+	$ehtml = new Ehtml();
+	$produto = $controller->read($_GET['id'])[0];
 ?>
 <body>
-	<ul id="dropdownCategorias" class="dropdown-content">
-		<?php
-		foreach($categorias as $categoria){
-			$tagListaCategorias = "
-				<li><a href='#!'>{$categoria['nome']}</a></li>
-			";
-			echo $tagListaCategorias;
-		}
-		?>
-	</ul>
-	<nav>
-		<div class="nav-wrapper">
-			<a href="#!" class="brand-logo">Logo</a>
-			<a href="#" data-target="listaResponsivo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-			<ul class="brand-logo center">
-				<li>Produtos -> Adicionar</li>
-			</ul>
-			<ul class="right hide-on-med-and-down">
-				<li><a href="sass.html">Sass</a></li>
-				<li><a href="badges.html">Components</a></li>
-				<li><a href="collapsible.html">Javascript</a></li>
-				<li>
-					<a class="dropdown-trigger" href="#!" data-target="dropdownCategorias">Dropdown
-						<i class="material-icons right">arrow_drop_down</i>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
-	<ul class="sidenav" id="listaResponsivo">
-		<li><a href="sass.html">Sass</a></li>
-		<li><a href="badges.html">Components</a></li>
-		<li><a href="collapsible.html">Javascript</a></li>
-		<li><a href="mobile.html">Mobile</a></li>
-	</ul>
+	<?php
+		echo $ehtml->navBar('Produtos');
+	?>
 
 	<div class="row">
 		<div class="modal-title">
-			<h4 class="center">Alterar Categoria</h4>
+			<h4 class="center">Alterar Produto</h4>
 		</div>
 		<div class="row">
-			<form action="..\..\controllers\produtos.php" method="post" class="col s12">
-				<div class="row center">
-					<div class="input-field col s12">
-						<i class="material-icons prefix">create</i>
-						<input required id="inputNome" name="dados[nome]" type="text">
-						<label for="inputNome">Nome</label>
+			<form action="..\..\controllers\produtos.php" enctype="multipart/form-data" method="post" class="col s12">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">create</i>
+					<input required id="inputNome" value="<?php echo $produto['nome'] ?>" name="dados[nome]" type="text">
+					<input name="metodo" type="hidden" value="edit">
+					<input name="id" type="hidden" value="<?php echo $_GET['id'] ?>">
+					<label for="inputNome">Nome</label>
+				</div>
+				<div class="input-field col s12">
+					<i class="material-icons prefix">assignment</i>
+					<input required id="inputDescricao" value="<?php echo $produto['descricao'] ?>" name="dados[descricao]" type="text">
+					<label for="inputDescricao">Descrição</label>
+				</div>
+				<div class="input-field col s12">
+					<i class="material-icons prefix">attach_money</i>
+					<input required id="inputValor" value="<?php echo $produto['valor'] ?>" name="dados[valor]" type="text">
+					<label for="inputValor">Valor</label>
+				</div>
+				<div class="input-field col s12">
+					<i class="material-icons prefix">local_bar</i>
+					<input required id="inputTeor" value="<?php echo $produto['teor_alcoolico'] ?>" name="dados[teor_alcoolico]" type="text">
+					<label for="inputTeor">Teor Alcoólico</label>
+				</div>
+				<?php
+					echo $ehtml->selectCategorias($produto['categoria_id']);
+				?>
+				<div class="file-field input-field col s12">
+					<div class="btn">
+						<span>Imagem</span>
+						<input required name='imagem' type="file" accept="image/*">
 					</div>
-					<div class="input-field col s12">
-						<i class="material-icons prefix">assignment</i>
-						<input required id="inputNome" name="dados[descricao]" type="text">
-						<label for="inputNome">Descrição</label>
-                    </div>
-                    <div class="input-field col s12">
-						<i class="material-icons prefix">attach_money</i>
-						<input required id="inputNome" name="dados[valor]" type="text">
-						<label for="inputNome">Valor</label>
-                    </div>
-                    <div class="input-field col s12">
-						<i class="material-icons prefix">local_bar</i>
-						<input required id="inputNome" name="dados[teor_alcoolico]" type="text">
-						<label for="inputNome">Teor Alcoólico</label>
-                    </div>
-                    <div class="input-field col s12">
-                        <select>
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                        </select>
-                        <label>Materialize Select</label>
-                    </div>
-                    <div class="file-field input-field">
-                        <div class="btn">
-                            <span>File</span>
-                            <input type="file">
-                        </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
-                        </div>
-                    </div>
+					<div class="file-path-wrapper">
+						<input class="file-path" type="text">
+					</div>
 				</div>
 				<div class="fixed-action-btn">
 					<button class="btn-floating btn-large red" type="submit" value="edit">

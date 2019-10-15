@@ -23,7 +23,7 @@ ADMINISTRATIVO
 - Visualizar produtos mais acessados;
 - Cadastros:
 	-> Categoria; ook
-	-> Produto;
+	-> Produto; oook
 	-> Produtos em Destaque;
 _______________________________________________________
 ToDo:

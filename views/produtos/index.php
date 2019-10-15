@@ -9,52 +9,16 @@
   
 <?php
 	require_once('../../controllers/produtos.php');
+	require_once('../utils/ehtml.php');
 	$controller = new ProdutosController();
-    $produtos = $controller->read();
+	$produtos = $controller->read();
+	$ehtml = new Ehtml();
 ?>
 <body>
-	<ul id="dropdownCategorias" class="dropdown-content">
-		<?php
-		foreach($categorias as $categoria){
-			$tagListaCategorias = "
-				<li><a href='#!'>{$categoria['nome']}</a></li>
-			";
-			echo $tagListaCategorias;
-		}
-		?>
-	</ul>
-	<nav>
-		<div class="nav-wrapper">
-			<ul class="left">
-				<li>Logo</li>
-			</ul>
-			<a href="#" data-target="listaResponsivo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-			<ul class="brand-logo center">
-				<li>Categorias</li>
-			</ul>
-			<ul class="right hide-on-med-and-down">
-				<li><a href="sass.html">Sass</a></li>
-				<li><a href="badges.html">Components</a></li>
-				<li><a href="collapsible.html">Javascript</a></li>
-				<li>
-					<a class="dropdown-trigger" href="#!" data-target="dropdownCategorias">Dropdown
-						<i class="material-icons right">arrow_drop_down</i>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
-	<ul class="sidenav" id="listaResponsivo">
-		<li><a href="sass.html">Sass</a></li>
-		<li><a href="badges.html">Components</a></li>
-		<li><a href="collapsible.html">Javascript</a></li>
-		<li><a href="mobile.html">Mobile</a></li>
-	</ul>
-	
-
 	<?php
-		for($i = 0; $i < 7; $i++){
+		echo $ehtml->navBar('Produtos');
+
+		for($i = 0; $i < count($produtos); $i++){
             if($i % 3 == 0){
 				$tagRow = "<div class='row'>";
 				$tagFechaRow = null;
@@ -64,20 +28,26 @@
             }else{
                 $tagRow = null;
 				$tagFechaRow = null;
-            }
+			}
+			
+			if(!$produtos[$i]['nome_categoria'])
+				$produtos[$i]['nome_categoria'] = 'Não Cadastrado';
+
+			$imagem = ($produtos[$i]['imagem']);
+
             echo "
                 $tagRow
                     <div class='col s4 m4'>
                         <div class='card'>
                             <div class='card-image'>
-                                <img src='>
-                                <span class='card-title'>Produto $i</span>
+                                <img src='..\..\assets\images\\".$produtos[$i]['imagem']."'>
+							</div>
+							<div class='card-content center'>
+                                <span class='card-title black-text'>{$produtos[$i]['nome']}</span>
+                                <p>{$produtos[$i]['nome_categoria']}</p>
+                                <p>R$ {$produtos[$i]['valor']}</p>
                             </div>
-                            <div class='card-content'>
-                                <p>Categoria $i</p>
-                                <p>R$ $i</p>
-                            </div>
-                            <div class='card-action'>
+                            <div class='card-action center'>
 		 						<a class='tooltipped' data-position='bottom' data-tooltip='Editar Produto' href='editar.php?id={$produtos[$i]['id']}'> <i class='material-icons'>edit</i></a>
 		 						<a class='tooltipped' data-position='bottom' data-tooltip='Excluir Produto' href='excluir.php?id={$produtos[$i]['id']}&metodo=delete'> <i class='material-icons'>delete</i></a>
 		 					</div>

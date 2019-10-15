@@ -8,7 +8,7 @@ class ProdutosController{
 		$model = new ProdutoModel();
 		if(!array_key_exists('id', $dados))
 			return false;
-
+		
 		return $model->editar($dados);
 	}
 	
@@ -40,7 +40,7 @@ class ProdutosController{
 		unset($_POST['metodo']);
 		$dados = $_POST;
 		if($classe->$metodo($dados))
-			header('Location: ..\views\produtos.php');
+			header('Location: ..\views\produtos');
 	}
 
 	if(!empty($_GET) AND isset($_GET['metodo'])){
@@ -49,6 +49,6 @@ class ProdutosController{
 		unset($_GET['metodo']);
 		$dados = $_GET;
 		if($classe->$metodo($dados))
-			header('Location: ..\produtos.php');
+			header('Location: ..\produtos');
 	}
 ?>
