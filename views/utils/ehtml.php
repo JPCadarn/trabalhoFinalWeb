@@ -17,13 +17,13 @@
 			echo "</ul>";
 
 			echo "
-			<nav>
+			<nav class='navbar-fixed'>
 				<div class='nav-wrapper'>
-					<ul class='left'>
-						<li>Logo</li>
-					</ul>
+					<a href='index.html' class='brand-logo center'>
+						<img class='imagem-logo responsive-img' id='logo' src='..\..\assets\images\logo.png'/>
+					</a>
 					<a href='#' data-target='listaResponsivo' class='sidenav-trigger'><i class='material-icons'>menu</i></a>
-					<ul class='brand-logo center'>
+					<ul class='left hide-on-med-and-down'>
 						<li>{$titulo}</li>
 					</ul>
 					<ul class='right hide-on-med-and-down'>
