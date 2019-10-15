@@ -27,6 +27,8 @@ class UsuarioModel extends Conexao{
 	}
 
 	function criar($dados){
+		$dados['dados']['senha'] = password_hash($dados['dados']['senha'], PASSWORD_BCRYPT);
+		
 		$sql = "
 			INSERT INTO usuarios
 			(email, senha, nome, cpf, data_nascimento)

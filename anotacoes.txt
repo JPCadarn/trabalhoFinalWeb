@@ -23,8 +23,8 @@ ADMINISTRATIVO
 - Visualizar produtos mais acessados;
 - Cadastros:
 	-> Categoria; ook
-	-> Produto; oook
-	-> Produtos em Destaque;
+	-> Produto; ook
+	-> Produtos em Destaque; ook
 _______________________________________________________
 ToDo:
 	-> Links da navbar;
@@ -49,6 +49,6 @@ ToDo:
 	-> Esqueceu a senha;
 	-> Email de boas vindas;
 	-> Dark Mode;
-	-> Fazer máscara p/ valor (produtos.add);
-	-> Fazer select categorias (produtos.add);
-	-> Copiar imagem p/ pasta assets/image (produtos.add);
+	-> Colocar efeito wave nos botões;
+	-> Adicionar classe "hoverable" nos cards
+	-> Ajustar inputs dos modals pra s12;

@@ -8,77 +8,47 @@
 </head>
   
 <?php
-	require_once('../../controllers/produtos.php');
-	$controller = new ProdutosController();
-	$produtos = $controller->read();
+	require_once('../../controllers/logins.php');
+	require_once('../utils/ehtml.php');
+	$controller = new LoginsController();
+	$ehtml = new Ehtml();
 ?>
 <body>
-	<ul id="dropdownCategorias" class="dropdown-content">
-		<?php
-		foreach($categorias as $categoria){
-			$tagListaCategorias = "
-				<li><a href='#!'>{$categoria['nome']}</a></li>
-			";
-			echo $tagListaCategorias;
-		}
-		?>
-	</ul>
-	<nav>
-		<div class="nav-wrapper">
-			<ul class="left">
-				<li>Logo</li>
-			</ul>
-			<a href="#" data-target="listaResponsivo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-			<ul class="brand-logo center">
-				<li>Categorias</li>
-			</ul>
-			<ul class="right hide-on-med-and-down">
-				<li><a href="sass.html">Sass</a></li>
-				<li><a href="badges.html">Components</a></li>
-				<li><a href="collapsible.html">Javascript</a></li>
-				<li>
-					<a class="dropdown-trigger" href="#!" data-target="dropdownCategorias">Dropdown
-						<i class="material-icons right">arrow_drop_down</i>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
-	<ul class="sidenav" id="listaResponsivo">
-		<li><a href="sass.html">Sass</a></li>
-		<li><a href="badges.html">Components</a></li>
-		<li><a href="collapsible.html">Javascript</a></li>
-		<li><a href="mobile.html">Mobile</a></li>
-	</ul>
-	
-
 	<?php
-		
-    ?>
-    <div class="row">
-        <div class="col s6 m6">
-            <div class="card">
-                <div class="card-image">
-                    <img src="">
-                    <span class="card-title"><?php echo $produto ?></span>
-                </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
-                </div>
-            </div>
-        </div>
-    </div>
+		echo $ehtml->navBar('Login');
+	?>
+	
+	<div class="row valign-wrapper">
+		<div class="col s12 m12">
+			<i src="..\..\assets\images\logo.png"></i>
+		</div>
+	</div>
 
-
-	<div class="fixed-action-btn">
-		<a href="add.php" class="btn-floating modal-trigger btn-large red">
-			<i class="large material-icons">add</i>
-		</a>
+	<div id="addModal" class="modal">
+		<div class="modal-title">
+			<h4 class="center">Adicionar Categoria</h4>
+		</div>
+		<div class="modal-content">
+			<div class="row">
+				<form action="..\..\controllers\logins.php" method="post" class="col s12">
+					<div class="row center">
+						<div class="input-field col s6">
+							<i class="material-icons prefix">create</i>
+							<input id="inputNome" name="dados[nome]" type="text">
+							<label for="inputNome">Nome</label>
+							<input type="hidden" name="metodo" value="Create">
+						</div>
+					</div>
+					<div class="fixed-action-btn">
+					<div class="fixed-action-btn">
+						<button class="btn-floating btn-large red" type="submit" value="Create">
+							<i class="large material-icons">check</i>
+						</button>
+					</div>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
 
   	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>

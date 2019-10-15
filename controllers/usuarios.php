@@ -34,4 +34,21 @@ class UsuariosController{
 		return $model->excluir($id);
 	}
 }
+	if(isset($_POST) and !empty($_POST)){
+		$classe = new UsuariosController();
+		$metodo = $_POST['metodo'];
+		unset($_POST['metodo']);
+		$dados = $_POST;
+		if($classe->$metodo($dados))
+			header('Location: ..\views\login');
+	}
+
+	if(!empty($_GET) AND isset($_GET['metodo'])){
+		$classe = new UsuariosController();
+		$metodo = $_GET['metodo'];
+		unset($_GET['metodo']);
+		$dados = $_GET;
+		if($classe->$metodo($dados))
+			header('Location: ..\login');
+	}
 ?>
