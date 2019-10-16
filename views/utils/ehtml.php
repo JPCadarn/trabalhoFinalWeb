@@ -10,7 +10,7 @@
 			echo "<ul id='dropdownCategorias' class='dropdown-content'>";
 			foreach($categorias as $categoria){
 				$tagListaCategorias = "
-					<li><a href='#!'>{$categoria['nome']}</a></li>
+					<li><a href='../site/categoria.php?id={$categoria['id']}'>{$categoria['nome']}</a></li>
 				";
 				echo $tagListaCategorias;
 			}
@@ -39,10 +39,43 @@
 			</nav>
 		
 			<ul class='sidenav' id='listaResponsivo'>
-				<li><a href='sass.html'>Sass</a></li>
-				<li><a href='badges.html'>Components</a></li>
-				<li><a href='collapsible.html'>Javascript</a></li>
+				<li>
+					<a class='dropdown-trigger' href='#!' data-target='dropdownCategoriasMobile'>Categorias
+						<i class='material-icons right'>arrow_drop_down</i>
+					</a>
+				</li>
+				<li><a href='sass.html'>Minha Conta</a></li>
+				<li><a href='badges.html'> <i class='material-icons'>shopping_cart</i></a></li>
 			</ul>
+			";
+		}
+
+		function footer(){
+			echo "
+				<footer class='page-footer indigo darken-4'>
+					<div class='container'>
+						<div class='row center'>
+							<div class='col l4 s12'>
+								<h5 class='white-text'><i class='material-icons'>time_to_leave</i>Frete Grátis</h5>
+								<p class='grey-text text-lighten-4'>Em compras acima de R$ 599,90</p>
+							</div>
+							<div class='col l4 s12'>
+								<h5 class='white-text'><i class='material-icons'>credit_card</i>Até 10x</h5>
+								<p class='grey-text text-lighten-4'>Parcele suas compras em até 10x no cartã de crédito</p>
+							</div>
+							<div class='col l4 s12'>
+								<h5 class='white-text'><i class='material-icons'>timer</i>Entrega Expressa</h5>
+								<p class='grey-text text-lighten-4'>Compras feitas até às 15 horas serão despachadas no mesmo dia</p>
+							</div>
+						</div>
+					</div>
+					<div class='footer-copyright'>
+						<div class='container'>
+							© 2019 Copyright
+							<span class='white-text right'>Proibido o consumo de bebidas alcoólicas para menores de 18 anos</span>
+						</div>
+					</div>
+			</footer>
 			";
 		}
 

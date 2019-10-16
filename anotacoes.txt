@@ -27,11 +27,9 @@ ADMINISTRATIVO
 	-> Produtos em Destaque; ook
 _______________________________________________________
 ToDo:
-	-> Tirar foco do dropdown da navbar;
+	-> Colocar footer em todas as páginas;
 	-> Categorias responsivo na navbar;
-	-> View index do site;
 	-> Páginas de produtos;
-	-> Logs produto;
 	-> Login;
 	-> Logs usuário;
 	-> Cadastro de Usuário;

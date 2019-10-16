@@ -34,6 +34,12 @@ class CategoriasController{
 		return $model->excluir($id);
 	}
 
+	function readProdutos($id){
+		$model = new CategoriaModel();
+
+		return $model->getProdutos($id);
+	}
+
 	function countProdutos($id){
 		$model = new CategoriaModel();
 		

@@ -3,7 +3,9 @@ $(document).ready(function(){
 });
 
 $(".dropdown-trigger").dropdown({
-	hover: true 
+    hover: true,
+    closeOnClick: true,
+    coverTrigger: false
 });
 
 $(document).ready(function(){
@@ -24,4 +26,12 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $('.datepicker').datepicker();
+});
+
+$(document).ready(function(){
+    $('.slider').slider();
+}); 
+
+$(document).ready(function(){
+    $('.materialboxed').materialbox();
 });

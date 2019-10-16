@@ -2,7 +2,7 @@
 
 require_once(dirname(__FILE__).'/../controllers/conexao.php');
 
-class CategoriaModel extends Conexao{
+class LogProdutoModel extends Conexao{
 	function salvar($dados){
 		if(array_key_exists('id', $dados))
 			return $this->editar($dados);
@@ -17,53 +17,27 @@ class CategoriaModel extends Conexao{
 		return $excluido;
 	}
 
-	function getCountProdutos($id){
+	function getDados($produto_id){
 		$where = null;
 
-		if($id)
-			$where = ' WHERE categoria_id = '.$id;
-	
-		$sql = '
-			SELECT COUNT(*) as count
-			FROM produtos
-			'.$where.'
-			GROUP BY categoria_id';
-		
-		return $this->executarQuery($sql);
-	}
-
-	function getDados($id){
-		$where = null;
-
-		if($id)
-			$where = ' WHERE id = '.$id;
+		if($produto_id)
+			$where = ' WHERE produto_id = '.$produto_id;
 	
 		$sql = '
 			SELECT * 
-			FROM categorias
+			FROM produtos_acessos
 			'.$where;
 		return $this->executarQuery($sql);
 	}
 
-	function getProdutos($id){
-		if($id){
-			$sql = "
-				SELECT *
-				FROM produtos
-				WHERE categoria_id = $id
-			";
-
-			return $this->executarQuery($sql);
-		}else
-			return false;
-	}
-
-	function criar($dados){
+	function criar($id){
+		$hora = date('H:i:s');
+		$data = date('Y-m-d');
 		$sql = "
-			INSERT INTO categorias
-			(nome) 
+			INSERT INTO produtos_acessos
+			(produto_id, data, hora) 
 			VALUES 
-			('{$dados['dados']['nome']}')
+			($id, '$data', '$hora')
 		";
 
 		return $this->executarQuery($sql);
