@@ -2,6 +2,7 @@ TEMA:
 	-> Site de Bebidas;
 CLIENTE:
 - Senha criptografada; //password_hash($senha, PASSWORD_BCRYPT);
+- Valida senha com $passou = password_verify($senha, $criptografada);
 - Enviar email de boas vindas após o cadastro;
 - Área de pedidos;
 - Área da conta;
@@ -28,6 +29,8 @@ ADMINISTRATIVO
 _______________________________________________________
 ToDo:
 	-> Colocar footer em todas as páginas;
+	-> Usar md5 p/ nomes das imagens;
+	-> Ícone tab do navegador
 	-> Categorias responsivo na navbar;
 	-> Páginas de produtos;
 	-> Login;

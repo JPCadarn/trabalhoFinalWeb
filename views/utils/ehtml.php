@@ -17,26 +17,28 @@
 			echo "</ul>";
 
 			echo "
-			<nav class='navbar-fixed indigo darken-4'>
-				<div class='nav-wrapper'>
-					<a href='index.html' class='brand-logo center'>
-						<img class='imagem-logo responsive-img' id='logo' src='..\..\assets\images\logo.png'/>
-					</a>
-					<a href='#' data-target='listaResponsivo' class='sidenav-trigger'><i class='material-icons'>menu</i></a>
-					<ul class='left hide-on-med-and-down'>
-						<li>{$titulo}</li>
-					</ul>
-					<ul class='right hide-on-med-and-down'>
-						<li>
-							<a class='dropdown-trigger' href='#!' data-target='dropdownCategorias'>Categorias
-								<i class='material-icons right'>arrow_drop_down</i>
-							</a>
-						</li>
-						<li><a href='sass.html'>Minha Conta</a></li>
-						<li><a href='badges.html'> <i class='material-icons white-text'>shopping_cart</i></a></li>
-					</ul>
-				</div>
-			</nav>
+			<div class='navbar-fixed'>
+			<nav class='indigo darken-4'>
+					<div class='nav-wrapper'>
+						<a href='index.html' class='brand-logo center'>
+							<img class='imagem-logo responsive-img' id='logo' src='..\..\assets\images\logo.png'/>
+						</a>
+						<a href='#' data-target='listaResponsivo' class='sidenav-trigger'><i class='material-icons'>menu</i></a>
+						<ul class='left hide-on-med-and-down'>
+							<li>{$titulo}</li>
+						</ul>
+						<ul class='right hide-on-med-and-down'>
+							<li>
+								<a class='dropdown-trigger' href='#!' data-target='dropdownCategorias'>Categorias
+									<i class='material-icons right'>arrow_drop_down</i>
+								</a>
+							</li>
+							<li><a href='sass.html'>Minha Conta</a></li>
+							<li><a href='badges.html'> <i class='material-icons white-text'>shopping_cart</i></a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
 		
 			<ul class='sidenav' id='listaResponsivo'>
 				<li>
