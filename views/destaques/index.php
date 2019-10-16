@@ -45,7 +45,7 @@
                                 <p>R$ {$destaques[$i]['valor']}</p>
                             </div>
                             <div class='card-action center'>
-		 						<a class='tooltipped' data-position='bottom' data-tooltip='Excluir Destaque' href='excluir.php?id={$destaques[$i]['id']}&metodo=delete'> <i class='material-icons'>delete</i></a>
+		 						<a class='tooltipped' data-position='bottom' data-tooltip='Excluir Destaque' href='excluir.php?id={$destaques[$i]['id']}&metodo=delete'> <i class='material-icons blue-text'>delete</i></a>
 		 					</div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
 					</div>
 					<div class="fixed-action-btn">
 					<div class="fixed-action-btn">
-						<button class="btn-floating btn-large red" type="submit" value="Create">
+						<button class="btn-floating btn-large indigo darken-4" type="submit" value="Create">
 							<i class="large material-icons">check</i>
 						</button>
 					</div>
@@ -85,7 +85,7 @@
 	</div>
 
 	<div class="fixed-action-btn">
-		<a data-target="addModal" class="btn-floating modal-trigger btn-large red">
+		<a data-target="addModal" class="btn-floating modal-trigger btn-large indigo darken-4">
 			<i class="large material-icons">add</i>
 		</a>
 	</div>

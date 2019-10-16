@@ -27,12 +27,8 @@ ADMINISTRATIVO
 	-> Produtos em Destaque; ook
 _______________________________________________________
 ToDo:
-	-> Links da navbar;
 	-> Tirar foco do dropdown da navbar;
 	-> Categorias responsivo na navbar;
-	-> Definir cores;
-	-> Fazer logo;
-	-> Adicionar logo na navbar;
 	-> View index do site;
 	-> Páginas de produtos;
 	-> Logs produto;

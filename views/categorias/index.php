@@ -40,8 +40,8 @@
 		 						<p>{$countCategoria} produto(s) cadastrado(s).</p>
 		 					</div>
 							 <div class='card-action'>
-		 						<a class='tooltipped' data-position='bottom' data-tooltip='Editar Categoria' href='editar.php?id={$categorias[$i]['id']}'> <i class='material-icons'>edit</i></a>
-		 						<a class='tooltipped' data-position='bottom' data-tooltip='Excluir Categoria' href='excluir.php?id={$categorias[$i]['id']}&metodo=delete'> <i class='material-icons'>delete</i></a>
+		 						<a class='tooltipped' data-position='bottom' data-tooltip='Editar Categoria' href='editar.php?id={$categorias[$i]['id']}'> <i class='material-icons blue-text'>edit</i></a>
+		 						<a class='tooltipped' data-position='bottom' data-tooltip='Excluir Categoria' href='excluir.php?id={$categorias[$i]['id']}&metodo=delete'> <i class='material-icons blue-text'>delete</i></a>
 		 					</div>
 		 				</div>
 		 			</div>
@@ -58,7 +58,7 @@
 			<div class="row">
 				<form action="..\..\controllers\categorias.php" method="post" class="col s12">
 					<div class="row center">
-						<div class="input-field col s6">
+						<div class="input-field col s12">
 							<i class="material-icons prefix">create</i>
 							<input id="inputNome" name="dados[nome]" type="text">
 							<label for="inputNome">Nome</label>
@@ -67,7 +67,7 @@
 					</div>
 					<div class="fixed-action-btn">
 					<div class="fixed-action-btn">
-						<button class="btn-floating btn-large red" type="submit" value="Create">
+						<button class="btn-floating btn-large indigo darken-4" type="submit" value="Create">
 							<i class="large material-icons">check</i>
 						</button>
 					</div>
@@ -78,7 +78,7 @@
 	</div>
 
 	<div class="fixed-action-btn">
-		<a data-target="addModal" class="btn-floating modal-trigger btn-large red">
+		<a data-target="addModal" class="btn-floating modal-trigger btn-large indigo darken-4">
 			<i class="large material-icons">add</i>
 		</a>
 	</div>

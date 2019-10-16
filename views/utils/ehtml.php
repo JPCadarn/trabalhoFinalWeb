@@ -17,7 +17,7 @@
 			echo "</ul>";
 
 			echo "
-			<nav class='navbar-fixed'>
+			<nav class='navbar-fixed indigo darken-4'>
 				<div class='nav-wrapper'>
 					<a href='index.html' class='brand-logo center'>
 						<img class='imagem-logo responsive-img' id='logo' src='..\..\assets\images\logo.png'/>
@@ -27,14 +27,13 @@
 						<li>{$titulo}</li>
 					</ul>
 					<ul class='right hide-on-med-and-down'>
-						<li><a href='sass.html'>Sass</a></li>
-						<li><a href='badges.html'>Components</a></li>
-						<li><a href='collapsible.html'>Javascript</a></li>
 						<li>
-							<a class='dropdown-trigger' href='#!' data-target='dropdownCategorias'>Dropdown
+							<a class='dropdown-trigger' href='#!' data-target='dropdownCategorias'>Categorias
 								<i class='material-icons right'>arrow_drop_down</i>
 							</a>
 						</li>
+						<li><a href='sass.html'>Minha Conta</a></li>
+						<li><a href='badges.html'> <i class='material-icons white-text'>shopping_cart</i></a></li>
 					</ul>
 				</div>
 			</nav>
@@ -43,7 +42,6 @@
 				<li><a href='sass.html'>Sass</a></li>
 				<li><a href='badges.html'>Components</a></li>
 				<li><a href='collapsible.html'>Javascript</a></li>
-				<li><a href='mobile.html'>Mobile</a></li>
 			</ul>
 			";
 		}
@@ -54,9 +52,9 @@
 			$produtos = $controllerProdutos->read();
 
 			if(empty($produtoSelecionado))
-				$default = null;
-			else
 				$default = "selected";
+			else
+				$default = null;
 
 			$tagSelect = "
 				<div class='input-field col s12'>
@@ -88,9 +86,9 @@
 			$categorias = $controllerCategorias->read();
 
 			if(empty($categoriaSelecionada))
-				$default = null;
-			else
 				$default = "selected";
+			else
+				$default = null;
 
 			$tagSelect = "
 				<div class='input-field col s12'>

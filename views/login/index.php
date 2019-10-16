@@ -118,7 +118,7 @@
 							</div>
 						</div>
 						<div class="right">
-							<button class="btn-floating btn-large red" type="submit" value="Create">
+							<button class="btn-floating btn-large indigo darken-4" type="submit" value="Create">
 								<i class="large material-icons">check</i>
 							</button>
 						</div>

@@ -51,7 +51,7 @@
 					echo $ehtml->selectCategorias($produto['categoria_id']);
 				?>
 				<div class="file-field input-field col s12">
-					<div class="btn">
+					<div class="btn blue">
 						<span>Imagem</span>
 						<input required name='imagem' type="file" accept="image/*">
 					</div>
@@ -60,7 +60,7 @@
 					</div>
 				</div>
 				<div class="fixed-action-btn">
-					<button class="btn-floating btn-large red" type="submit" value="edit">
+					<button class="btn-floating btn-large indigo darken-4" type="submit" value="edit">
 						<i class="large material-icons">check</i>
 					</button>
 				</div>

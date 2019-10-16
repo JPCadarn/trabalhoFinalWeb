@@ -48,8 +48,8 @@
                                 <p>R$ {$produtos[$i]['valor']}</p>
                             </div>
                             <div class='card-action center'>
-		 						<a class='tooltipped' data-position='bottom' data-tooltip='Editar Produto' href='editar.php?id={$produtos[$i]['id']}'> <i class='material-icons'>edit</i></a>
-		 						<a class='tooltipped' data-position='bottom' data-tooltip='Excluir Produto' href='excluir.php?id={$produtos[$i]['id']}&metodo=delete'> <i class='material-icons'>delete</i></a>
+		 						<a class='tooltipped' data-position='bottom' data-tooltip='Editar Produto' href='editar.php?id={$produtos[$i]['id']}'> <i class='material-icons blue-text'>edit</i></a>
+		 						<a class='tooltipped' data-position='bottom' data-tooltip='Excluir Produto' href='excluir.php?id={$produtos[$i]['id']}&metodo=delete'> <i class='material-icons blue-text'>delete</i></a>
 		 					</div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
     ?>
 
 	<div class="fixed-action-btn">
-		<a href="add.php" class="btn-floating modal-trigger btn-large red">
+		<a href="add.php" class="btn-floating modal-trigger btn-large indigo darken-4">
 			<i class="large material-icons">add</i>
 		</a>
 	</div>
