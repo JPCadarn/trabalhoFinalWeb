@@ -28,6 +28,9 @@ ADMINISTRATIVO
 	-> Produtos em Destaque; ook
 _______________________________________________________
 ToDo:
+	-> Corrigir link da logo;
+	-> Corrigir select categorias;
+	-> Botão logar na navbar, se entrou coloca nome do usuário;
 	-> Colocar footer em todas as páginas;
 	-> Usar md5 p/ nomes das imagens;
 	-> Ícone tab do navegador
