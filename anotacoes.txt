@@ -29,7 +29,6 @@ ADMINISTRATIVO
 _______________________________________________________
 ToDo:
 	-> Corrigir link da logo;
-	-> Corrigir select categorias;
 	-> Botão logar na navbar, se entrou coloca nome do usuário;
 	-> Colocar footer em todas as páginas;
 	-> Usar md5 p/ nomes das imagens;
@@ -52,3 +51,17 @@ ToDo:
 	-> Adicionar classe "hoverable" nos cards
 	-> Ajustar inputs dos modals pra s12;
 	-> Validações p/ não cadastrar mesmo email duas vezes;
+SESSÃO:
+<?php
+    session_start();
+
+    $_SESSION['logado'] = 'ok';
+
+    //pode criar quantas chaves quiser
+
+    unset($_SESSION['logado']);
+
+    session_destroy(); //destroy os dados registrados na sessão
+    session_unset(); //limpa todas as variáveis da sessão
+    session_abort(); //descarta as alterações no array e encerra a sessão
+?>

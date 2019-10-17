@@ -14,7 +14,17 @@
     height: 1.9em !important;
 }
 
+.input-field input[type=email]:not(.browser-default):focus:not([readonly]), 
+.input-field input[type=password]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid #1a237e !important;
+    box-shadow: 0 1px 0 0 #1a237e !important;
+}
+
 .input-field input[type=text]:focus+label,
+.materialize-textarea:focus:not([readonly])+label,
+.input-field input[type=email]:focus+label,
+.materialize-textarea:focus:not([readonly])+label,
+.input-field input[type=password]:focus+label,
 .materialize-textarea:focus:not([readonly])+label {
     color: #1a237e !important;
 }

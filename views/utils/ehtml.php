@@ -137,7 +137,7 @@
 				else
 					$default = "selected";
 					
-				$tagSelect .= "<option ".$default." value='{$categoria['id']}'>{$categoria['nome']}</option>";
+				$tagSelect .= "<option $default value='{$categoria['id']}'>{$categoria['nome']}</option>";
 			}
 			
 			$tagSelect .= "
@@ -145,7 +145,7 @@
 					<label>Categorias</label>
 				</div>
 			";
-			
+
 			echo $tagSelect;
 		}
 	}

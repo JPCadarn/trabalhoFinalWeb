@@ -2,12 +2,6 @@ $(document).ready(function(){
 	$('.sidenav').sidenav();
 });
 
-$(".dropdown-trigger").dropdown({
-    hover: true,
-    closeOnClick: true,
-    coverTrigger: false
-});
-
 $(document).ready(function(){
     $('.tooltipped').tooltip();
 });
@@ -34,4 +28,10 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $('.materialboxed').materialbox();
+});
+
+$(".dropdown-trigger").dropdown({
+    hover: true,
+    closeOnClick: true,
+    coverTrigger: false
 });

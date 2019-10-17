@@ -21,7 +21,6 @@
 	<div class="section"></div>
   	<main>
     	<center>
-    		<img class="responsive-img" style="width: 250px;" src="..\..\assets\images\logo.png" />
       		<div class="section"></div>
 
       		<h5 class="black-text">Faça login na sua conta</h5>
