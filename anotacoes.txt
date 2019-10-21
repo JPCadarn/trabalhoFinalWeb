@@ -28,7 +28,9 @@ ADMINISTRATIVO
 	-> Produtos em Destaque; ook
 _______________________________________________________
 ToDo:
+	-> Conferir imports arquivo de conexão;
 	-> Corrigir link da logo;
+	-> Usar breadcrumbs pra informar onde o usuário está;
 	-> Botão logar na navbar, se entrou coloca nome do usuário;
 	-> Colocar footer em todas as páginas;
 	-> Usar md5 p/ nomes das imagens;
