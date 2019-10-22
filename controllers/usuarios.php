@@ -33,6 +33,20 @@ class UsuariosController{
 
 		return $model->excluir($id);
 	}
+
+	function login($dados){
+		$model = new UsuarioModel();
+
+		$model->login($dados);
+		
+		header('Location: '.$dados['link_retorno']);
+	}
+
+	function logout(){
+		$model = new UsuarioModel();
+
+		return $model->logout();
+	}
 }
 	if(isset($_POST) and !empty($_POST)){
 		$classe = new UsuariosController();

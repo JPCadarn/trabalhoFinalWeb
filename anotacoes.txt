@@ -2,7 +2,6 @@ TEMA:
 	-> Site de Bebidas;
 CLIENTE:
 - Senha criptografada; //password_hash($senha, PASSWORD_BCRYPT);
-- Valida senha com $passou = password_verify($senha, $criptografada);
 - Enviar email de boas vindas após o cadastro;
 - Área de pedidos;
 - Área da conta;
@@ -28,21 +27,15 @@ ADMINISTRATIVO
 	-> Produtos em Destaque; ook
 _______________________________________________________
 ToDo:
-	-> Conferir imports arquivo de conexão;
-	-> Corrigir link da logo;
-	-> Usar breadcrumbs pra informar onde o usuário está;
+	-> Fazer links da navbar;
+	-> Colocar <header>, <main> e <footer> em todas as views;
+	-> Adicionar produto ao carrinho;
+	-> Fazer link dos produtos nos sliders;
 	-> Botão logar na navbar, se entrou coloca nome do usuário;
 	-> Colocar footer em todas as páginas;
-	-> Usar md5 p/ nomes das imagens;
-	-> Ícone tab do navegador
+	-> Ícone tab do navegador;
 	-> Categorias responsivo na navbar;
-	-> Páginas de produtos;
-	-> Login;
 	-> Logs usuário;
-	-> Cadastro de Usuário;
-	-> View categorias admin;
-	-> View produtos admin;
-	-> View produtos em destaque admin;
 	-> View usuários admin;
 	-> View pedidos admin;
 	-> Avaliações;
@@ -53,9 +46,14 @@ ToDo:
 	-> Adicionar classe "hoverable" nos cards
 	-> Ajustar inputs dos modals pra s12;
 	-> Validações p/ não cadastrar mesmo email duas vezes;
+	-> Mostrar itens mais acessados e mais vendidos na home;
+	-> Alterar collation do banco p/ case sensitive;
+	-> Mudar cor quando a data de nascimento está selecionada;
 SESSÃO:
 <?php
     session_start();
+	$passou = password_verify($senha, $criptografada);
+
 
     $_SESSION['logado'] = 'ok';
 

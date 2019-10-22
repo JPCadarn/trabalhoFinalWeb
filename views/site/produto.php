@@ -23,19 +23,31 @@
 		echo "<header>";
 			echo $ehtml->navBar('Produtos');
 		echo "</header>";
+		$linkCategoria = trim($_SERVER['HTTP_REFERER']);
+		echo "
+			<nav>
+				<div class='nav-wrapper indigo darken-4 center'>
+				<div class='col s12'>
+					<a href='index.php' class='breadcrumb'>Página Inicial</a>
+					<a href='$linkCategoria' class='breadcrumb'>Produtos</a>
+					<span class='breadcrumb'>{$produto['nome']}</span>
+				</div>
+				</div>
+			</nav>
+		";
+
 		echo "<div class='col s12 m12'>
-				<h2 class='header center'>{$produto['nome']}</h2>
 				<div class='card horizontal hoverable'>
 				<div class='card-image'>
 					<img src='../../assets/images/".$produto['imagem']."'>
 				</div>
 				<div class='card-stacked'>
+					<h2 class='header center'>{$produto['nome']}</h2>
 					<div class='card-content'>
-						<p>I am a very simple card. I am good at containing small bits of information.</p>
+						<p>{$produto['descricao']}</p>
 					</div>
-					<div class='card-action'>
-						<a href='#'>This is a link</a>
-					</div>
+					<div class='card-action center'>
+					<a class='indigo darken-4 waves-effect waves-light btn'><i class='material-icons left'>shopping_cart</i>Comprar</a>
 				</div>
 				</div>
 			</div>";

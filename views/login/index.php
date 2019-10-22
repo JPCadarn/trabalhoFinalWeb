@@ -8,10 +8,13 @@
 </head>
   
 <?php
-	require_once('../../controllers/logins.php');
+	require_once('../../controllers/usuarios.php');
+	require_once('../../controllers/usuarios.php');
 	require_once('../utils/ehtml.php');
-	$controller = new LoginsController();
+	$controller = new UsuariosController();
 	$ehtml = new Ehtml();
+	if(isset($_SESSION['usuario']))
+		header('Location: ../site');
 ?>
 <body>
 	<?php
@@ -29,7 +32,7 @@
       		<div class="container">
     			<div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
-					<form class="col s12" action="..\..\controllers\logins.php" method="post">
+					<form class="col s12" action="..\..\controllers\usuarios.php" method="post">
 						<div class='row'>
 							<div class='col s12'></div>
 						</div>
@@ -37,8 +40,9 @@
 						<div class='row'>
 							<div class='input-field col s12'>
 								<i class="material-icons prefix">email</i>
-								<input class='validate' type='email' name='email' id='email' />
-								<input type='hidden' name='metodo' value="read" />
+								<input class='validate' type='text' name='email' id='email' />
+								<input type='hidden' name='metodo' value="login" />
+								<input type='hidden' name='link_retorno' value="<?php echo $_SERVER['HTTP_REFERER']?>" />
 								<label for='email'>Email</label>
 							</div>
 						</div>
@@ -50,15 +54,15 @@
 								<label for='senha'>Senha</label>
 							</div>
 							<label style='float: right;'>
-								<a class='pink-text' href='#!'><b>Esqueceu sua senha?</b></a>
+								<a class='indigo-text' href='#!'><b>Esqueceu sua senha?</b></a>
 							</label>
 						</div>
 
 						<br />
 						<center>
 							<div class='row'>
-								<button name='btnCadastrar' data-target="addModal" class='modal-trigger col s6 btn btn-large waves-effect'>Cadastrar</button>
-								<button type='submit' name='btnLogin' class='col s6 btn btn-large waves-effect'>Login</button>
+								<button name='btnCadastrar' data-target="addModal" class='indigo darken-4 modal-trigger col s6 btn btn-large waves-effect'>Cadastrar</button>
+								<button type='submit' name='btnLogin' class='indigo darken-4 col s6 btn btn-large waves-effect'>Login</button>
 							</div>
 						</center>
 					</form>

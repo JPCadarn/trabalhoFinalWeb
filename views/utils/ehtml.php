@@ -15,12 +15,25 @@
 				echo $tagListaCategorias;
 			}
 			echo "</ul>";
+			
+			if(isset($_SESSION['usuario'])){
+				$contaOuPainel = $_SESSION['usuario']['admin'] ? 'Painel Administrativo' : 'Minha Conta';
+				
+				$tagLoginOuConta = "
+					<li><a href='../login/logout.php'>Logout</a></li>
+					<li><a href='..usuario/conta.php?id={$_SESSION['usuario']['id']}'>$contaOuPainel</a></li>
+				";
+			}else{
+				$tagLoginOuConta = "
+					<li><a href='../login/'>Login</a></li>
+				";
+			}
 
 			echo "
 			<div class='navbar-fixed'>
 			<nav class='indigo darken-4'>
 					<div class='nav-wrapper'>
-						<a href='index.html' class='brand-logo center'>
+						<a href='../site/' class='brand-logo center'>
 							<img class='imagem-logo responsive-img' id='logo' src='..\..\assets\images\logo.png'/>
 						</a>
 						<a href='#' data-target='listaResponsivo' class='sidenav-trigger'><i class='material-icons'>menu</i></a>
@@ -33,7 +46,7 @@
 									<i class='material-icons right'>arrow_drop_down</i>
 								</a>
 							</li>
-							<li><a href='sass.html'>Minha Conta</a></li>
+							$tagLoginOuConta
 							<li><a href='badges.html'> <i class='material-icons white-text'>shopping_cart</i></a></li>
 						</ul>
 					</div>
@@ -63,7 +76,7 @@
 							</div>
 							<div class='col l4 s12'>
 								<h5 class='white-text'><i class='material-icons'>credit_card</i>Até 10x</h5>
-								<p class='grey-text text-lighten-4'>Parcele suas compras em até 10x no cartã de crédito</p>
+								<p class='grey-text text-lighten-4'>Parcele suas compras em até 10x no cartão de crédito</p>
 							</div>
 							<div class='col l4 s12'>
 								<h5 class='white-text'><i class='material-icons'>timer</i>Entrega Expressa</h5>

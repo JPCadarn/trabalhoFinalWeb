@@ -32,6 +32,7 @@ class ProdutoModel extends Conexao{
 
 	function criar($dados){
 		$imagem = $_FILES['imagem'];
+		$imagem['name'] = password_hash($imagem['name'], PASSWORD_BCRYPT);
 		$destino = explode('models', dirname(__FILE__))[0].'assets\\images\\'.$imagem['name'];
 
 		if(rename($imagem['tmp_name'], $destino)){
