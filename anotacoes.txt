@@ -21,10 +21,6 @@ ADMINISTRATIVO
 - Colocar produtos em destaque;
 - Visualizar produtos mais vendidos;
 - Visualizar produtos mais acessados;
-- Cadastros:
-	-> Categoria; ook
-	-> Produto; ook
-	-> Produtos em Destaque; ook
 _______________________________________________________
 ToDo:
 	-> Fazer links da navbar;
@@ -35,7 +31,6 @@ ToDo:
 	-> Colocar footer em todas as páginas;
 	-> Ícone tab do navegador;
 	-> Categorias responsivo na navbar;
-	-> Logs usuário;
 	-> View usuários admin;
 	-> View pedidos admin;
 	-> Avaliações;
