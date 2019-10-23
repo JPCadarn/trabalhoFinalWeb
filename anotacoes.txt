@@ -48,19 +48,5 @@ ToDo:
 	-> Mostrar itens mais acessados e mais vendidos na home;
 	-> Alterar collation do banco p/ case sensitive;
 	-> Mudar cor quando a data de nascimento está selecionada;
-SESSÃO:
-<?php
-    session_start();
-	$passou = password_verify($senha, $criptografada);
-
-
-    $_SESSION['logado'] = 'ok';
-
-    //pode criar quantas chaves quiser
-
-    unset($_SESSION['logado']);
-
-    session_destroy(); //destroy os dados registrados na sessão
-    session_unset(); //limpa todas as variáveis da sessão
-    session_abort(); //descarta as alterações no array e encerra a sessão
-?>
+Web Service:
+	header('Access-Control-Allow-Origin: *');
