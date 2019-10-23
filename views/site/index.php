@@ -18,7 +18,7 @@
 ?>
 <body>
 	<?php
-		echo $ehtml->navBar('Login');
+		echo $ehtml->navBar('');
 
 		echo "
 			<div id='slider' class='slider'>

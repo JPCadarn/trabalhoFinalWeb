@@ -26,8 +26,8 @@ $(document).ready(function(){
     $('.slider').slider();
 }); 
 
-$(document).ready(function(){
-    $('.materialboxed').materialbox();
+$('#dropdownCategorias').mouseleave(function(){
+    $('#slider').focus();
 });
 
 $(".dropdown-trigger").dropdown({
