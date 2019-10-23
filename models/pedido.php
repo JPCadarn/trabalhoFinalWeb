@@ -28,40 +28,61 @@ class PedidoModel extends Conexao{
 	}
 
 	function salvarCabecalhoPedido($cabecalho){
-		$data = date('d/m/Y');
+		$data = date('Y-m-d');
 		$hora = date('H:i:s');
 		$sql = "
 			INSERT INTO pedidos
-			(usuario_id, data, hora)
+			(usuario_id, endereco_id, data, hora)
 			VALUES 
 			(
 				{$cabecalho['usuario_id']}, 
+				{$cabecalho['endereco_id']}, 
 				'{$data}',
 				'{$hora}'
 			)
 		";
 		
-		return $this->executarQuery($sql);
+		return $this->executarQuery($sql, ['iniciarTransacao' => true, 'terminarTransacao' => true]);
 	}
 
-	function salvarItensPedido($id, $itens){
+	function salvarItensPedido($itens){
+		$sqlPedidoId = "
+			SELECT id
+			FROM pedidos
+			ORDER BY id DESC
+			LIMIT 1
+		";
+		$pedidoId = $this->executarQuery($sqlPedidoId, ['iniciarTransacao' => false, 'terminarTransacao' => false])[0]['id'];
 		$sql = "
 			INSERT INTO pedidos_itens
-			(pedido_id, produto_id, quantidade)
-			VALUES 
-			(
-				{$id}, 
-				{$itens['produto_id']},
-				{$itens['quantidade']}
-			)
+			(pedido_id, produto_id, quantidade, valor_total)
+			VALUES
 		";
-
-		return $this->executarQuery($sql);
+		
+		foreach($itens as $item){
+			$virgula = $item == end($itens) ? '' : ',';
+			$valorItem = $item['produto_id'] * $item['quantidade'];
+			$sql .= " 
+				(
+					{$pedidoId}, 
+					{$item['produto_id']},
+					{$item['quantidade']},
+					{$valorItem}
+				)$virgula
+			";
+		}
+		if(!$this->executarQuery($sql)){
+			$this->executarQuery("DELETE FROM pedidos WHERE id = {$pedidoId}");
+			return false;
+		}
+		$this->executarQuery("DELETE FROM carrinhos WHERE usuario_id = {$_SESSION['usuario']['id']}");
+		
+		return true;
 	}
 
 	function criar($dados){
 		if(array_key_exists('itens', $dados) AND array_key_exists('cabecalho', $dados)){
-			if(salvarCabecalhoPedido($dados['cabecalho'] AND salvarItensPedido($dados['cabecalho']['id'], $dados['itens']))){
+			if($this->salvarCabecalhoPedido($dados['cabecalho']) AND $this->salvarItensPedido($dados['itens'])){
 				return true;
 			}
 		}else

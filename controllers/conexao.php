@@ -21,13 +21,16 @@
 
 		function executarQuery($query){
 			$conexao = $this->conectar();
+				
 			$retorno = [];
 			$retorno = $conexao->query($query);
 			
 			if(is_object($retorno) OR is_array($retorno))
-				$retorno = $retorno->fetch_all(MYSQLI_ASSOC);
-			elseif(is_bool($retorno) AND !$retorno)
+			$retorno = $retorno->fetch_all(MYSQLI_ASSOC);
+			elseif(is_bool($retorno) AND !$retorno){
+				$conexao->query("ROLLBACK");
 				return $conexao->error;
+			}
 
 			$this->desconectar($conexao);
 			

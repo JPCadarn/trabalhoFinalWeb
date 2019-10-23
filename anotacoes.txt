@@ -24,10 +24,14 @@ ADMINISTRATIVO
 _______________________________________________________
 ToDo:
 	-> Fazer links da navbar;
+	-> Minha Conta;
+	-> Criar thumb das imagens no momento do upload;
+	-> Revisar "indigo darken-4 nos botões";
+	-> Fazer ajax nos botões do carrinho (update e delete);
+	-> Adicionar fonte em todas as views (pegar da view carrinho);
 	-> Colocar <header>, <main> e <footer> em todas as views;
-	-> Adicionar produto ao carrinho;
+	-> Colocar breadcrumbs nas views;
 	-> Fazer link dos produtos nos sliders;
-	-> Botão logar na navbar, se entrou coloca nome do usuário;
 	-> Colocar footer em todas as páginas;
 	-> Ícone tab do navegador;
 	-> Categorias responsivo na navbar;

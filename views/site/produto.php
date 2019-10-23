@@ -23,6 +23,7 @@
 		echo "<header>";
 			echo $ehtml->navBar('Produtos');
 		echo "</header>";
+		echo "<main>";
 		$linkCategoria = trim($_SERVER['HTTP_REFERER']);
 		echo "
 			<nav>
@@ -36,25 +37,29 @@
 			</nav>
 		";
 
-		echo "<div class='col s12 m12'>
-				<div class='card horizontal hoverable'>
-				<div class='card-image'>
-					<img src='../../assets/images/".$produto['imagem']."'>
-				</div>
-				<div class='card-stacked'>
-					<h2 class='header center'>{$produto['nome']}</h2>
-					<div class='card-content'>
-						<p>{$produto['descricao']}</p>
-					</div>
-					<div class='card-action center'>
-					<a class='indigo darken-4 waves-effect waves-light btn'><i class='material-icons left'>shopping_cart</i>Comprar</a>
-				</div>
-				</div>
-			</div>";
-		echo "<main>";
-		echo "<div class='row'>
-				<div class='col s12 m6'>
-					<i class='materialboxed' width='500' src='../../assets/images/".$produto['imagem']."'></i>
+		echo "
+			<div class='row'>
+				<div class='col s12 m12'>
+					<form action='..\..\controllers\carrinhos.php' method='POST'>
+						<div class='card horizontal hoverable'>
+							<div class='card-image'>
+								<img src='../../assets/images/".$produto['imagem']."'>
+							</div>
+							<div class='card-stacked'>
+								<h2 class='header center'>{$produto['nome']}</h2>
+								<div class='card-content'>
+									<p>{$produto['descricao']}</p>
+								</div>
+								<input type='hidden' name='dados[produto_id]' value='{$_GET['id']}'>
+								<input type='hidden' name='dados[usuario_id]' value='{$_SESSION['usuario']['id']}'>
+								<input type='hidden' name='metodo' value='create'>
+								<div class='card-action center'>
+									<button type='submit' class='indigo darken-4 col s6 btn waves-effect'>
+										<i class='material-icons left'>shopping_cart</i>Comprar
+									</button>
+								</div>
+						</div>
+					</form>
 				</div>
 			</div>";
 		echo "</main>";

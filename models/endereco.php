@@ -17,6 +17,12 @@ class EnderecoModel extends Conexao{
 		return $excluido;
 	}
 
+	function getEnderecos($usuarioId){
+		$sql = 'SELECT * FROM enderecos WHERE usuario_id = '.$usuarioId;
+
+		return $this->executarQuery($sql);
+	}
+
 	function getDados($id){
 		$sql = 'SELECT * FROM enderecos';
 

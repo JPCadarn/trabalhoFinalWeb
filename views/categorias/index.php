@@ -66,11 +66,11 @@
 						</div>
 					</div>
 					<div class="fixed-action-btn">
-					<div class="fixed-action-btn">
-						<button class="btn-floating btn-large indigo darken-4" type="submit" value="Create">
-							<i class="large material-icons">check</i>
-						</button>
-					</div>
+						<div class="fixed-action-btn">
+							<button class="btn-floating btn-large indigo darken-4" type="submit" value="Create">
+								<i class="large material-icons">check</i>
+							</button>
+						</div>
 					</div>
 				</form>
 			</div>

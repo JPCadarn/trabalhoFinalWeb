@@ -21,7 +21,7 @@
 				
 				$tagLoginOuConta = "
 					<li><a href='../login/logout.php'>Logout</a></li>
-					<li><a href='..usuario/conta.php?id={$_SESSION['usuario']['id']}'>$contaOuPainel</a></li>
+					<li><a href='../usuario/conta.php?id={$_SESSION['usuario']['id']}'>$contaOuPainel</a></li>
 				";
 			}else{
 				$tagLoginOuConta = "
@@ -47,7 +47,7 @@
 								</a>
 							</li>
 							$tagLoginOuConta
-							<li><a href='badges.html'> <i class='material-icons white-text'>shopping_cart</i></a></li>
+							<li><a href='../../views/site/carrinho.php'> <i class='material-icons white-text'>shopping_cart</i></a></li>
 						</ul>
 					</div>
 				</nav>

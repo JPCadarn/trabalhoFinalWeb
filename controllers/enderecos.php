@@ -17,6 +17,12 @@ class EnderecosController{
 		
 		return $model->getDados($id);
 	}
+
+	function readEnderecos($usuarioId){
+		$model = new EnderecoModel();
+		
+		return $model->getEnderecos($usuarioId);
+	}
 	
 	function create($dados){
 		$model = new EnderecoModel();

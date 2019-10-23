@@ -20,7 +20,7 @@ class PedidosController{
 	
 	function create($dados){
 		$model = new PedidoModel();
-		if(!array_key_exists('dados', $dados))
+		if(!array_key_exists('cabecalho', $dados) OR !array_key_exists('itens', $dados))
 			return false;
 
 		return $model->salvar($dados);
@@ -34,4 +34,21 @@ class PedidosController{
 		return $model->excluir($id);
 	}
 }
+	if(isset($_POST) and !empty($_POST)){
+		$classe = new PedidosController();
+		$metodo = $_POST['metodo'];
+		unset($_POST['metodo']);
+		$dados = $_POST;
+		if($classe->$metodo($dados))
+			header('Location: ../views/site/index.php');
+	}
+
+	if(!empty($_GET) AND isset($_GET['metodo'])){
+		$classe = new PedidosController();
+		$metodo = $_GET['metodo'];
+		unset($_GET['metodo']);
+		$dados = $_GET;
+		if($classe->$metodo($dados))
+			header('Location: ../views/site/index.php');
+	}
 ?>
