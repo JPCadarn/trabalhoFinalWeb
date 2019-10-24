@@ -25,7 +25,7 @@
 			echo $ehtml->navBar('Produtos');
 		echo "</header>";
 		echo "<main>";
-		$linkCategoria = trim($_SERVER['HTTP_REFERER']);
+			$linkCategoria = trim($_SERVER['HTTP_REFERER']);
 		echo "
 			<nav>
 				<div class='nav-wrapper indigo darken-4 center'>
