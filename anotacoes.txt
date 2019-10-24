@@ -48,5 +48,6 @@ ToDo:
 	-> Mostrar itens mais acessados e mais vendidos na home;
 	-> Alterar collation do banco p/ case sensitive;
 	-> Mudar cor quando a data de nascimento está selecionada;
+	-> Remover fontawesome;
 Web Service:
 	header('Access-Control-Allow-Origin: *');
