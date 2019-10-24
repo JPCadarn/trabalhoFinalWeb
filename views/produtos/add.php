@@ -15,10 +15,13 @@
 	$ehtml = new Ehtml();
 ?>
 <body>
+	<header>
 	<?php
 		echo $ehtml->navBar('Produtos');
 	?>
+	</header>
 
+	<main>
 	<div class="row">
 		<div class="modal-title">
 			<h4 class="center">Adicionar Produto</h4>
@@ -66,6 +69,11 @@
 			</form>
 		</div>
 	</div>
+	</main>
+
+	<?php
+		echo $ehtml->footer();
+	?>
 
   	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../../materialize/js/materialize.min.js"></script>

@@ -19,7 +19,11 @@
 ?>
 <body>
 	<?php
-		echo $ehtml->navBar('');
+		echo "<header>";
+			echo $ehtml->navBar('');
+		echo "</header>";
+
+		echo "<main>";
 
 		echo "
 			<div id='slider' class='slider'>
@@ -73,6 +77,7 @@
 			</div>
 		</div>
 	</div>
+	</main>
 
 	<?php
 		echo $ehtml->footer();

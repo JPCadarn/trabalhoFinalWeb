@@ -18,9 +18,11 @@
 		header('Location: ../site');
 ?>
 <body>
+	<header>
 	<?php
 		echo $ehtml->navBar('Login');
 	?>
+	</header>
 	
 	<div class="section"></div>
   	<main>
@@ -133,7 +135,11 @@
 
     	<div class="section"></div>
     	<div class="section"></div>
-  	</main>
+	</main>
+	  
+	<?php
+		echo $ehtml->footer(); 
+	?>
 
   	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../../materialize/js/materialize.min.js"></script>

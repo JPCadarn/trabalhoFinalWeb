@@ -17,7 +17,11 @@
 ?>
 <body>
 	<?php
-		echo $ehtml->navBar('Produtos');
+		echo "<header>";
+			echo $ehtml->navBar('Produtos');
+		echo "</header>";
+
+		echo "<main>";
 
 		for($i = 0; $i < count($produtos); $i++){
             if($i % 3 == 0){
@@ -56,7 +60,8 @@
                     </div>
                 $tagFechaRow
             ";
-        }
+		}
+		echo "</main>";
     ?>
 
 	<div class="fixed-action-btn">
@@ -64,6 +69,10 @@
 			<i class="large material-icons">add</i>
 		</a>
 	</div>
+
+	<?php
+		echo $ehtml->footer();
+	?>
 
   	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../../materialize/js/materialize.min.js"></script>
