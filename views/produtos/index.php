@@ -43,7 +43,7 @@
             echo "
                 $tagRow
                     <div class='col s4 m4'>
-                        <div class='card'>
+                        <div class='card hoverable'>
                             <div class='card-image'>
                                 <img src='..\..\assets\images\\".$produtos[$i]['imagem']."'>
 							</div>

@@ -39,7 +39,7 @@
 			$cardCategoria = "
 		 		$tagRow
 		 			<div class='col s6 m6'>
-		 				<div class='card'>
+		 				<div class='card hoverable'>
 		 					<div class='card-content'>
 		 						<span class='card-title'>{$categorias[$i]['nome']}</span>
 		 						<p>{$countCategoria} produto(s) cadastrado(s).</p>

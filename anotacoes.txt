@@ -28,7 +28,6 @@ ToDo:
 	-> Minha Conta;
 	-> Criar thumb das imagens no momento do upload;
 	-> Fazer ajax nos botões do carrinho (update e delete);
-	-> Colocar <header>, <main> e <footer> em todas as views;
 	-> Colocar breadcrumbs nas views;
 	-> Fazer link dos produtos nos sliders;
 	-> Colocar footer em todas as páginas;
