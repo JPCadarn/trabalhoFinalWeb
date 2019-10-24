@@ -79,7 +79,7 @@
 					</div>
 					<div class="fixed-action-btn">
 					<div class="fixed-action-btn">
-						<button class="btn-floating btn-large indigo darken-4" type="submit" value="Create">
+						<button class="waves-effect waves-circle waves-light btn-floating btn-large indigo darken-4" type="submit" value="Create">
 							<i class="large material-icons">check</i>
 						</button>
 					</div>
@@ -90,7 +90,7 @@
 	</div>
 
 	<div class="fixed-action-btn">
-		<a data-target="addModal" class="btn-floating modal-trigger btn-large indigo darken-4">
+		<a data-target="addModal" class="waves-effect waves-circle waves-light btn-floating modal-trigger btn-large indigo darken-4">
 			<i class="large material-icons">add</i>
 		</a>
 	</div>

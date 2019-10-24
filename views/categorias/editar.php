@@ -39,7 +39,7 @@
 						</div>
 					</div>
 					<div class="fixed-action-btn">
-						<button class="btn-floating btn-large indigo darken-4" type="submit" value="edit">
+						<button class="waves-effect waves-circle waves-light btn-floating btn-large indigo darken-4" type="submit" value="edit">
 							<i class="large material-icons">check</i>
 						</button>
 					</div>

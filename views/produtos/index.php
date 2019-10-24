@@ -65,7 +65,7 @@
     ?>
 
 	<div class="fixed-action-btn">
-		<a href="add.php" class="btn-floating modal-trigger btn-large indigo darken-4">
+		<a href="add.php" class="waves-effect waves-circle waves-light btn-floating modal-trigger btn-large indigo darken-4">
 			<i class="large material-icons">add</i>
 		</a>
 	</div>

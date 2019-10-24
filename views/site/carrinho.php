@@ -53,14 +53,14 @@
 									</div>
 									<div class='card-action'>
 										<div id='divQuantidade".$i."'>
-											<button id='btnMenos' class='btn-floating btn-small waves-effect waves-light indigo'>
+											<button id='btnMenos' class='waves-effect waves-circle waves-light btn-floating btn-small waves-effect waves-light indigo'>
 												<i class='material-icons left'>remove</i>
 											</button>
 											<span id='qtd".$i."'>{$itens[$i]['quantidade']}</span>
-											<button id='btnMais' class='btn-floating btn-small waves-effect waves-light indigo'>
+											<button id='btnMais' class='waves-effect waves-circle waves-light btn-floating btn-small waves-effect waves-light indigo'>
 												<i class='material-icons left'>add</i>
 											</button>
-											<button id='btnExcluir' class='right btn-floating btn-small waves-effect waves-light red'>
+											<button id='btnExcluir' class='right waves-effect waves-circle waves-light btn-floating btn-small waves-effect waves-light red'>
 												<i class='material-icons left'>clear</i>
 											</button>
 										</div>

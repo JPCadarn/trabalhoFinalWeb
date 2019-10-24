@@ -30,7 +30,6 @@ ToDo:
 	-> Fazer ajax nos botões do carrinho (update e delete);
 	-> Colocar breadcrumbs nas views;
 	-> Fazer link dos produtos nos sliders;
-	-> Colocar footer em todas as páginas;
 	-> Ícone tab do navegador;
 	-> Categorias responsivo na navbar;
 	-> View usuários admin;
@@ -39,8 +38,6 @@ ToDo:
 	-> Tratar erros;
 	-> Esqueceu a senha;
 	-> Email de boas vindas;
-	-> Colocar efeito wave nos botões;
-	-> Adicionar classe "hoverable" nos cards
 	-> Ajustar inputs dos modals pra s12;
 	-> Validações p/ não cadastrar mesmo email duas vezes;
 	-> Mostrar itens mais acessados e mais vendidos na home;

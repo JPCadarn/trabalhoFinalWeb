@@ -55,7 +55,7 @@
 								<input type='hidden' name='dados[usuario_id]' value='{$_SESSION['usuario']['id']}'>
 								<input type='hidden' name='metodo' value='create'>
 								<div class='card-action center'>
-									<button type='submit' class='indigo darken-4 col s6 btn waves-effect'>
+									<button type='submit' class='indigo darken-4 col s6 btn waves-effect waves-circle waves-light'>
 										<i class='material-icons left'>shopping_cart</i>Comprar
 									</button>
 								</div>
