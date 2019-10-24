@@ -64,8 +64,8 @@
 						<br />
 						<center>
 							<div class='row'>
-								<button name='btnCadastrar' data-target="addModal" class='indigo darken-1 modal-trigger col s6 btn btn-large waves-effect waves-circle waves-light'>Cadastrar</button>
-								<button type='submit' name='btnLogin' class='indigo darken-1 col s6 btn btn-large waves-effect waves-circle waves-light'>Login</button>
+								<button name='btnCadastrar' data-target="addModal" class='indigo darken-1 modal-trigger col s6 btn btn-large waves-effect waves-light'>Cadastrar</button>
+								<button type='submit' name='btnLogin' class='indigo darken-1 col s6 btn btn-large waves-effect waves-light'>Login</button>
 							</div>
 						</center>
 					</form>
