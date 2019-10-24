@@ -1,21 +1,72 @@
-$('#btnMenos').click(function(){
+$('button[id^="btnMenos"]').click(function(){
 	var divPai = this.closest('div');
 	var nroItem = divPai.id.split('divQuantidade')[1];
 	var nomeSpan = '#qtd' + nroItem;
 	var qtd = $(nomeSpan).text();
-	var divProduto = $('#produto'+nroItem)[0];
-	console.log($('#'+divProduto.id).children()[0]);
-	var usuario_id;
+	var produto_id = $('input[name ="itens['+nroItem+'][produto_id]"]').val();
+	var usuario_id = $('input[name ="cabecalho[usuario_id]"]').val();
+	var id = $('input[name ="cabecalho[id]"]').val();
 	if(qtd > 1){
-		var dados = {
-			metodo: 'edit',
-			quantidade: qtd,
-			produto_id: produto_id,
-			usuario_id: usuario_id
-		}
 		qtd--;
+		var dados = {
+			dados: {
+				quantidade: qtd,
+				produto_id: produto_id,
+				usuario_id: usuario_id,
+				id: id
+			},
+			metodo: 'edit',
+		}
 		$.post("http://localhost/trabalhoFinalWeb/controllers/carrinhos.php", dados, function(data){
+			
+		}).done(function(){
+			$(nomeSpan).text(qtd);
+		});
+	}
+});
 
-		})
+$('button[id^="btnMais"]').click(function(){
+	var divPai = this.closest('div');
+	var nroItem = divPai.id.split('divQuantidade')[1];
+	var nomeSpan = '#qtd' + nroItem;
+	var qtd = $(nomeSpan).text();
+	var produto_id = $('input[name ="itens['+nroItem+'][produto_id]"]').val();
+	var usuario_id = $('input[name ="cabecalho[usuario_id]"]').val();
+	var id = $('input[name ="itens['+nroItem+'][id]"]').val();
+	if(qtd < 10){
+		qtd++;
+		var dados = {
+			dados: {
+				quantidade: qtd,
+				produto_id: produto_id,
+				usuario_id: usuario_id,
+				id: id
+			},
+			metodo: 'edit',
+		}
+		$.post("http://localhost/trabalhoFinalWeb/controllers/carrinhos.php", dados, function(data){
+			
+		}).done(function(){
+			$(nomeSpan).text(qtd);
+		});
+	}else{
+		alert("Não é possível adicionar comprar mais de 10 unidades deste produto");
+	}
+});
+
+$('button[id^="btnExcluir"]').click(function(){
+	var divPai = this.closest('div');
+	var nroItem = divPai.id.split('divQuantidade')[1];
+	var id = $('input[name ="itens['+nroItem+'][id]"]').val();
+	if(id){
+		var dados = {
+			id: id,
+			metodo: 'delete',
+		}
+		$.post("http://localhost/trabalhoFinalWeb/controllers/carrinhos.php", dados, function(data){
+			console.log(data);
+		}).done(function(){
+			// $('#produto'+nroItem).remove();
+		});
 	}
 });

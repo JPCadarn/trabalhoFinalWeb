@@ -1,15 +1,16 @@
 <?php
 
 require_once(dirname(__FILE__).'/../models/carrinho.php');
+header('Access-Control-Allow-Origin: *');
 
 class CarrinhosController{
 
 	function edit($dados){
 		$model = new CarrinhoModel();
-		if(!array_key_exists('id', $dados))
+		if(!array_key_exists('id', $dados['dados']))
 			return false;
-		
-		return $model->editar($dados);
+				
+		return json_encode($model->editar($dados));
 	}
 	
 	function read($userId){
@@ -41,8 +42,13 @@ class CarrinhosController{
 			$metodo = $_POST['metodo'];
 			unset($_POST['metodo']);
 			$dados = $_POST;
-			if($classe->$metodo($dados))
-			header('Location: ..\views\site\carrinho.php');
+			if($metodo == 'edit' OR $metodo == 'delete'){
+				$retorno = $classe->$metodo($dados);
+				$retorno = json_encode($retorno);
+
+				return $retorno;
+			}elseif($classe->$metodo($dados))
+				header('Location: ..\views\site\carrinho.php');
 		}
 		
 		if(!empty($_GET) AND isset($_GET['metodo'])){
@@ -50,8 +56,8 @@ class CarrinhosController{
 			$metodo = $_GET['metodo'];
 			unset($_GET['metodo']);
 			$dados = $_GET;
-			if($classe->$metodo($dados))
-			header('Location: ..\views\site\carrinho.php');
+			if($classe->$metodo($dados)){}
+				header('Location: ..\views\site\carrinho.php');
 		}
 	}else
 		header('Location: ..\views\login\index.php');

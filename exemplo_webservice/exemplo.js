@@ -24,7 +24,7 @@ function  buscar_usuario()
 	}
 
 	$.post("http://localhost/exemplo_webservice/api.php", dados, function(data){
-	var json = JSON.parse(data);
+		var json = JSON.parse(data);
 		for(var i=0; i<json.length; i++){
 			$("#resultado").append(json[i].id + json[i].nome + json[i].email + json[i].senha + "<br>");
 		}

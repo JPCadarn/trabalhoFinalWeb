@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.min.css"  media="screen,projection"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link rel="stylesheet" href="..\..\assets\css\main.css">
@@ -70,7 +71,6 @@
 
   	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../../materialize/js/materialize.min.js"></script>
-	<script src="https://kit.fontawesome.com/70c1a7f591.js" crossorigin="anonymous"></script>
 	<script src="..\..\assets\js\main.js" crossorigin="anonymous"></script>
   </body>
 </html>

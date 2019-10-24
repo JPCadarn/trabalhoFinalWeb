@@ -4,17 +4,21 @@ require_once(dirname(__FILE__).'/../controllers/conexao.php');
 
 class CarrinhoModel extends Conexao{
 	function salvar($dados){
-		if(array_key_exists('id', $dados))
+		if(array_key_exists('id', $dados)){
+			print_r($dados);exit;
 			return $this->editar($dados);
+		}
 		else
 			return $this->criar($dados);
 	}
 
 	function excluir($id){
-		$sql = 'DELETE FROM cartaos WHERE id = '.$id;
+		$sql = 'DELETE FROM carrinhos WHERE id = '.$id['id'];
 		$excluido = $this->executarQuery($sql);
 
-		return $excluido;
+		$retorno['retorno'] = $excluido;
+
+		return $retorno;
 	}
 
 	function getDados($userId){
@@ -48,7 +52,7 @@ class CarrinhoModel extends Conexao{
 			SET usuario_id = {$dados['dados']['usuario_id']}, 
 				produto_id = {$dados['dados']['produto_id']}, 
 				quantidade = {$dados['dados']['quantidade']}
-			WHERE id = {$dados['id']}
+			WHERE id = {$dados['dados']['id']}
 		";
 		
 		return $this->executarQuery($sql);

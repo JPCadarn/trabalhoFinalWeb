@@ -24,6 +24,7 @@ ADMINISTRATIVO
 _______________________________________________________
 ToDo:
 	-> Fazer links da navbar;
+	-> Adicionar pagamento no carrinho;
 	-> Minha Conta;
 	-> Criar thumb das imagens no momento do upload;
 	-> Revisar "indigo darken-4 nos botões";

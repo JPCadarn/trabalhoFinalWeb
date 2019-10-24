@@ -36,6 +36,7 @@
 						<div class='col s12 m12' id='produto".$i."'>
 							<input type='hidden' name='itens[$i][produto_id]' value='{$itens[$i]['produto_id']}'>
 							<input type='hidden' name='itens[$i][quantidade]' value='{$itens[$i]['quantidade']}'>
+							<input type='hidden' name='itens[$i][id]' value='{$itens[$i]['id']}'>
 							<input type='hidden' name='itens[$i][valor]' value='{$itens[$i]['valor']}'>
 							<div class='card horizontal hoverable'>
 								<div class='card-image'>
@@ -59,7 +60,7 @@
 											<button id='btnMais' class='btn-floating btn-small waves-effect waves-light indigo'>
 												<i class='material-icons left'>add</i>
 											</button>
-											<button type='submit' class='right btn-floating btn-small waves-effect waves-light red'>
+											<button id='btnExcluir' class='right btn-floating btn-small waves-effect waves-light red'>
 												<i class='material-icons left'>clear</i>
 											</button>
 										</div>

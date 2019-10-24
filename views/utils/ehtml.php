@@ -32,7 +32,7 @@
 			echo "
 			<div class='navbar-fixed'>
 			<nav class='indigo darken-4'>
-					<div class='nav-wrapper'>
+					<div class='nav-wrapper' id='navegacao'>
 						<a href='../site/' class='brand-logo center'>
 							<img class='imagem-logo responsive-img' id='logo' src='..\..\assets\images\logo.png'/>
 						</a>
