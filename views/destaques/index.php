@@ -67,7 +67,7 @@
 			<div class="row">
 				<form action="..\..\controllers\produtos_destaque.php" method="post" class="col s12">
 					<div class="row center">
-						<div class="input-field col s6">
+						<div class="input-field col s12">
 							<i class="material-icons prefix">reorder</i>
 							<input id="inputOrdem" name="dados[ordem]" type="number">
 							<label for="inputOrdem">Ordem</label>
