@@ -1,33 +1,28 @@
 TEMA:
 	-> Site de Bebidas;
 CLIENTE:
-- Senha criptografada; //password_hash($senha, PASSWORD_BCRYPT);
 - Enviar email de boas vindas após o cadastro;
-- Área de pedidos;
 - Área da conta;
-- Carrinho;
+- Área de pedidos;
 - Consultas frete (ajax);
 - Esqueci minha senha;
 - Cadastros:
-	-> Usuário;
 	-> Endereço;
 	-> Avaliação;
 	-> Cartões;
 _______________________________________________________
 ADMINISTRATIVO
-- Usuário administrativo (ADMIN, MASTER);
 - Importar arquivos por arquivo externo;
 - Visualizar histórico de compras;
-- Colocar produtos em destaque;
 - Visualizar produtos mais vendidos;
 - Visualizar produtos mais acessados;
 _______________________________________________________
 ToDo:
 	-> Fazer links da navbar;
+	-> Adicionar cálculo de frete na página de produto;
 	-> Adicionar pagamento no carrinho;
 	-> Minha Conta;
 	-> Criar thumb das imagens no momento do upload;
-	-> Fazer ajax nos botões do carrinho (update e delete);
 	-> Colocar breadcrumbs nas views;
 	-> Fazer link dos produtos nos sliders;
 	-> Ícone tab do navegador;
@@ -41,6 +36,5 @@ ToDo:
 	-> Validações p/ não cadastrar mesmo email duas vezes;
 	-> Mostrar itens mais acessados e mais vendidos na home;
 	-> Alterar collation do banco p/ case sensitive;
-	-> Mudar cor quando a data de nascimento está selecionada;
 Web Service:
 	header('Access-Control-Allow-Origin: *');
