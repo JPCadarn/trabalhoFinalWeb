@@ -10,7 +10,7 @@ class CarrinhosController{
 		if(!array_key_exists('id', $dados['dados']))
 			return false;
 				
-		return json_encode($model->editar($dados));
+		echo json_encode($model->editar($dados));
 	}
 	
 	function read($userId){
@@ -33,7 +33,7 @@ class CarrinhosController{
 		if(!$id)
 			return false;
 
-		return $model->excluir($id);
+		echo json_encode($model->excluir($id));
 	}
 }
 	if(isset($_SESSION['usuario'])){	

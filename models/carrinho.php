@@ -14,11 +14,8 @@ class CarrinhoModel extends Conexao{
 
 	function excluir($id){
 		$sql = 'DELETE FROM carrinhos WHERE id = '.$id['id'];
-		$excluido = $this->executarQuery($sql);
-
-		$retorno['retorno'] = $excluido;
-
-		return $retorno;
+		
+		return $this->executarQuery($sql);
 	}
 
 	function getDados($userId){

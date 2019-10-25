@@ -45,9 +45,9 @@ $('button[id^="btnMais"]').click(function(){
 			metodo: 'edit',
 		}
 		$.post("http://localhost/trabalhoFinalWeb/controllers/carrinhos.php", dados, function(data){
-			
-		}).done(function(){
-			$(nomeSpan).text(qtd);
+		}).done(function(data){
+			if(data === true)
+				$(nomeSpan).text(qtd);
 		});
 	}else{
 		alert("Não é possível adicionar comprar mais de 10 unidades deste produto");
@@ -64,9 +64,10 @@ $('button[id^="btnExcluir"]').click(function(){
 			metodo: 'delete',
 		}
 		$.post("http://localhost/trabalhoFinalWeb/controllers/carrinhos.php", dados, function(data){
-			console.log(data);
-		}).done(function(){
-			// $('#produto'+nroItem).remove();
+		}).done(function(data){
+			data = JSON.parse(data);
+			if(data == true)
+				$('#produto'+nroItem).remove();
 		});
 	}
 });
