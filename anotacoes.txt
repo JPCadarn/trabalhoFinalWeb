@@ -3,19 +3,19 @@ TEMA:
 CLIENTE:
 - Enviar email de boas vindas após o cadastro;
 - Área da conta;
-- Área de pedidos;
-- Consultas frete (ajax);
+	-> Cadastrar endereços;
+	-> Cadastrar cartões;
+	-> Listar pedidos;
 - Esqueci minha senha;
 - Cadastros:
-	-> Endereço;
-	-> Avaliação;
-	-> Cartões;
 _______________________________________________________
 ADMINISTRATIVO
 - Importar arquivos por arquivo externo;
 - Visualizar histórico de compras;
 - Visualizar produtos mais vendidos;
 - Visualizar produtos mais acessados;
+- Lista de usuários cadastrados (admin);
+- Lista de pedidos realizados;
 _______________________________________________________
 ToDo:
 	-> Fazer links da navbar;
