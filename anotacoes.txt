@@ -18,10 +18,12 @@ ADMINISTRATIVO
 - Lista de pedidos realizados;
 _______________________________________________________
 ToDo:
-	-> Fazer links da navbar;
+	-> Minha Conta;
+	-> Fazer máscaras;
+	-> Fazer arquivo pra criar o banco;
+	-> Validar se já está logado e não deixar acessar page de login;
 	-> Adicionar cálculo de frete na página de produto;
 	-> Adicionar pagamento no carrinho;
-	-> Minha Conta;
 	-> Criar thumb das imagens no momento do upload;
 	-> Colocar breadcrumbs nas views;
 	-> Fazer link dos produtos nos sliders;

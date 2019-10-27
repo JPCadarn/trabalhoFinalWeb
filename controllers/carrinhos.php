@@ -36,7 +36,10 @@ class CarrinhosController{
 		echo json_encode($model->excluir($id));
 	}
 }
-	if(isset($_SESSION['usuario'])){	
+	if(session_status() <> PHP_SESSION_ACTIVE)
+		session_start();
+		
+	if(isset($_SESSION['usuario'])){
 		if(isset($_POST) and !empty($_POST)){
 			$classe = new CarrinhosController();
 			$metodo = $_POST['metodo'];
@@ -47,8 +50,9 @@ class CarrinhosController{
 				$retorno = json_encode($retorno);
 
 				return $retorno;
-			}elseif($classe->$metodo($dados))
+			}elseif($classe->$metodo($dados)){
 				header('Location: ..\views\site\carrinho.php');
+			}
 		}
 		
 		if(!empty($_GET) AND isset($_GET['metodo'])){

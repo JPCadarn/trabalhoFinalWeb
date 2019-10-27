@@ -9,17 +9,23 @@
 </head>
   
 <?php
+	if(session_status() <> PHP_SESSION_ACTIVE)
+		session_start();
+
 	if(!isset($_SESSION['usuario']))
-		header('Location: '.$_SERVER['HTTP_REFERER']);
+		header('Location: ../login/');
+
 	require_once('../../controllers/carrinhos.php');
 	require_once('../../controllers/enderecos.php');
 	require_once('../utils/ehtml.php');
 	$controllerCarrinhos = new CarrinhosController();
 	$controllerEnderecos = new EnderecosController();
 	$itens = $controllerCarrinhos->read($_SESSION['usuario']['id']);
+
 	if(!count($itens))
 		header('Location: '.$_SERVER['HTTP_REFERER']);
-	$enderecos = $controllerEnderecos->readEnderecos($_SESSION['usuario']['id']);
+
+		$enderecos = $controllerEnderecos->readEnderecos($_SESSION['usuario']['id']);
 	$ehtml = new Ehtml();
 ?>
 <body>
@@ -98,6 +104,9 @@
 						</div>
 					</div>
 				</div>";
+
+			
+
 			echo "
 				<button class='right btn-floating btn-large indigo' name='metodo' type='submit' value='create'>
 					<i class='large material-icons'>check</i>

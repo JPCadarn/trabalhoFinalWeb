@@ -1,6 +1,9 @@
 <?php
 	class Ehtml {
 		function navBar($titulo){
+			if(session_status() <> PHP_SESSION_ACTIVE)
+				session_start();
+				
 			require_once('../../controllers/categorias.php');
 			$controllerCategorias = new CategoriasController();
 			$categorias = $controllerCategorias->read();
@@ -21,7 +24,7 @@
 				
 				$tagLoginOuConta = "
 					<li><a href='../login/logout.php'>Logout</a></li>
-					<li><a href='../usuario/conta.php?id={$_SESSION['usuario']['id']}'>$contaOuPainel</a></li>
+					<li><a href='../usuarios/conta.php?id={$_SESSION['usuario']['id']}'>$contaOuPainel</a></li>
 				";
 			}else{
 				$tagLoginOuConta = "
@@ -42,7 +45,7 @@
 						</ul>
 						<ul class='right hide-on-med-and-down'>
 							<li>
-								<a class='dropdown-trigger' href='#!' data-target='dropdownCategorias'>Categorias
+								<a class='dropdown-trigger' id='linkDrop' href='#!' data-target='dropdownCategorias'>Categorias
 									<i class='material-icons right'>arrow_drop_down</i>
 								</a>
 							</li>

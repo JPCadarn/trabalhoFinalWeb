@@ -20,9 +20,10 @@ class UsuariosController{
 	
 	function create($dados){
 		$model = new UsuarioModel();
+
 		if(!array_key_exists('dados', $dados))
 			return false;
-
+			
 		return $model->salvar($dados);
 	}
 	
@@ -37,9 +38,7 @@ class UsuariosController{
 	function login($dados){
 		$model = new UsuarioModel();
 
-		$model->login($dados);
-		
-		header('Location: '.$dados['link_retorno']);
+		return $model->login($dados);
 	}
 
 	function logout(){
@@ -54,7 +53,7 @@ class UsuariosController{
 		unset($_POST['metodo']);
 		$dados = $_POST;
 		if($classe->$metodo($dados))
-			header('Location: ..\views\login');
+			header('Location: '.$dados['link_retorno']);
 	}
 
 	if(!empty($_GET) AND isset($_GET['metodo'])){
@@ -63,6 +62,6 @@ class UsuariosController{
 		unset($_GET['metodo']);
 		$dados = $_GET;
 		if($classe->$metodo($dados))
-			header('Location: ..\login');
+			header('Location: '.$dados['link_retorno']);
 	}
 ?>

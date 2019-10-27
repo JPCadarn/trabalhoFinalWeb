@@ -12,7 +12,9 @@
 	require_once('../../controllers/usuarios.php');
 	require_once('../../controllers/usuarios.php');
 	require_once('../utils/ehtml.php');
+	require_once('../utils/sessao.php');
 	$controller = new UsuariosController();
+	$classeSessao = new Sessao();
 	$ehtml = new Ehtml();
 	if(isset($_SESSION['usuario']))
 		header('Location: ../site');
@@ -20,7 +22,10 @@
 <body>
 	<header>
 	<?php
+		if(!isset($_SESSION))
+			$classeSessao->iniciarSessao();
 		echo $ehtml->navBar('Login');
+		$link_retorno = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '../views/site/';
 	?>
 	</header>
 	
@@ -45,7 +50,7 @@
 								<i class="material-icons prefix">email</i>
 								<input class='validate' type='text' name='email' id='email' />
 								<input type='hidden' name='metodo' value="login" />
-								<input type='hidden' name='link_retorno' value="<?php echo $_SERVER['HTTP_REFERER']?>" />
+								<input type='hidden' name='link_retorno' value="<?php echo $link_retorno?>" />
 								<label for='email'>Email</label>
 							</div>
 						</div>

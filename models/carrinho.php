@@ -5,7 +5,6 @@ require_once(dirname(__FILE__).'/../controllers/conexao.php');
 class CarrinhoModel extends Conexao{
 	function salvar($dados){
 		if(array_key_exists('id', $dados)){
-			print_r($dados);exit;
 			return $this->editar($dados);
 		}
 		else
