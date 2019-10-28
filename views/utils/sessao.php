@@ -1,5 +1,5 @@
 <?php
-    require_once('../../controllers/usuarios.php');
+    require_once(dirname(__FILE__).'/../../controllers/usuarios.php');
     class Sessao{
         function criarAdmin(){
 
@@ -18,7 +18,8 @@
 
         function iniciarSessao(){
             ini_set('session.auto_start', 1);
-            session_start();
+            if(session_status() <> PHP_SESSION_ACTIVE)
+                session_start();
             $this->criarAdmin();
         }
         

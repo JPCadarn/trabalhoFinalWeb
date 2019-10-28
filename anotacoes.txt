@@ -17,8 +17,10 @@ ADMINISTRATIVO
 - Lista de usuários cadastrados (admin);
 - Lista de pedidos realizados;
 _______________________________________________________
+Ternário: $icone = $pedido['cartao_id'] ? 'credit_card' : 'money';
 ToDo:
-	-> Minha Conta;
+	-> Minha Conta; --------- TERMINAR TELA DE PEDIDO ---------
+	-> Tratar login errado;
 	-> Fazer máscaras;
 	-> Fazer arquivo pra criar o banco;
 	-> Validar se já está logado e não deixar acessar page de login;

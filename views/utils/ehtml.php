@@ -24,7 +24,7 @@
 				
 				$tagLoginOuConta = "
 					<li><a href='../login/logout.php'>Logout</a></li>
-					<li><a href='../usuarios/conta.php?id={$_SESSION['usuario']['id']}'>$contaOuPainel</a></li>
+					<li><a href='../usuarios/pedidos.php'>$contaOuPainel</a></li>
 				";
 			}else{
 				$tagLoginOuConta = "

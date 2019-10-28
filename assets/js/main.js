@@ -24,11 +24,14 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $('.slider').slider();
-}); 
+});
 
-$('#dropdownCategorias').mouseleave(function(){
-    $('#dropdownCategorias').blur();
-    $('#navegacao').focus();
+$(document).ready(function(){
+    $('.carousel').carousel();
+});
+
+$(document).ready(function(){
+    $('.collapsible').collapsible();
 });
 
 $(".dropdown-trigger").dropdown({

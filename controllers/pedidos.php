@@ -17,6 +17,18 @@ class PedidosController{
 	
 		return $model->getDados($id);
 	}
+
+	function readPedidos($usuarioId){
+		$model = new PedidoModel();
+
+		return $model->getPedidos($usuarioId);
+	}
+
+	function getValor($id){
+		$model = new PedidoModel();
+
+		return $model->getValorPedido($id);
+	}
 	
 	function create($dados){
 		$model = new PedidoModel();

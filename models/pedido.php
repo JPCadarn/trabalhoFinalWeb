@@ -18,6 +18,48 @@ class PedidoModel extends Conexao{
 		return $excluido;
 	}
 
+	function getValorPedido($id){
+		$sql = "
+			SELECT SUM(pi.valor_total), pi.pedido_id
+			FROM pedidos_itens pi
+			WHERE pi.pedido_id = $id
+		";
+
+		return $this->executarQuery($sql);
+	}
+
+	function getPedidos($usuarioId){
+		$sqlPedidos = "
+			SELECT p.*, e.cep, e.destinatario, e.logradouro, e.numero, e.complemento, e.cidade, e.estado, c.numero as cartao
+			FROM pedidos p
+			JOIN enderecos e ON e.id = p.endereco_id
+			JOIN cartaos c ON p.cartao_id = c.id
+			WHERE p.usuario_id = $usuarioId
+		";
+
+		$pedidos = $this->executarQuery($sqlPedidos);
+		$retorno = [];
+
+		foreach($pedidos as $pedido){
+			$sqlItens = "
+				SELECT pi.produto_id, pi.pedido_id, pi.quantidade, prod.nome, pi.valor_total
+				FROM pedidos_itens pi 
+				JOIN produtos prod ON pi.produto_id = prod.id 
+				WHERE pi.pedido_id = {$pedido['id']}
+			";
+			$item = $this->executarQuery($sqlItens);
+			if($item[0]['pedido_id'] = $pedido['id']){
+				$retorno[$pedido['id']] = $item;
+				$retorno[$pedido['id']]['cabecalho']['endereco'] = "{$pedido['logradouro']}, {$pedido['numero']}-{$pedido['complemento']}, {$pedido['cidade']}, {$pedido['estado']}";
+				$retorno[$pedido['id']]['cabecalho']['cartao_id'] = $pedido['cartao_id'];
+				$retorno[$pedido['id']]['cabecalho']['cartao'] = $pedido['cartao'];
+				$retorno[$pedido['id']]['cabecalho']['pedido_id'] = $pedido['id'];
+			}
+		}
+		
+		return $retorno;
+	}
+
 	function getDados($id){
 		$sql = 'SELECT * FROM pedidos';
 

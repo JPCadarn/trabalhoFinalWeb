@@ -38,7 +38,9 @@ CREATE TABLE pedidos (
 	usuario_id INT NOT NULL REFERENCES usuarios(id),
 	data VARCHAR(10) NOT NULL,
 	hora VARCHAR(8) NOT NULL,
-	endereco_id INT NOT NULL
+	endereco_id INT NOT NULL REFERENCES enderecos(id),
+	cartao_id INT REFERENCES cartaos(id),
+	parcelas INT NOT NULL DEFAULT 1
 );
 
 CREATE TABLE pedidos_itens (

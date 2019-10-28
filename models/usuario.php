@@ -95,7 +95,9 @@ class UsuarioModel extends Conexao{
 	}
 
 	function login($dados){
-		session_start();
+		if(session_status() <> PHP_SESSION_ACTIVE)
+			session_start();
+			
 		$dadosUsuarioBD = $this->executarQuery("SELECT id, senha FROM usuarios WHERE email = '{$dados['email']}'")[0];
 		$passou = password_verify($dados['senha'], $dadosUsuarioBD['senha']);
 
