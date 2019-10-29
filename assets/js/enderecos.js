@@ -8,7 +8,6 @@ $('button[id^="btnExcluir"]').click(function(){
 			
 		}
 	).done(function(data) {
-		console.log(JSON.parse(data));
 		if(JSON.parse(data) === true)
 			$('#endereco'+enderecoId).remove();
 	});
