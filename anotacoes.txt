@@ -19,7 +19,9 @@ ADMINISTRATIVO
 _______________________________________________________
 Ternário: $icone = $pedido['cartao_id'] ? 'credit_card' : 'money';
 ToDo:
-	-> Minha Conta; --------- TERMINAR TELA DE PEDIDO ---------
+	-> Minha Conta;
+	-> No cadastro de usuário, validar se as duas senhas são iguais;
+	-> Fazer passo a passo no primeiro login; (Cadastrar dados do usuário, endereço, etc)
 	-> Tratar login errado;
 	-> Fazer máscaras;
 	-> Fazer arquivo pra criar o banco;

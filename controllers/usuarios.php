@@ -46,14 +46,26 @@ class UsuariosController{
 
 		return $model->logout();
 	}
+
+	function validaSenha($dados){
+		$model = new UsuarioModel();
+
+		echo json_encode($model->validarSenha($dados));
+	}
 }
 	if(isset($_POST) and !empty($_POST)){
 		$classe = new UsuariosController();
 		$metodo = $_POST['metodo'];
 		unset($_POST['metodo']);
 		$dados = $_POST;
-		if($classe->$metodo($dados))
+		if($metodo == 'validaSenha'){
+			$retorno = $classe->$metodo($dados);
+			$retorno = json_encode($retorno);
+
+			return $retorno;
+		}elseif($classe->$metodo($dados)){
 			header('Location: '.$dados['link_retorno']);
+		}
 	}
 
 	if(!empty($_GET) AND isset($_GET['metodo'])){

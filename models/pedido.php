@@ -20,7 +20,7 @@ class PedidoModel extends Conexao{
 
 	function getValorPedido($id){
 		$sql = "
-			SELECT SUM(pi.valor_total), pi.pedido_id
+			SELECT SUM(pi.valor_total) AS valor, pi.pedido_id
 			FROM pedidos_itens pi
 			WHERE pi.pedido_id = $id
 		";

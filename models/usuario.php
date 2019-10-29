@@ -68,6 +68,8 @@ class UsuarioModel extends Conexao{
 	}
 
 	function editar($dados){
+		$dados['dados']['senha'] = password_hash($dados['dados']['senha'], PASSWORD_BCRYPT);
+
 		$sql = "
 			UPDATE usuarios
 			SET senha = '{$dados['dados']['senha']}', 
@@ -92,6 +94,20 @@ class UsuarioModel extends Conexao{
 		";
 
 		return $this->executarQuery($sql);
+	}
+
+	function validarSenha($dados){
+		$sqlSenhaAtual = "
+			SELECT senha
+			FROM usuarios
+			WHERE id = {$dados['id']}
+		";
+		$senhaAtual = $this->executarQuery($sqlSenhaAtual)[0]['senha'];
+
+		if(password_verify($dados['senhaAntiga'], $senhaAtual))
+			return true;
+		else
+			return false;
 	}
 
 	function login($dados){

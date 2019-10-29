@@ -38,10 +38,10 @@ $ehtml = new Ehtml();
 		<div class="row">
 			<div class="col s2">
 				<ul class="collection">
-					<li class="collection-item">Pedidos</li>
-					<li class="collection-item">Meus Dados</li>
-					<li class="collection-item">Endereços</li>
-					<li class="collection-item">Cartões</li>
+					<li class="collection-item center"><a class="black-text" href='pedidos.php'>Pedidos</a></li>
+					<li class="collection-item center"><a class="black-text" href='edit.php'>Meus Dados</a></li>
+					<li class="collection-item center"><a class="black-text" href='../enderecos/'>Endereços</a></li>
+					<li class="collection-item center"><a class="black-text" href='../cartaos/'>Cartões</a></li>
 				</ul>
 			</div>
 			<?php
@@ -49,6 +49,8 @@ $ehtml = new Ehtml();
 					echo "<div class='col s10'>";
 					foreach($pedidos as $pedido){
 						$icone = $pedido['cabecalho']['cartao_id'] ? 'credit_card' : 'money';
+						$totalPedido = $pedidosController->getValor($pedido['cabecalho']['pedido_id'])[0]['valor'];
+						$totalPedido = number_format($totalPedido, 2, '.', ',');
 						echo "
 						<ul class='collapsible'>
 							<li>
@@ -56,15 +58,36 @@ $ehtml = new Ehtml();
 									<i class='material-icons'>$icone</i>Pedido {$pedido['cabecalho']['pedido_id']}
 									</div>
 								<div class='collapsible-body'>
-									";
+									<div class='row'>										
+									<table class='highlight'>
+										<thead>
+											<tr>
+												<th class='center'>Produto</th>
+												<th class='center'>Valor Unitário</th>
+												<th class='center'>Quantidade</th>
+												<th class='center'>Valor Total</th>
+											</tr>
+										</thead>
+										<tbody>";
 								for($i = 0; $i < count($pedido) - 1; $i++){
+									$valorUnitario = $pedido[$i]['valor_total']/$pedido[$i]['quantidade'];
+									$valorUnitario = number_format($valorUnitario, 2, '.', ',');
 									echo "
-										<div class='row'>
-											<span>{$pedido[$i]['nome']}</span>
-										</div>
+													<tr>
+														<td class='center'>{$pedido[$i]['nome']}</td>
+														<td class='center'>R$ {$valorUnitario}</td>
+														<td class='center'>{$pedido[$i]['quantidade']}</td>
+														<td class='center'>R$ {$pedido[$i]['valor_total']}</td>
+													</tr>
 									";
 								}
-								echo "</div>
+								echo "</tbody>
+										</table>
+										<br>
+										<span class='left'><b>Valor Total do Pedido:</b></span>
+										<span class='right'><b>{$totalPedido}</b></span>
+									</div>
+								</div>
 							</li>
 						</ul>
 						";
@@ -79,7 +102,7 @@ $ehtml = new Ehtml();
 	echo $ehtml->footer();
 	?>
 
-	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	<script src="..\..\assets\js\jquery-3.4.1.js"></script>
 	<script type="text/javascript" src="../../materialize/js/materialize.min.js"></script>
 	<script src="..\..\assets\js\main.js" crossorigin="anonymous"></script>
 </body>

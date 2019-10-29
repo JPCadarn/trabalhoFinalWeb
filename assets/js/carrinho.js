@@ -19,8 +19,9 @@ $('button[id^="btnMenos"]').click(function(){
 		}
 		$.post("http://localhost/trabalhoFinalWeb/controllers/carrinhos.php", dados, function(data){
 			
-		}).done(function(){
-			$(nomeSpan).text(qtd);
+		}).done(function(data){
+			if(data === true)
+				$(nomeSpan).text(qtd);
 		});
 	}
 });
