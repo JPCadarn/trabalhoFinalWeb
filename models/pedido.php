@@ -38,23 +38,25 @@ class PedidoModel extends Conexao{
 		";
 
 		$pedidos = $this->executarQuery($sqlPedidos);
-		$retorno = [];
-
-		foreach($pedidos as $pedido){
-			$sqlItens = "
-				SELECT pi.produto_id, pi.pedido_id, pi.quantidade, prod.nome, pi.valor_total
-				FROM pedidos_itens pi 
-				JOIN produtos prod ON pi.produto_id = prod.id 
-				WHERE pi.pedido_id = {$pedido['id']}
-			";
-			$item = $this->executarQuery($sqlItens);
-			if($item[0]['pedido_id'] = $pedido['id']){
-				$retorno[$pedido['id']] = $item;
-				$retorno[$pedido['id']]['cabecalho']['endereco'] = "{$pedido['logradouro']}, {$pedido['numero']}-{$pedido['complemento']}, {$pedido['cidade']}, {$pedido['estado']}";
-				$retorno[$pedido['id']]['cabecalho']['cartao_id'] = $pedido['cartao_id'];
-				$retorno[$pedido['id']]['cabecalho']['cartao'] = $pedido['cartao'];
-				$retorno[$pedido['id']]['cabecalho']['pedido_id'] = $pedido['id'];
-			}
+		$retorno = [];	
+		
+		if(!empty($pedidos)){
+			foreach($pedidos as $pedido){
+				$sqlItens = "
+					SELECT pi.produto_id, pi.pedido_id, pi.quantidade, prod.nome, pi.valor_total
+					FROM pedidos_itens pi 
+					JOIN produtos prod ON pi.produto_id = prod.id 
+					WHERE pi.pedido_id = {$pedido['id']}
+				";
+				$item = $this->executarQuery($sqlItens);
+				if($item[0]['pedido_id'] = $pedido['id']){
+					$retorno[$pedido['id']] = $item;
+					$retorno[$pedido['id']]['cabecalho']['endereco'] = "{$pedido['logradouro']}, {$pedido['numero']}-{$pedido['complemento']}, {$pedido['cidade']}, {$pedido['estado']}";
+					$retorno[$pedido['id']]['cabecalho']['cartao_id'] = $pedido['cartao_id'];
+					$retorno[$pedido['id']]['cabecalho']['cartao'] = $pedido['cartao'];
+					$retorno[$pedido['id']]['cabecalho']['pedido_id'] = $pedido['id'];
+				}
+			}				
 		}
 		
 		return $retorno;

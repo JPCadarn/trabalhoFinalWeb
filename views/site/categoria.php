@@ -19,8 +19,20 @@
 <body>
 	<?php
 		echo "<header>";
-			echo $ehtml->navBar('Produtos -> '.$categoria['nome']);
+			echo $ehtml->navBar('Produtos');
 		echo "</header>";
+
+		?>
+		<nav>
+			<div class='nav-wrapper indigo darken-4 center'>
+				<div class='col s12'>
+					<a href='index.php' class='breadcrumb'>Página Inicial</a>
+					<a href='#' class='breadcrumb'>Produtos</a>
+					<a href='#' class='breadcrumb'><?php echo $categoria['nome'] ?></a>
+				</div>
+			</div>
+		</nav>
+		<?php
 		
 		echo "<main>";
 			for($i = 0; $i < count($produtos); $i++){

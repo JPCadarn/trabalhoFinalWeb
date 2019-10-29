@@ -16,6 +16,8 @@ require_once('../utils/ehtml.php');
 date_default_timezone_set("America/Sao_Paulo");
 $controllerProdutos = new ProdutosController();
 $pedidosController = new PedidosController();
+if(session_status() <> PHP_SESSION_ACTIVE)
+	session_start();
 $pedidos = $pedidosController->readPedidos($_SESSION['usuario']['id']);
 $ehtml = new Ehtml();
 ?>
