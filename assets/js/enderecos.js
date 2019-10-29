@@ -8,12 +8,12 @@ $('button[id^="btnExcluir"]').click(function(){
 			
 		}
 	).done(function(data) {
-		$('#endereco'+enderecoId).fadeTo('fast', 0.01, function(){ 
-			$('#endereco'+enderecoId).slideUp(150, function() {
-				$('#endereco'+enderecoId).remove(); 
-			}); 
-		});
-		// if(JSON.parse(data) === true)
-		// 	$('#endereco'+enderecoId).remove();
+		if(JSON.parse(data) === true){
+			$('#endereco'+enderecoId).fadeTo('fast', 0.01, function(){ 
+				$('#endereco'+enderecoId).slideUp(150, function() {
+					$('#endereco'+enderecoId).remove(); 
+				}); 
+			});
+		}
 	});
 })
