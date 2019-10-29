@@ -35,13 +35,13 @@ class EnderecoModel extends Conexao{
 	function criar($dados){
 		$sql = "
 			INSERT INTO enderecos
-			(usuario_id, cep, logradouro, cpf, numero, complemento, cidade, estado, referencia)
+			(usuario_id, cep, rua, bairro, numero, complemento, cidade, estado, referencia)
 			VALUES 
 			(
 				{$dados['dados']['usuario_id']}, 
 				'{$dados['dados']['cep']}',
-				'{$dados['dados']['logradouro']}',
-				'{$dados['dados']['cpf']}',
+				'{$dados['dados']['rua']}',
+				'{$dados['dados']['bairro']}',
 				{$dados['dados']['numero']},
 				'{$dados['dados']['complemento']}',
 				'{$dados['dados']['cidade']}',

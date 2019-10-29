@@ -86,3 +86,11 @@ input[type=date]:not(.browser-default):focus:not([readonly]) {
 .img-pedido {
     width: 20% !important;
 }
+
+.btn-breadcrumb {
+    font-size: 2rem !important;
+}
+
+.ativo {
+    color: ghostwhite;
+}

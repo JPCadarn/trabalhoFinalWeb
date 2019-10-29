@@ -37,7 +37,30 @@ class EnderecosController{
 		if(!$id)
 			return false;
 
-		return $model->excluir($id);
+		echo json_encode($model->excluir($id));
 	}
 }
+	if(isset($_POST) and !empty($_POST)){
+		$classe = new EnderecosController();
+		$metodo = $_POST['metodo'];
+		unset($_POST['metodo']);
+		$dados = $_POST;
+		if($metodo == 'delete'){
+			$retorno = $classe->$metodo($dados['id']);
+			$retorno = json_encode($retorno);
+
+			return $retorno;
+		}elseif($classe->$metodo($dados)){
+			header('Location: ../views/enderecos/');
+		}
+	}
+
+	if(!empty($_GET) AND isset($_GET['metodo'])){
+		$classe = new EnderecosController();
+		$metodo = $_GET['metodo'];
+		unset($_GET['metodo']);
+		$dados = $_GET;
+		if($classe->$metodo($dados))
+			header('Location: ../views/enderecos/');
+	}
 ?>
