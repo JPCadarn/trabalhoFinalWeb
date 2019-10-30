@@ -17,15 +17,18 @@
 
 	require_once('../../controllers/carrinhos.php');
 	require_once('../../controllers/enderecos.php');
+	require_once('../../controllers/cartaos.php');
 	require_once('../utils/ehtml.php');
 	$controllerCarrinhos = new CarrinhosController();
 	$controllerEnderecos = new EnderecosController();
+	$controllerCartaos = new CartaosController();
 	$itens = $controllerCarrinhos->read($_SESSION['usuario']['id']);
 
 	if(!count($itens))
 		header('Location: '.$_SERVER['HTTP_REFERER']);
 
-		$enderecos = $controllerEnderecos->readEnderecos($_SESSION['usuario']['id']);
+	$enderecos = $controllerEnderecos->readEnderecos($_SESSION['usuario']['id']);
+	$cartaos = $controllerCartaos->readCartaos($_SESSION['usuario']['id']);
 	$ehtml = new Ehtml();
 ?>
 <body>
@@ -97,10 +100,10 @@
 				echo "
 					<span>
 						<label>
-							<input name='cabecalho[endereco_id]' value='{$endereco['id']}' type='radio'/>
+							<input name='cabecalho[endereco_id]' value='{$endereco['id']}' required type='radio'/>
 							<span>{$endereco['destinatario']}</span>
 							<span>
-								{$endereco['logradouro']}, 
+								{$endereco['rua']}, {$endereco['bairro']}
 								{$endereco['cidade']}, 
 								{$endereco['cep']}, 
 								{$endereco['estado']}
@@ -114,6 +117,31 @@
 						</div>
 					</div>
 				</div>";
+
+			echo "
+				<div class='row'>
+					<div class='col s12 m12'>
+						<div class='card hoverable center-align'>
+							<div class='card-content'>	
+								<span class='card-title'>Pagamento</span>
+								<span>
+									<label>
+										<input name='cabecalho[cartao_id]' value='0' required type='radio'/>
+										<span>Boleto</span>
+									</label>
+								</span>
+			";
+
+			foreach($cartaos as $cartao){
+				echo "
+					<span>
+						<label>
+							<input name='cabecalho[cartao_id]' value='{$cartao['id']}' required type='radio'/>
+							<span>**** **** *** {$cartao['ultimos_quatro']}</span>
+						</label>
+					</span>
+				";
+			}
 
 			
 
