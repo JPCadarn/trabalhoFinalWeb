@@ -16,6 +16,8 @@ Ternário: $icone = $pedido['cartao_id'] ? 'credit_card' : 'money';
 ToDo:
 	-> Validar acesso às páginas administrativas;
 	-> Ajustar homepage nas breadcrumbs;
+	-> Revisar classe ativo nas breadcrumbs;
+	-> fBtn dos forms (tornar fixo, indigo stock);
 	-> Fazer passo a passo no primeiro login; (Cadastrar dados do usuário, endereço, etc)
 	-> Tratar login errado;
 	-> Fazer máscaras;

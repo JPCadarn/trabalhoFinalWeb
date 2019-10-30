@@ -1,28 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
-	<link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.min.css"  media="screen,projection"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.min.css" media="screen,projection" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="..\..\assets\css\main.css">
 </head>
-  
+
 <?php
-	require_once('../../controllers/produtos.php');
-	require_once('../utils/ehtml.php');
-	$controller = new ProdutosController();
-	$ehtml = new Ehtml();
-	$produto = $controller->read($_GET['id'])[0];
+if (session_status() <> PHP_SESSION_ACTIVE)
+	session_start();
+
+if (!$_SESSION['usuario']['admin'])
+	header('Location: ../site/');
+	
+require_once('../../controllers/produtos.php');
+require_once('../utils/ehtml.php');
+$controller = new ProdutosController();
+$ehtml = new Ehtml();
+$produto = $controller->read($_GET['id'])[0];
 ?>
+
 <body>
 	<header>
-	<?php
+		<?php
 		echo $ehtml->navBar('Produtos');
-	?>
+		?>
 	</header>
 
 	<main>
+		<nav>
+			<div class='nav-wrapper indigo darken-4 center'>
+				<div class='col s12'>
+					<a href='../site/' class='breadcrumb'>Página Inicial</a>
+					<a href='../administrativo/' class='breadcrumb'>Painel Administrativo</a>
+					<a href='index.php' class='breadcrumb'>Produtos</a>
+					<a href='#' class="ativo breadcrumb">Editar Produto</a>
+				</div>
+			</div>
+		</nav>
 		<div class="row">
 			<div class="modal-title">
 				<h4 class="center">Alterar Produto</h4>
@@ -52,10 +70,10 @@
 						<label for="inputTeor">Teor Alcoólico</label>
 					</div>
 					<?php
-						echo $ehtml->selectCategorias($produto['categoria_id']);
+					echo $ehtml->selectCategorias($produto['categoria_id']);
 					?>
 					<div class="file-field input-field col s12">
-						<div class="btn blue">
+						<div class="btn indigo">
 							<span>Imagem</span>
 							<input required name='imagem' type="file" accept="image/*">
 						</div>
@@ -64,7 +82,7 @@
 						</div>
 					</div>
 					<div class="fixed-action-btn">
-						<button class="waves-effect waves-circle waves-light btn-floating btn-large indigo darken-4" type="submit" value="edit">
+						<button class="waves-effect waves-circle waves-light btn-floating btn-large indigo" type="submit" value="edit">
 							<i class="large material-icons">check</i>
 						</button>
 					</div>
@@ -74,11 +92,12 @@
 	</main>
 
 	<?php
-		echo $ehtml->footer();
+	echo $ehtml->footer();
 	?>
 
-  	<script src="..\..\assets\js\jquery-3.4.1.js"></script>
+	<script src="..\..\assets\js\jquery-3.4.1.js"></script>
 	<script type="text/javascript" src="../../materialize/js/materialize.min.js"></script>
 	<script src="..\..\assets\js\main.js" crossorigin="anonymous"></script>
-  </body>
+</body>
+
 </html>
