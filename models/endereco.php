@@ -57,10 +57,10 @@ class EnderecoModel extends Conexao{
 		$sql = "
 			UPDATE enderecos
 			SET cep = '{$dados['dados']['cep']}', 
-				usuario_id = '{$dados['dados']['usuario_id']}',
-				logradouro = '{$dados['dados']['logradouro']}',
-				cpf = '{$dados['dados']['cpf']}',
-				numero = '{$dados['dados']['numero']}'
+				destinatario = '{$dados['dados']['destinatario']}',
+				rua = '{$dados['dados']['rua']}',
+				bairro = '{$dados['dados']['bairro']}',
+				numero = {$dados['dados']['numero']},
 				complemento = '{$dados['dados']['complemento']}',
 				cidade = '{$dados['dados']['cidade']}',
 				estado = '{$dados['dados']['estado']}',
