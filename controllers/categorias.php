@@ -31,7 +31,7 @@ class CategoriasController{
 		if(!$id)
 			return false;
 
-		return $model->excluir($id);
+		echo json_encode($model->excluir($id));
 	}
 
 	function readProdutos($id){
@@ -51,8 +51,14 @@ class CategoriasController{
 		$metodo = $_POST['metodo'];
 		unset($_POST['metodo']);
 		$dados = $_POST;
-		if($classe->$metodo($dados))
+		if($metodo == 'delete'){
+			$retorno = $classe->$metodo($dados['id']);
+			$retorno = json_encode($retorno);
+
+			return $retorno;
+		}elseif($classe->$metodo($dados)){
 			header('Location: ..\views\categorias');
+		}
 	}
 
 	if(!empty($_GET) AND isset($_GET['metodo'])){

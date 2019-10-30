@@ -9,6 +9,12 @@
 </head>
   
 <?php
+	if (session_status() <> PHP_SESSION_ACTIVE)
+	session_start();
+
+	if (!$_SESSION['usuario']['admin'])
+		header('Location: ../site/');
+
 	require_once('../../controllers/categorias.php');
 	require_once('../utils/ehtml.php');
 	$controller = new CategoriasController();
@@ -30,7 +36,7 @@
 			<div class="row">
 				<form action="..\..\controllers\categorias.php" method="post" class="col s12">
 					<div class="row center">
-						<div class="input-field col s6">
+						<div class="input-field col s12">
 							<i class="material-icons prefix">create</i>
 							<input id="inputNome" name="dados[nome]" value="<?php echo $categoria[0]['nome'] ?>" type="text">
 							<label for="inputNome">Nome</label>

@@ -31,7 +31,7 @@ class ProdutosDestaqueController{
 		if(!$id)
 			return false;
 
-		return $model->excluir($id);
+		echo json_encode($model->excluir($id));
 	}
 }
 	if(isset($_POST) and !empty($_POST)){
@@ -39,8 +39,14 @@ class ProdutosDestaqueController{
 		$metodo = $_POST['metodo'];
 		unset($_POST['metodo']);
 		$dados = $_POST;
-		if($classe->$metodo($dados))
+		if($metodo == 'delete'){
+			$retorno = $classe->$metodo($dados['id']);
+			$retorno = json_encode($retorno);
+
+			return $retorno;
+		}elseif($classe->$metodo($dados)){
 			header('Location: ..\views\destaques');
+		}
 	}
 
 	if(!empty($_GET) AND isset($_GET['metodo'])){

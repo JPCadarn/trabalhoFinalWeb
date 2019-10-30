@@ -2,12 +2,7 @@ TEMA:
 	-> Site de Bebidas;
 CLIENTE:
 - Enviar email de boas vindas após o cadastro;
-- Área da conta;
-	-> Cadastrar endereços;
-	-> Cadastrar cartões;
-	-> Listar pedidos;
 - Esqueci minha senha;
-- Cadastros:
 _______________________________________________________
 ADMINISTRATIVO
 - Importar arquivos por arquivo externo;
@@ -19,7 +14,7 @@ ADMINISTRATIVO
 _______________________________________________________
 Ternário: $icone = $pedido['cartao_id'] ? 'credit_card' : 'money';
 ToDo:
-	-> Minha Conta;
+	-> Validar acesso às páginas administrativas;
 	-> Ajustar homepage nas breadcrumbs;
 	-> Fazer passo a passo no primeiro login; (Cadastrar dados do usuário, endereço, etc)
 	-> Tratar login errado;
