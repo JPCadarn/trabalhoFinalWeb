@@ -40,7 +40,7 @@
 					<div class='nav-wrapper indigo darken-4 center'>
 						<div class='col s12'>
 							<a href='../site/' class='breadcrumb'>Página Inicial</a>
-							<a href='#' class='breadcrumb ativo'>Carrinho</a>
+							<a href='#' class='breadcrumb'>Carrinho</a>
 						</div>
 					</div>
 				</nav>
