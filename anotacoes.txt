@@ -20,7 +20,7 @@ _______________________________________________________
 Ternário: $icone = $pedido['cartao_id'] ? 'credit_card' : 'money';
 ToDo:
 	-> Minha Conta;
-	-> No cadastro de usuário, validar se as duas senhas são iguais;
+	-> Ajustar homepage nas breadcrumbs;
 	-> Fazer passo a passo no primeiro login; (Cadastrar dados do usuário, endereço, etc)
 	-> Tratar login errado;
 	-> Fazer máscaras;
@@ -39,8 +39,6 @@ ToDo:
 	-> Tratar erros;
 	-> Esqueceu a senha;
 	-> Email de boas vindas;
-	-> Validações p/ não cadastrar mesmo email duas vezes;
 	-> Mostrar itens mais acessados e mais vendidos na home;
-	-> Alterar collation do banco p/ case sensitive;
 Web Service:
 	header('Access-Control-Allow-Origin: *');

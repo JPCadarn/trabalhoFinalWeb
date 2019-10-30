@@ -16,6 +16,7 @@ CREATE TABLE categorias (
 CREATE TABLE cartaos (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	usuario_id INT NOT NULL REFERENCES usuarios(id),
+	ultimos_quatro INT NOT NULL,
 	codigo_seguranca VARCHAR(60) NOT NULL,
 	numero VARCHAR(60) NOT NULL,
 	validade VARCHAR(5) NOT NULL,

@@ -17,6 +17,12 @@ class CartaoModel extends Conexao{
 		return $excluido;
 	}
 
+	function getCartaos($usuarioId){
+		$sql = "SELECT * FROM cartaos WHERE usuario_id = $usuarioId";
+
+		return $this->executarQuery($sql);
+	}
+
 	function getDados($id){
 		$sql = 'SELECT * FROM cartaos';
 
@@ -27,12 +33,17 @@ class CartaoModel extends Conexao{
 	}
 
 	function criar($dados){
+		$dados['dados']['codigo_seguranca'] = password_hash($dados['dados']['codigo_seguranca'], PASSWORD_BCRYPT);
+		$ultimosQuatro = substr($dados['dados']['numero'], -4);
+		$dados['dados']['numero'] = password_hash($dados['dados']['numero'], PASSWORD_BCRYPT);
+
 		$sql = "
 			INSERT INTO cartaos
-			(usuario_id, codigo_seguranca, numero, validade, debito_credito, nome_impresso)
+			(usuario_id, ultimos_quatro, codigo_seguranca, numero, validade, debito_credito, nome_impresso)
 			VALUES 
 			(
-				{$dados['dados']['usuario_id']}, 
+				{$dados['dados']['usuario_id']},
+				{$ultimosQuatro},
 				'{$dados['dados']['codigo_seguranca']}',
 				'{$dados['dados']['numero']}',
 				'{$dados['dados']['validade']}',

@@ -30,10 +30,10 @@ class PedidoModel extends Conexao{
 
 	function getPedidos($usuarioId){
 		$sqlPedidos = "
-			SELECT p.*, e.cep, e.destinatario, e.logradouro, e.numero, e.complemento, e.cidade, e.estado, c.numero as cartao
+			SELECT p.*, e.cep, e.destinatario, e.rua, e.bairro, e.numero, e.complemento, e.cidade, e.estado, c.numero as cartao
 			FROM pedidos p
-			JOIN enderecos e ON e.id = p.endereco_id
-			JOIN cartaos c ON p.cartao_id = c.id
+			LEFT JOIN enderecos e ON e.id = p.endereco_id
+			LEFT JOIN cartaos c ON p.cartao_id = c.id
 			WHERE p.usuario_id = $usuarioId
 		";
 
@@ -51,7 +51,7 @@ class PedidoModel extends Conexao{
 				$item = $this->executarQuery($sqlItens);
 				if($item[0]['pedido_id'] = $pedido['id']){
 					$retorno[$pedido['id']] = $item;
-					$retorno[$pedido['id']]['cabecalho']['endereco'] = "{$pedido['logradouro']}, {$pedido['numero']}-{$pedido['complemento']}, {$pedido['cidade']}, {$pedido['estado']}";
+					$retorno[$pedido['id']]['cabecalho']['endereco'] = "{$pedido['rua']}, {$pedido['bairro']}, {$pedido['numero']}-{$pedido['complemento']}, {$pedido['cidade']}, {$pedido['estado']}";
 					$retorno[$pedido['id']]['cabecalho']['cartao_id'] = $pedido['cartao_id'];
 					$retorno[$pedido['id']]['cabecalho']['cartao'] = $pedido['cartao'];
 					$retorno[$pedido['id']]['cabecalho']['pedido_id'] = $pedido['id'];
