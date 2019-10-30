@@ -14,17 +14,12 @@ ADMINISTRATIVO
 _______________________________________________________
 Ternário: $icone = $pedido['cartao_id'] ? 'credit_card' : 'money';
 ToDo:
-	-> Revisar uso de for pra montagem de grids;
-	-> fBtn dos forms (tornar fixo, indigo stock);
 	-> Fazer passo a passo no primeiro login; (Cadastrar dados do usuário, endereço, etc)
 	-> Tratar login errado;
 	-> Fazer máscaras;
 	-> Fazer arquivo pra criar o banco;
-	-> Validar se já está logado e não deixar acessar page de login;
 	-> Adicionar cálculo de frete na página de produto;
-	-> Adicionar pagamento no carrinho;
 	-> Criar thumb das imagens no momento do upload;
-	-> Colocar breadcrumbs nas views;
 	-> Fazer link dos produtos nos sliders;
 	-> Ícone tab do navegador;
 	-> Categorias responsivo na navbar;
