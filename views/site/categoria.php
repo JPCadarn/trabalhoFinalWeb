@@ -26,9 +26,9 @@
 		<nav>
 			<div class='nav-wrapper indigo darken-4 center'>
 				<div class='col s12'>
-					<a href='index.php' class='breadcrumb'>Página Inicial</a>
+					<a href='../site/' class='breadcrumb'>Página Inicial</a>
 					<a href='#' class='breadcrumb'>Produtos</a>
-					<a href='#' class='breadcrumb'><?php echo $categoria['nome'] ?></a>
+					<a href='#' class='breadcrumb ativo'><?php echo $categoria['nome'] ?></a>
 				</div>
 			</div>
 		</nav>

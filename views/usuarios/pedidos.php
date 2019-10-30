@@ -32,8 +32,8 @@ $ehtml = new Ehtml();
 		<nav>
 			<div class='nav-wrapper indigo darken-4 center'>
 				<div class='col s12'>
-					<a href='index.php' class='breadcrumb'>Página Inicial</a>
-					<a href='' class='breadcrumb'>Conta</a>
+					<a href='../site/' class='breadcrumb'>Página Inicial</a>
+					<a href='' class='breadcrumb ativo'>Conta</a>
 				</div>
 			</div>
 		</nav>

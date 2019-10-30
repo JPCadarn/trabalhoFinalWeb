@@ -34,7 +34,7 @@ $ehtml = new Ehtml();
 		<nav>
 			<div class='nav-wrapper indigo darken-4 center'>
 				<div class='col s12'>
-					<a href='index.php' class='breadcrumb'>Página Inicial</a>
+					<a href='../site/' class='breadcrumb'>Página Inicial</a>
 					<a href='../administrativo/' class='breadcrumb'>Painel Administrativo</a>
 					<a href='' class='breadcrumb ativo'>Itens em Destaque</a>
 					<a data-target="addModal" class="modal-trigger btn-floating halfway-fab waves-effect waves-light indigo"><span class="btn-breadcrumb">&#43;</span></a>

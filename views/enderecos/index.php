@@ -35,7 +35,7 @@ $ehtml = new Ehtml();
 		<nav>
 			<div class='nav-wrapper indigo darken-4 center'>
 				<div class='col s12'>
-					<a href='index.php' class='breadcrumb'>Página Inicial</a>
+					<a href='../site/' class='breadcrumb'>Página Inicial</a>
 					<a href='../usuarios/pedidos.php' class='breadcrumb'>Conta</a>
 					<a href='' class='breadcrumb ativo'>Endereços</a>
 					<a href='add.php' class="btn-floating halfway-fab waves-effect waves-light indigo"><span class="btn-breadcrumb">&#43;</span></a>
