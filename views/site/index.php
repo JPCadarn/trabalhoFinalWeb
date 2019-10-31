@@ -79,7 +79,6 @@
 
 		foreach($maisAcessados as $maisAcessado){
 			$maisAcessado = $controllerProdutos->read($maisAcessado['produto_id'])[0];
-			print_r($maisAcessado);
 			$tagSlide = "
 				<li>
 					<img src='../../assets/images/".$maisAcessado['imagem']."'>
