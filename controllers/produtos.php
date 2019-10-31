@@ -17,6 +17,18 @@ class ProdutosController{
 		
 		return $model->getDados($id);
 	}
+
+	function maisVendidos(){
+		$model = new ProdutoModel();
+
+		return $model->getMaisVendidos();
+	}
+	
+	function maisAcessados(){
+		$model = new ProdutoModel();
+
+		return $model->getMaisAcessados();
+	}
 	
 	function create($dados){
 		$model = new ProdutoModel();

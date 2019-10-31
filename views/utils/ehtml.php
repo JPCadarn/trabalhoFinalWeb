@@ -19,12 +19,15 @@
 			}
 			echo "</ul>";
 			
-			if(isset($_SESSION['usuario'])){
-				$contaOuPainel = $_SESSION['usuario']['admin'] ? 'Painel Administrativo' : 'Minha Conta';
-				
+			if(isset($_SESSION['usuario']['admin']) AND $_SESSION['usuario']['admin']){
 				$tagLoginOuConta = "
 					<li><a href='../login/logout.php'>Logout</a></li>
-					<li><a href='../usuarios/pedidos.php'>$contaOuPainel</a></li>
+					<li><a href='../usuarios/pedidos.php'>Minha Conta</a></li>
+				";
+			}elseif(isset($_SESSION['usuario'])){
+				$tagLoginOuConta = "
+					<li><a href='../login/logout.php'>Logout</a></li>
+					<li><a href='../administrativo/'>Minha Conta</a></li>
 				";
 			}else{
 				$tagLoginOuConta = "
@@ -36,8 +39,8 @@
 			<div class='navbar-fixed'>
 			<nav class='indigo darken-4'>
 					<div class='nav-wrapper' id='navegacao'>
-						<a href='../site/' class='brand-logo center'>
-							<img class='imagem-logo responsive-img' id='logo' src='..\..\assets\images\logo.png'/>
+						<a href='../site/' class='brand-logo center' tabIndex='-1'>
+							<img class='imagem-logo responsive-img' tabIndex='-1' id='logo' src='..\..\assets\images\logo.png'/>
 						</a>
 						<a href='#' data-target='listaResponsivo' class='sidenav-trigger'><i class='material-icons'>menu</i></a>
 						<ul class='left hide-on-med-and-down'>

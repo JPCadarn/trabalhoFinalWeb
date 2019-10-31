@@ -10,6 +10,30 @@ class ProdutoModel extends Conexao{
 			return $this->criar($dados);
 	}
 
+	function getMaisVendidos(){
+		$sql = "
+			SELECT produto_id, COUNT(produto_id)
+			FROM pedidos_itens
+			GROUP BY produto_id
+			ORDER BY COUNT(produto_id) DESC
+			LIMIT 5
+		";
+
+		return $this->executarQuery($sql);
+	}
+
+	function getMaisAcessados(){
+		$sql = "
+			SELECT COUNT(produto_id), produto_id
+			FROM produtos_acessos
+			GROUP BY produto_id
+			ORDER BY COUNT(produto_id)
+			LIMIT 5
+		";
+
+		return $this->executarQuery($sql);
+	}
+
 	function excluir($id){
 		$sql = 'DELETE FROM produtos WHERE id = '.$id;
 		$excluido = $this->executarQuery($sql);

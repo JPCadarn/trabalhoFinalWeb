@@ -15,8 +15,7 @@ class LogProdutosController{
 		
 		if(!array_key_exists('id', $dados))
 			return false;
-
-
+		
 		return $model->criar($dados['id']);
 	}
 	

@@ -14,7 +14,10 @@
 	require_once('../../controllers/produtos_destaque.php');
 	require_once('../utils/ehtml.php');
 	$controllerDestaques = new ProdutosDestaqueController();
+	$controllerProdutos = new ProdutosController();
 	$destaques = $controllerDestaques->read();
+	$maisAcessados = $controllerProdutos->maisAcessados();
+	$maisVendidos = $controllerProdutos->maisVendidos();
 	$ehtml = new Ehtml();
 ?>
 <body>
@@ -44,6 +47,53 @@
 		echo "
 				</ul>
 				<label class='black-text' for='slider'>Produtos em Destaque</label>
+			</div>
+		";
+
+		echo "
+			<div id='slider' class='slider'>
+				<ul class='slides'>";
+
+		foreach($maisVendidos as $maisVendido){
+			$maisVendido = $controllerProdutos->read($maisVendido['produto_id'])[0];
+			$tagSlide = "
+				<li>
+					<img src='../../assets/images/".$maisVendido['imagem']."'>
+					<div class='caption left-align'>
+						<h3 class='grey-text text-darken-3'>".$maisVendido['nome']."</h3>
+						<h5 class='grey-text text-darken-3'>R$ ".$maisVendido['valor']."</h5>
+					</div>
+				</li>
+			";
+			echo $tagSlide;
+		}
+		echo "
+				</ul>
+				<label class='black-text' for='slider'>Mais Vendidos</label>
+			</div>
+		";
+
+		echo "
+			<div id='slider' class='slider'>
+				<ul class='slides'>";
+
+		foreach($maisAcessados as $maisAcessado){
+			$maisAcessado = $controllerProdutos->read($maisAcessado['produto_id'])[0];
+			print_r($maisAcessado);
+			$tagSlide = "
+				<li>
+					<img src='../../assets/images/".$maisAcessado['imagem']."'>
+					<div class='caption left-align'>
+						<h3 class='grey-text text-darken-3'>".$maisAcessado['nome']."</h3>
+						<h5 class='grey-text text-darken-3'>R$ ".$maisAcessado['valor']."</h5>
+					</div>
+				</li>
+			";
+			echo $tagSlide;
+		}
+		echo "
+				</ul>
+				<label class='black-text' for='slider'>Mais Vendidos</label>
 			</div>
 		";
 	?>
