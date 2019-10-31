@@ -21,8 +21,6 @@ ToDo:
 	-> Fazer link dos produtos nos sliders;
 	-> Ícone tab do navegador;
 	-> Categorias responsivo na navbar;
-	-> View usuários admin;
-	-> View pedidos admin;
 	-> Avaliações;
 	-> Tratar erros;
 	-> Esqueceu a senha;
