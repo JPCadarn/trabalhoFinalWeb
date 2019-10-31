@@ -92,7 +92,7 @@
 		}
 		echo "
 				</ul>
-				<label class='black-text' for='slider'>Mais Vendidos</label>
+				<label class='black-text' for='slider'>Mais Acessados</label>
 			</div>
 		";
 	?>
