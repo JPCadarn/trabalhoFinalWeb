@@ -28,6 +28,9 @@ $controllerDestaques = new ProdutosDestaqueController();
 if (session_status() <> PHP_SESSION_ACTIVE)
 	session_start();
 
+if (!$_SESSION['usuario']['admin'])
+	header('Location: ../site/');
+
 $countPedidos = $controllerPedidos->getCount()[0]['count'];
 $countProdutos = $controllerProdutos->getCount()[0]['count'];
 $countCategorias = $controllerCategorias->getCount()[0]['count'];

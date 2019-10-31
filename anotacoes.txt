@@ -6,8 +6,7 @@ CLIENTE:
 _______________________________________________________
 ADMINISTRATIVO VIEWS
 - View pedidos; (todos, mais acessados, mais vendidos)
-- Views usuários;
-- Importar arquivos por arquivo externo;
+- Importar produtos por arquivo externo;
 _______________________________________________________
 Ternário: $icone = $pedido['cartao_id'] ? 'credit_card' : 'money';
 ToDo:
