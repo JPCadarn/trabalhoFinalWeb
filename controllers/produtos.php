@@ -29,6 +29,12 @@ class ProdutosController{
 
 		return $model->getMaisAcessados();
 	}
+
+	function getCount(){
+		$model = new ProdutoModel();
+
+		return $model->getCount();
+	}
 	
 	function create($dados){
 		$model = new ProdutoModel();

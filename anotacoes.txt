@@ -4,17 +4,20 @@ CLIENTE:
 - Enviar email de boas vindas após o cadastro;
 - Esqueci minha senha;
 _______________________________________________________
-ADMINISTRATIVO
+ADMINISTRATIVO VIEWS
+- CRUD Produtos;
+- CRUD Categorias;
+- CRUD Destaques;
+- View pedidos;
+- View acessos produtos;
+- View vendas produtos;
+- Views usuários;
 - Importar arquivos por arquivo externo;
-- Visualizar histórico de compras;
-- Visualizar produtos mais vendidos;
-- Visualizar produtos mais acessados;
-- Lista de usuários cadastrados (admin);
-- Lista de pedidos realizados;
 _______________________________________________________
 Ternário: $icone = $pedido['cartao_id'] ? 'credit_card' : 'money';
 ToDo:
 	-> Excluir chaves estrangeiras junto com produtos e etc;
+	-> Remover titulos da navbar;
 	-> Fazer passo a passo no primeiro login; (Cadastrar dados do usuário, endereço, etc)
 	-> Tratar login errado;
 	-> Fazer máscaras;

@@ -10,6 +10,15 @@ class ProdutoModel extends Conexao{
 			return $this->criar($dados);
 	}
 
+	function getCount(){
+		$sql = "
+			SELECT COUNT(*) as count
+			FROM produtos
+		";
+
+		return $this->executarQuery($sql);
+	}
+
 	function getMaisVendidos(){
 		$sql = "
 			SELECT produto_id, COUNT(produto_id)

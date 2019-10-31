@@ -11,6 +11,12 @@ class PedidosController{
 
 		return $model->editar($dados);
 	}
+
+	function getCount(){
+		$model = new PedidoModel();
+
+		return $model->getCount();
+	}
 	
 	function read($id = null){
 		$model = new PedidoModel();

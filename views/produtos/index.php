@@ -55,7 +55,7 @@ $ehtml = new Ehtml();
 								<p>R$ {$produto['valor']}</p>
 							</div>
 							<div class='card-action center'>
-								<button class='waves-effect waves-circle waves-light btn-floating btn-small waves-effect waves-light indigo tooltipped' data-position='bottom' data-tooltip='Excluir Endereço' href=''> 
+								<button class='waves-effect waves-circle waves-light btn-floating btn-small waves-effect waves-light indigo' href=''> 
 									<a class='tooltipped' data-position='bottom' data-tooltip='Editar Produto' href='editar.php?id={$produto['id']}'> <i class='material-icons white-text'>edit</i></a>
 								</button>
 								<button id='btnExcluir" . $produto['id'] . "'class='waves-effect waves-circle waves-light btn-floating btn-small waves-effect waves-light indigo tooltipped' data-position='bottom' data-tooltip='Excluir Produto' href=''> 

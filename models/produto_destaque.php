@@ -17,6 +17,15 @@ class ProdutoDestaqueModel extends Conexao{
 		return $excluido;
 	}
 
+	function getCount(){
+		$sql = "
+			SELECT COUNT(*) AS count
+			FROM produtos_destaque
+		";
+
+		return $this->executarQuery($sql);
+	}
+
 	function getDados($id){
 		$sql = 'SELECT pd.*, p.imagem, p.nome, p.valor
 				FROM produtos_destaque pd

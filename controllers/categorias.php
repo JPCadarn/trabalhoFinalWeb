@@ -17,6 +17,12 @@ class CategoriasController{
 		
 		return $model->getDados($id);
 	}
+
+	function getCount(){
+		$model = new CategoriaModel();
+
+		return $model->getCount();
+	}
 	
 	function create($dados){
 		$model = new CategoriaModel();

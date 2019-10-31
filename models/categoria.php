@@ -17,6 +17,15 @@ class CategoriaModel extends Conexao{
 		return $excluido;
 	}
 
+	function getCount(){
+		$sql = "
+			SELECT COUNT(*) as count
+			FROM categorias
+		";
+
+		return $this->executarQuery($sql);
+	}
+
 	function getCountProdutos($id){
 		$where = null;
 

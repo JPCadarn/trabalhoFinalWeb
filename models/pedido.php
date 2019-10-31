@@ -18,6 +18,15 @@ class PedidoModel extends Conexao{
 		return $excluido;
 	}
 
+	function getCount(){
+		$sql = "
+			SELECT COUNT(*) as count
+			FROM pedidos
+		";
+
+		return $this->executarQuery($sql);
+	}
+
 	function getValorPedido($id){
 		$sql = "
 			SELECT SUM(pi.valor_total) AS valor, pi.pedido_id

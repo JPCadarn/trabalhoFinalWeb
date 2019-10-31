@@ -22,12 +22,12 @@
 			if(isset($_SESSION['usuario']['admin']) AND $_SESSION['usuario']['admin']){
 				$tagLoginOuConta = "
 					<li><a href='../login/logout.php'>Logout</a></li>
-					<li><a href='../usuarios/pedidos.php'>Minha Conta</a></li>
+					<li><a href='../administrativo/'>Painel Administrativo</a></li>
 				";
 			}elseif(isset($_SESSION['usuario'])){
 				$tagLoginOuConta = "
 					<li><a href='../login/logout.php'>Logout</a></li>
-					<li><a href='../administrativo/'>Minha Conta</a></li>
+					<li><a href='../usuarios/pedidos.php'>Minha Conta</a></li>
 				";
 			}else{
 				$tagLoginOuConta = "

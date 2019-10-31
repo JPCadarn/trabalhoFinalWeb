@@ -17,6 +17,12 @@ class ProdutosDestaqueController{
 		
 		return $model->getDados($id);
 	}
+
+	function getCount(){
+		$model = new ProdutoDestaqueModel();
+
+		return $model->getCount();
+	}
 	
 	function create($dados){
 		$model = new ProdutoDestaqueModel();
