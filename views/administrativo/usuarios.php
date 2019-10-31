@@ -46,7 +46,7 @@ $masks = new Masks();
 			</div>
 		</nav>
 		<div class="row">
-			<table class="centered highlight">
+			<table class="centered highlight responsive-table">
 				<thead>
 					<tr>
 						<th>ID</th>
