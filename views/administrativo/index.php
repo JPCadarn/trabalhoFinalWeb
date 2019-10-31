@@ -14,6 +14,7 @@ require_once('../../controllers/produtos.php');
 require_once('../../controllers/pedidos.php');
 require_once('../../controllers/categorias.php');
 require_once('../../controllers/produtos_destaque.php');
+require_once('../../controllers/usuarios.php');
 require_once('../utils/ehtml.php');
 
 date_default_timezone_set("America/Sao_Paulo");
@@ -21,6 +22,7 @@ date_default_timezone_set("America/Sao_Paulo");
 $controllerProdutos = new ProdutosController();
 $controllerPedidos = new PedidosController();
 $controllerCategorias = new CategoriasController();
+$controllerUsuarios = new UsuariosController();
 $controllerDestaques = new ProdutosDestaqueController();
 
 if (session_status() <> PHP_SESSION_ACTIVE)
@@ -30,6 +32,8 @@ $countPedidos = $controllerPedidos->getCount()[0]['count'];
 $countProdutos = $controllerProdutos->getCount()[0]['count'];
 $countCategorias = $controllerCategorias->getCount()[0]['count'];
 $countDestaques = $controllerDestaques->getCount()[0]['count'];
+$countDestaques = $controllerDestaques->getCount()[0]['count'];
+$countUsuarios = $controllerUsuarios->getCount()[0]['count'];
 $ehtml = new Ehtml();
 ?>
 
@@ -90,6 +94,17 @@ $ehtml = new Ehtml();
 					</div>
 					<div class="card-action">
 						<a href="../destaques/" class="indigo-text text-lighten-1">Visualizar Destaques</a>
+					</div>
+				</div>
+			</div>
+			<div class="col s12 m4">
+				<div class="card hoverable center">
+					<div class="card-content">
+						<span class="card-title">Usuários</span>
+						<p><?php echo $countUsuarios ?> usuários cadastrados.</p>
+					</div>
+					<div class="card-action">
+						<a href="usuarios.php" class="indigo-text text-lighten-1">Visualizar Usuários</a>
 					</div>
 				</div>
 			</div>

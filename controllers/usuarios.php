@@ -17,6 +17,12 @@ class UsuariosController{
 		
 		return $model->getDados($id);
 	}
+
+	function getCount(){
+		$model = new UsuarioModel();
+		
+		return $model->getCount();
+	}
 	
 	function create($dados){
 		$model = new UsuarioModel();

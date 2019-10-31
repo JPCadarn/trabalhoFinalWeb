@@ -19,6 +19,16 @@ class UsuarioModel extends Conexao{
 		return $excluido;
 	}
 
+	function getCount(){
+		$sql = "
+			SELECT COUNT(*) AS count
+			FROM usuarios
+			WHERE email <> 'ADMIN'
+		";
+
+		return $this->executarQuery($sql);
+	}
+
 	function getDados($id){
 		$sql = 'SELECT * FROM usuarios';
 

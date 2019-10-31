@@ -5,12 +5,7 @@ CLIENTE:
 - Esqueci minha senha;
 _______________________________________________________
 ADMINISTRATIVO VIEWS
-- CRUD Produtos;
-- CRUD Categorias;
-- CRUD Destaques;
-- View pedidos;
-- View acessos produtos;
-- View vendas produtos;
+- View pedidos; (todos, mais acessados, mais vendidos)
 - Views usuários;
 - Importar arquivos por arquivo externo;
 _______________________________________________________
