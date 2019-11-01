@@ -24,7 +24,7 @@
 <body>
 	<header>
 	<?php
-		echo $ehtml->navBar('Categorias -> Alterar')
+		echo $ehtml->navBar('')
 	?>
 	</header>
 

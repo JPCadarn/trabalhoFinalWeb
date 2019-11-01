@@ -28,7 +28,7 @@ $ehtml = new Ehtml();
 <body>
 	<?php
 	echo "<header>";
-	echo $ehtml->navBar('Endereços');
+	echo $ehtml->navBar('');
 	echo "</header>";
 	?>
 	<main>

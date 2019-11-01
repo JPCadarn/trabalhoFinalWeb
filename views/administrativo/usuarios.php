@@ -41,7 +41,7 @@ $masks = new Masks();
 				<div class='col s12'>
 					<a href='../site/' class='breadcrumb'>Página Inicial</a>
 					<a href='index.php' class='breadcrumb'>Painel Administrativo</a>
-					<a href='#' class='breadcrumb ativo'>Usuários</a>
+					<a href='#' class='breadcrumb ativo'>Pedidos</a>
 				</div>
 			</div>
 		</nav>

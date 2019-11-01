@@ -1,17 +1,11 @@
-TEMA:
-	-> Site de Bebidas;
 CLIENTE:
 - Enviar email de boas vindas após o cadastro;
 - Esqueci minha senha;
 _______________________________________________________
-ADMINISTRATIVO VIEWS
-- View pedidos; (todos, mais acessados, mais vendidos)
-- Importar produtos por arquivo externo;
-_______________________________________________________
 Ternário: $icone = $pedido['cartao_id'] ? 'credit_card' : 'money';
 ToDo:
+	-> Implementar pagamento;
 	-> Excluir chaves estrangeiras junto com produtos e etc;
-	-> Remover titulos da navbar;
 	-> Fazer passo a passo no primeiro login; (Cadastrar dados do usuário, endereço, etc)
 	-> Tratar login errado;
 	-> Fazer máscaras;

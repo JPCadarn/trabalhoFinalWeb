@@ -19,26 +19,32 @@ class ProdutoModel extends Conexao{
 		return $this->executarQuery($sql);
 	}
 
-	function getMaisVendidos(){
+	function getMaisVendidos($limit = null){
 		$sql = "
-			SELECT produto_id, COUNT(produto_id)
-			FROM pedidos_itens
+			SELECT pi.produto_id, p.nome, COUNT(pi.produto_id) as count
+			FROM pedidos_itens pi
+			JOIN produtos p ON pi.produto_id = p.id
 			GROUP BY produto_id
 			ORDER BY COUNT(produto_id) DESC
-			LIMIT 5
 		";
+
+		if($limit)
+			$sql .= " LIMIT $limit";
 
 		return $this->executarQuery($sql);
 	}
 
-	function getMaisAcessados(){
+	function getMaisAcessados($limit = null){
 		$sql = "
-			SELECT COUNT(produto_id), produto_id
-			FROM produtos_acessos
+			SELECT pa.produto_id, p.nome, COUNT(pa.produto_id) as count
+			FROM produtos_acessos pa
+			JOIN produtos p ON pa.produto_id = p.id
 			GROUP BY produto_id
 			ORDER BY COUNT(produto_id)
-			LIMIT 5
 		";
+
+		if($limit)
+			$sql .= " LIMIT $limit";
 
 		return $this->executarQuery($sql);
 	}

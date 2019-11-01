@@ -21,7 +21,7 @@ $ehtml = new Ehtml();
 <body>
 	<header>
 		<?php
-		echo $ehtml->navBar('Produtos');
+		echo $ehtml->navBar('');
 		?>
 	</header>
 	<main>

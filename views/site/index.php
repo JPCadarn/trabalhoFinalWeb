@@ -16,8 +16,8 @@
 	$controllerDestaques = new ProdutosDestaqueController();
 	$controllerProdutos = new ProdutosController();
 	$destaques = $controllerDestaques->read();
-	$maisAcessados = $controllerProdutos->maisAcessados();
-	$maisVendidos = $controllerProdutos->maisVendidos();
+	$maisAcessados = $controllerProdutos->maisAcessados(5);
+	$maisVendidos = $controllerProdutos->maisVendidos(5);
 	$ehtml = new Ehtml();
 ?>
 <body>

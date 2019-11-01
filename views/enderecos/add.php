@@ -25,7 +25,7 @@ $ehtml = new Ehtml();
 <body>
 	<?php
 	echo "<header>";
-	echo $ehtml->navBar('Minha Conta');
+	echo $ehtml->navBar('');
 	echo "</header>";
 	?>
 	<main>

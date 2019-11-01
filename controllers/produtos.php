@@ -18,16 +18,16 @@ class ProdutosController{
 		return $model->getDados($id);
 	}
 
-	function maisVendidos(){
+	function maisVendidos($limit = null){
 		$model = new ProdutoModel();
 
-		return $model->getMaisVendidos();
+		return $model->getMaisVendidos($limit);
 	}
 	
-	function maisAcessados(){
+	function maisAcessados($limit = null){
 		$model = new ProdutoModel();
 
-		return $model->getMaisAcessados();
+		return $model->getMaisAcessados($limit);
 	}
 
 	function getCount(){

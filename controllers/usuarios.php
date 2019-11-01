@@ -11,6 +11,12 @@ class UsuariosController{
 
 		return $model->editar($dados);
 	}
+
+	function getAcessos($usuarioId = null){
+		$model = new UsuarioModel();
+
+		return $model->getAcessos($usuarioId);
+	}
 	
 	function read($id = null){
 		$model = new UsuarioModel();

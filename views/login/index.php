@@ -24,7 +24,7 @@
 	<?php
 		if(!isset($_SESSION))
 			$classeSessao->iniciarSessao();
-		echo $ehtml->navBar('Login');
+		echo $ehtml->navBar('');
 		$link_retorno = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '../views/site/';
 	?>
 	</header>

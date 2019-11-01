@@ -111,6 +111,17 @@ $ehtml = new Ehtml();
 					</div>
 				</div>
 			</div>
+			<div class="col s12 m4">
+				<div class="card hoverable center">
+					<div class="card-content">
+						<span class="card-title">Logs</span>
+						<p>Visualizar acessos e históricos de venda</p>
+					</div>
+					<div class="card-action">
+						<a href="logs.php" class="indigo-text text-lighten-1">Visualizar</a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</main>
 	<?php

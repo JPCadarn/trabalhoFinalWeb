@@ -34,7 +34,7 @@
 <body>
 	<?php
 		echo "<header>";
-			echo $ehtml->navBar('Carrinho');
+			echo $ehtml->navBar('');
 		echo "</header>";
 		
 		echo "<main>";

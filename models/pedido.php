@@ -18,6 +18,25 @@ class PedidoModel extends Conexao{
 		return $excluido;
 	}
 
+	function getDetalhados(){
+		$sql = "
+			SELECT p.*, 
+				   c.debito_credito, 
+				   c.ultimos_quatro, 
+				   u.nome, 
+				   (
+					SELECT SUM(pi.valor_total)
+					FROM pedidos_itens pi
+					WHERE pi.pedido_id = p.id 
+				   ) AS valor
+				   FROM pedidos p
+				   LEFT JOIN cartaos c ON p.cartao_id = c.id
+				   JOIN usuarios u ON p.usuario_id = u.id
+		";
+
+		return $this->executarQuery($sql);
+	}
+
 	function getCount(){
 		$sql = "
 			SELECT COUNT(*) as count

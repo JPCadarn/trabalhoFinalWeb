@@ -26,7 +26,7 @@ $produto = $controller->read($_GET['id'])[0];
 <body>
 	<header>
 		<?php
-		echo $ehtml->navBar('Produtos');
+		echo $ehtml->navBar('');
 		?>
 	</header>
 

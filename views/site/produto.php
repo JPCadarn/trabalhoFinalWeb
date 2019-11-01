@@ -22,7 +22,7 @@
 <body>
 	<?php
 		echo "<header>";
-			echo $ehtml->navBar('Produtos');
+			echo $ehtml->navBar('');
 		echo "</header>";
 		echo "<main>";
 			$linkCategoria = trim($_SERVER['HTTP_REFERER']);

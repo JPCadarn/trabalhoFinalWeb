@@ -19,6 +19,17 @@ class UsuarioModel extends Conexao{
 		return $excluido;
 	}
 
+	function getAcessos($usuarioId = null){
+		$sql = "SELECT ua.*, u.email
+				FROM usuarios_acessos ua
+				JOIN usuarios u ON ua.usuario_id = u.id ";
+
+		if($usuarioId)
+			$sql .= " WHERE usuario_id = $usuarioId";
+			
+		return $this->executarQuery($sql);
+	}
+
 	function getCount(){
 		$sql = "
 			SELECT COUNT(*) AS count

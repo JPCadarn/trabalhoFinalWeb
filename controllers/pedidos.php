@@ -17,6 +17,12 @@ class PedidosController{
 
 		return $model->getCount();
 	}
+
+	function readPedidosDetalhado(){
+		$model = new PedidoModel();
+
+		return $model->getDetalhados();
+	}
 	
 	function read($id = null){
 		$model = new PedidoModel();
