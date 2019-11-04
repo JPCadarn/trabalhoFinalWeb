@@ -10,7 +10,7 @@ class CarrinhosController{
 		if(!array_key_exists('id', $dados['dados']))
 			return false;
 				
-		echo json_encode($model->editar($dados));
+		echo (json_encode($model->editar($dados)));
 	}
 	
 	function read($userId){

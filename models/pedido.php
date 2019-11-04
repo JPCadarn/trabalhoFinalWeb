@@ -104,13 +104,14 @@ class PedidoModel extends Conexao{
 		$hora = date('H:i:s');
 		$sql = "
 			INSERT INTO pedidos
-			(usuario_id, endereco_id, data, hora)
+			(usuario_id, endereco_id, data, hora, cartao_id)
 			VALUES 
 			(
 				{$cabecalho['usuario_id']}, 
 				{$cabecalho['endereco_id']}, 
 				'{$data}',
-				'{$hora}'
+				'{$hora}',
+				{$cabecalho['cartao_id']}
 			)
 		";
 		
@@ -151,10 +152,11 @@ class PedidoModel extends Conexao{
 		
 		return true;
 	}
-
+	
 	function criar($dados){
 		if(array_key_exists('itens', $dados) AND array_key_exists('cabecalho', $dados)){
 			if($this->salvarCabecalhoPedido($dados['cabecalho']) AND $this->salvarItensPedido($dados['itens'])){
+				$this->executarQuery("DELETE FROM carrinhos WHERE usuario_id = {$dados['cabecalho']['usuario_id']}");
 				return true;
 			}
 		}else

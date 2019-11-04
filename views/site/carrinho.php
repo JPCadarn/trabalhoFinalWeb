@@ -48,6 +48,7 @@
 					</div>
 				</nav>
 			";
+			echo "<form action='..\..\controllers\pedidos.php' method='POST'>";
 			echo "<input type='hidden' name='cabecalho[usuario_id]' value='{$_SESSION['usuario']['id']}'>";
 			for($i = 0; $i < count($itens); $i++){
 				echo "
@@ -149,6 +150,7 @@
 				<button class='right btn-floating btn-large indigo' name='metodo' type='submit' value='create'>
 					<i class='large material-icons'>check</i>
 				</button>";
+		echo "</form>";
 		echo "</main>";
 
 		echo $ehtml->footer();

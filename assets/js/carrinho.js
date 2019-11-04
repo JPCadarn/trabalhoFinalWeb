@@ -5,7 +5,7 @@ $('button[id^="btnMenos"]').click(function() {
     var qtd = $(nomeSpan).text();
     var produto_id = $('input[name ="itens[' + nroItem + '][produto_id]"]').val();
     var usuario_id = $('input[name ="cabecalho[usuario_id]"]').val();
-    var id = $('input[name ="cabecalho[id]"]').val();
+    var id = $('input[name ="itens[' + nroItem + '][id]"]').val();
     if (qtd > 1) {
         qtd--;
         var dados = {
@@ -18,9 +18,9 @@ $('button[id^="btnMenos"]').click(function() {
             metodo: 'edit',
         }
         $.post("http://localhost/trabalhoFinalWeb/controllers/carrinhos.php", dados, function(data) {
-
+            
         }).done(function(data) {
-            if (data === true)
+            if (JSON.parse(data) === true)
                 $(nomeSpan).text(qtd);
         });
     }
@@ -45,8 +45,10 @@ $('button[id^="btnMais"]').click(function() {
             },
             metodo: 'edit',
         }
-        $.post("http://localhost/trabalhoFinalWeb/controllers/carrinhos.php", dados, function(data) {}).done(function(data) {
-            if (data === true)
+        $.post("http://localhost/trabalhoFinalWeb/controllers/carrinhos.php", dados, function(data) {
+            console.log(data);
+        }).done(function(data) {
+            if (JSON.parse(data) === true)
                 $(nomeSpan).text(qtd);
         });
     } else {
