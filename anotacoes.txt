@@ -4,7 +4,6 @@ CLIENTE:
 _______________________________________________________
 Ternário: $icone = $pedido['cartao_id'] ? 'credit_card' : 'money';
 ToDo:
-	-> Implementar parcelas;
 	-> Implementar enter no login;
 	-> Excluir chaves estrangeiras junto com produtos e etc;
 	-> Fazer passo a passo no primeiro login; (Cadastrar dados do usuário, endereço, etc)

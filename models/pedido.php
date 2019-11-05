@@ -104,14 +104,15 @@ class PedidoModel extends Conexao{
 		$hora = date('H:i:s');
 		$sql = "
 			INSERT INTO pedidos
-			(usuario_id, endereco_id, data, hora, cartao_id)
+			(usuario_id, endereco_id, data, hora, cartao_id, parcelas)
 			VALUES 
 			(
 				{$cabecalho['usuario_id']}, 
 				{$cabecalho['endereco_id']}, 
 				'{$data}',
 				'{$hora}',
-				{$cabecalho['cartao_id']}
+				{$cabecalho['cartao_id']},
+				{$cabecalho['parcelas']}
 			)
 		";
 		

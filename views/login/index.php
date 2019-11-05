@@ -50,7 +50,7 @@
 								<i class="material-icons prefix">email</i>
 								<input class='validate' type='text' name='email' id='email' />
 								<input type='hidden' name='metodo' value="login" />
-								<input type='hidden' name='link_retorno' value="<?php echo $link_retorno?>" />
+								<input type='hidden' name='dados[link_retorno]' value="<?php echo $link_retorno?>" />
 								<label for='email'>Email</label>
 							</div>
 						</div>
@@ -69,7 +69,7 @@
 						<br />
 						<center>
 							<div class='row'>
-								<button name='btnCadastrar' data-target="addModal" class='indigo darken-1 modal-trigger col s6 btn btn-large waves-effect waves-light'>Cadastrar</button>
+								<button name='btnCadastrar' tabindex="-1" data-target="addModal" class='indigo darken-1 modal-trigger col s6 btn btn-large waves-effect waves-light'>Cadastrar</button>
 								<button type='submit' name='btnLogin' class='indigo darken-1 col s6 btn btn-large waves-effect waves-light'>Login</button>
 							</div>
 						</center>
@@ -149,5 +149,6 @@
   	<script src="..\..\assets\js\jquery-3.4.1.js"></script>
 	<script type="text/javascript" src="../../materialize/js/materialize.min.js"></script>
 	<script src="..\..\assets\js\main.js" crossorigin="anonymous"></script>
+	<script src="..\..\assets\js\login.js" crossorigin="anonymous"></script>
   </body>
 </html>

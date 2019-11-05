@@ -18,6 +18,13 @@
 	$controllerLogs->create(['id' => $_GET['id'], 'metodo' => 'create']);
 	$produto = $controllerProdutos->read($_GET['id'])[0];
 	$ehtml = new Ehtml();
+	if(!isset($_SESSION['usuario']['id'])){
+		$disabled = 'disabled';
+		$usuarioId = 0;
+	}else{
+		$usuarioId = $_SESSION['usuario']['id'];
+		$disabled = '';
+	}
 ?>
 <body>
 	<?php
@@ -52,10 +59,10 @@
 									<p>{$produto['descricao']}</p>
 								</div>
 								<input type='hidden' name='dados[produto_id]' value='{$_GET['id']}'>
-								<input type='hidden' name='dados[usuario_id]' value='{$_SESSION['usuario']['id']}'>
+								<input type='hidden' name='dados[usuario_id]' value='{$usuarioId}'>
 								<input type='hidden' name='metodo' value='create'>
 								<div class='card-action center'>
-									<button type='submit' class='indigo darken-4 col s6 btn waves-effect waves-light'>
+									<button $disabled type='submit' class='indigo darken-4 col s12 btn waves-effect waves-light'>
 										<i class='material-icons left'>shopping_cart</i>Comprar
 									</button>
 								</div>

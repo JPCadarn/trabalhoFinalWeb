@@ -30,6 +30,8 @@
 	$enderecos = $controllerEnderecos->readEnderecos($_SESSION['usuario']['id']);
 	$cartaos = $controllerCartaos->readCartaos($_SESSION['usuario']['id']);
 	$ehtml = new Ehtml();
+	$valor = 0;
+	$valorTotal = 0;
 ?>
 <body>
 	<?php
@@ -43,7 +45,8 @@
 					<div class='nav-wrapper indigo darken-4 center'>
 						<div class='col s12'>
 							<a href='../site/' class='breadcrumb'>Página Inicial</a>
-							<a href='#' class='breadcrumb'>Carrinho</a>
+							<a href='#' class='breadcrumb ativo'>Carrinho</a>
+							<span id='totalCarrinho' class='right'></span>
 						</div>
 					</div>
 				</nav>
@@ -51,6 +54,8 @@
 			echo "<form action='..\..\controllers\pedidos.php' method='POST'>";
 			echo "<input type='hidden' name='cabecalho[usuario_id]' value='{$_SESSION['usuario']['id']}'>";
 			for($i = 0; $i < count($itens); $i++){
+				$valor = number_format($itens[$i]['valor'] * $itens[$i]['quantidade'], 2);
+				$valorTotal += $valor;
 				echo "
 					<div class='row'>
 						<div class='col s12 m12' id='produto".$i."'>
@@ -65,24 +70,24 @@
 								<div class='card-stacked'>
 									<span class='carrinho-header left'>
 										{$itens[$i]['nome']} 
-										<span class='carrinho-header right'>
-											R\${$itens[$i]['valor']}
+										<span id='preco".$i."' class='carrinho-header right'>
+											R\${$valor}
 										</span>
 									</span>
 									<div class='card-content'>
 									</div>
 									<div class='card-action'>
 										<div id='divQuantidade".$i."'>
-											<button id='btnMenos' class='waves-effect waves-circle waves-light btn-floating btn-small waves-effect waves-light indigo'>
+											<span id='btnMenos' class='waves-effect waves-circle waves-light btn-floating btn-small waves-effect waves-light indigo'>
 												<i class='material-icons left'>remove</i>
-											</button>
+											</span>
 											<span id='qtd".$i."'>{$itens[$i]['quantidade']}</span>
-											<button id='btnMais' class='waves-effect waves-circle waves-light btn-floating btn-small waves-effect waves-light indigo'>
+											<span id='btnMais' class='waves-effect waves-circle waves-light btn-floating btn-small waves-effect waves-light indigo'>
 												<i class='material-icons left'>add</i>
-											</button>
-											<button id='btnExcluir' class='right waves-effect waves-circle waves-light btn-floating btn-small waves-effect waves-light red'>
+											</span>
+											<span id='btnExcluir' class='right waves-effect waves-circle waves-light btn-floating btn-small waves-effect waves-light red'>
 												<i class='material-icons left'>clear</i>
-											</button>
+											</span>
 										</div>
 									</div>
 							</div>
@@ -125,6 +130,16 @@
 						<div class='card hoverable center-align'>
 							<div class='card-content'>	
 								<span class='card-title'>Pagamento</span>
+								<div class='input-field' id='parcelas'>
+									<select name='cabecalho['parcelas']>
+									";
+									for($i = 0; $i < 10; $i++){
+										echo "<option value='".($i+1)."'>".($i+1)." de R\$".number_format(($valorTotal/($i+1)), 2)."</option>";
+									}
+			echo "
+									</select>
+									<label>Número de Parcelas</label>
+								</div>
 								<span>
 									<label>
 										<input name='cabecalho[cartao_id]' value='0' required type='radio'/>
@@ -137,7 +152,7 @@
 				echo "
 					<span>
 						<label>
-							<input name='cabecalho[cartao_id]' value='{$cartao['id']}' required type='radio'/>
+							<input name='cabecalho[cartao_id]' data-tipo='{$cartao['debito_credito']}' value='{$cartao['id']}' required type='radio'/>
 							<span>**** **** *** {$cartao['ultimos_quatro']}</span>
 						</label>
 					</span>

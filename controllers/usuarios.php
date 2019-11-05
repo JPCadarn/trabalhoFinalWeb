@@ -76,7 +76,7 @@ class UsuariosController{
 
 			return $retorno;
 		}elseif($classe->$metodo($dados)){
-			header('Location: '.$dados['link_retorno']);
+			header('Location: ../views/site');
 		}
 	}
 
@@ -86,6 +86,6 @@ class UsuariosController{
 		unset($_GET['metodo']);
 		$dados = $_GET;
 		if($classe->$metodo($dados))
-			header('Location: '.$dados['link_retorno']);
+			header('Location: ../views/site');
 	}
 ?>
