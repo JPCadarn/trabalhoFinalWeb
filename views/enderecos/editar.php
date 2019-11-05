@@ -53,12 +53,12 @@ $ehtml = new Ehtml();
 						<div class="row center">
 						<div class="input-field col s12">
 								<i class="material-icons prefix">person</i>
-								<input required id="inputDestinatario" value="<?php echo $endereco['destinatario']?>" name="dados[destinatario]" type="text">
+								<input required id="inputDestinatario" maxlength="100" value="<?php echo $endereco['destinatario']?>" name="dados[destinatario]" type="text">
 								<label for="inputDestinatario">Destinatário</label>
 							</div>
 							<div class="input-field col s12">
 								<i class="material-icons prefix">my_location</i>
-								<input required id="inputRua" value="<?php echo $endereco['rua']?>" name="dados[rua]" type="text">
+								<input required id="inputRua" maxlength="100" value="<?php echo $endereco['rua']?>" name="dados[rua]" type="text">
 								<label for="inputRua">Rua</label>
 							</div>
 							<div class="input-field col s12">
@@ -68,12 +68,12 @@ $ehtml = new Ehtml();
 							</div>
 							<div class="input-field col s12">
 								<i class="material-icons prefix">assignment</i>
-								<input id="inputComplemento" value="<?php echo $endereco['complemento']?>" name="dados[complemento]" type="text">
+								<input id="inputComplemento" maxlength="30" value="<?php echo $endereco['complemento']?>" name="dados[complemento]" type="text">
 								<label for="inputComplemento">Complemento</label>
 							</div>
 							<div class="input-field col s12">
 								<i class="material-icons prefix">home</i>
-								<input required id="inputBairro" value="<?php echo $endereco['bairro']?>" name="dados[bairro]" type="text">
+								<input required id="inputBairro" maxlength="50" value="<?php echo $endereco['bairro']?>" name="dados[bairro]" type="text">
 								<label for="inputBairro">Bairro</label>
 							</div>
 							<div class="input-field col s12">
@@ -83,17 +83,17 @@ $ehtml = new Ehtml();
 							</div>
 							<div class="input-field col s12">
 								<i class="material-icons prefix">location_city</i>
-								<input required id="inputCidade" value="<?php echo $endereco['cidade']?>" name="dados[cidade]" type="text">
+								<input required id="inputCidade" maxlength="30" value="<?php echo $endereco['cidade']?>" name="dados[cidade]" type="text">
 								<label for="inputCidade">Cidade</label>
 							</div>
 							<div class="input-field col s12">
 								<i class="material-icons prefix">map</i>
-								<input required id="inputEstado" value="<?php echo $endereco['estado']?>" name="dados[estado]" type="text">
+								<input required id="inputEstado" maxlength="30" value="<?php echo $endereco['estado']?>" name="dados[estado]" type="text">
 								<label for="inputEstado">Estado</label>
 							</div>
 							<div class="input-field col s12">
 								<i class="material-icons prefix">more</i>
-								<input id="inputReferencia" value="<?php echo $endereco['referencia']?>" name="dados[referencia]" type="text">
+								<input id="inputReferencia" maxlength="50" value="<?php echo $endereco['referencia']?>" name="dados[referencia]" type="text">
 								<label for="inputReferencia">Referência</label>
 							</div>
 						</div>

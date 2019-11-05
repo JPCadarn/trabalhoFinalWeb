@@ -88,7 +88,7 @@
 						<div class="row center">
 							<div class="input-field col s12">
 								<i class="material-icons prefix">email</i>
-								<input required id="inputEmail" name="dados[email]" type="text">
+								<input required id="inputEmail" maxlength="60" name="dados[email]" type="text">
 								<label for="inputEmail">Email</label>
 								<input type="hidden" name="metodo" value="Create">
 							</div>
@@ -96,7 +96,7 @@
 						<div class="row center">
 							<div class="input-field col s12">
 								<i class="material-icons prefix">edit</i>
-								<input required id="inputNome" name="dados[nome]" type="text">
+								<input required id="inputNome" maxlength="100" name="dados[nome]" type="text">
 								<label for="inputNome">Nome</label>
 							</div>
 						</div>

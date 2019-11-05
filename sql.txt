@@ -35,24 +35,6 @@ CREATE TABLE produtos (
 	teor_alcoolico NUMERIC(10, 2) DEFAULT 0.0
 );
 
-CREATE TABLE pedidos (
-	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	usuario_id INT NOT NULL REFERENCES usuarios(id),
-	data VARCHAR(10) NOT NULL,
-	hora VARCHAR(8) NOT NULL,
-	endereco_id INT NOT NULL REFERENCES enderecos(id),
-	cartao_id INT REFERENCES cartaos(id),
-	parcelas INT NOT NULL DEFAULT 1
-);
-
-CREATE TABLE pedidos_itens (
-	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	pedido_id INT NOT NULL REFERENCES pedidos(id),
-	produto_id INT NOT NULL REFERENCES produtos(id),
-	quantidade INT NOT NULL,
-	valor_total NUMERIC(15, 2)
-);
-
 CREATE TABLE usuarios_acessos (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	usuario_id INT NOT NULL REFERENCES usuarios(id),
@@ -99,4 +81,22 @@ CREATE TABLE enderecos (
 	cidade VARCHAR(30) NOT NULL,
 	estado VARCHAR(30) NOT NULL,
 	referencia VARCHAR(50)
+);
+
+CREATE TABLE pedidos (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	usuario_id INT NOT NULL REFERENCES usuarios(id),
+	data VARCHAR(10) NOT NULL,
+	hora VARCHAR(8) NOT NULL,
+	endereco_id INT NOT NULL REFERENCES enderecos(id),
+	cartao_id INT REFERENCES cartaos(id),
+	parcelas INT NOT NULL DEFAULT 1
+);
+
+CREATE TABLE pedidos_itens (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	pedido_id INT NOT NULL REFERENCES pedidos(id),
+	produto_id INT NOT NULL REFERENCES produtos(id),
+	quantidade INT NOT NULL,
+	valor_total NUMERIC(15, 2)
 );

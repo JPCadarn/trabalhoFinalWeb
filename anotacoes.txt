@@ -4,7 +4,6 @@ CLIENTE:
 _______________________________________________________
 Ternário: $icone = $pedido['cartao_id'] ? 'credit_card' : 'money';
 ToDo:
-	-> Fazer máscaras;
 	-> Ajustar max length dos inputs;
 	-> Fazer arquivo pra criar o banco;
 	-> Adicionar cálculo de frete na página de produto;

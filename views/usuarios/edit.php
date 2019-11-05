@@ -57,7 +57,7 @@ $ehtml = new Ehtml();
 						<div class="row center">
 							<div class="input-field col s12">
 								<i class="material-icons prefix">email</i>
-								<input required id="inputEmail" value="<?php echo $dadosUsuario['email'] ?>" name="dados[email]" type="text">
+								<input required id="inputEmail" maxlength="60" value="<?php echo $dadosUsuario['email'] ?>" name="dados[email]" type="text">
 								<label for="inputEmail">Email</label>
 								<input type="hidden" name="metodo" value="edit">
 								<input type="hidden" name="link_retorno" value="../views/usuarios/pedidos.php">
@@ -67,7 +67,7 @@ $ehtml = new Ehtml();
 						<div class="row center">
 							<div class="input-field col s12">
 								<i class="material-icons prefix">edit</i>
-								<input required id="inputNome" name="dados[nome]" type="text" value="<?php echo $dadosUsuario['nome'] ?>">
+								<input required id="inputNome" maxlength="100" name="dados[nome]" type="text" value="<?php echo $dadosUsuario['nome'] ?>">
 								<label for="inputNome">Nome</label>
 							</div>
 						</div>

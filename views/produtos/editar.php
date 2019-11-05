@@ -49,7 +49,7 @@ $produto = $controller->read($_GET['id'])[0];
 				<form action="..\..\controllers\produtos.php" enctype="multipart/form-data" method="post" class="col s12">
 					<div class="input-field col s12">
 						<i class="material-icons prefix">create</i>
-						<input required id="inputNome" value="<?php echo $produto['nome'] ?>" name="dados[nome]" type="text">
+						<input required id="inputNome" maxlength="60" value="<?php echo $produto['nome'] ?>" name="dados[nome]" type="text">
 						<input name="metodo" type="hidden" value="edit">
 						<input name="id" type="hidden" value="<?php echo $_GET['id'] ?>">
 						<label for="inputNome">Nome</label>

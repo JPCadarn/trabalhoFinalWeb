@@ -49,12 +49,12 @@ $ehtml = new Ehtml();
 						<div class="row center">
 						<div class="input-field col s12">
 								<i class="material-icons prefix">person</i>
-								<input required id="inputDestinatario" name="dados[destinatario]" type="text">
+								<input required id="inputDestinatario" maxlength="100" name="dados[destinatario]" type="text">
 								<label for="inputDestinatario">Destinatário</label>
 							</div>
 							<div class="input-field col s12">
 								<i class="material-icons prefix">my_location</i>
-								<input required id="inputRua" name="dados[rua]" type="text">
+								<input required id="inputRua" maxlength="100" name="dados[rua]" type="text">
 								<label for="inputRua">Rua</label>
 							</div>
 							<div class="input-field col s12">
@@ -64,12 +64,12 @@ $ehtml = new Ehtml();
 							</div>
 							<div class="input-field col s12">
 								<i class="material-icons prefix">assignment</i>
-								<input id="inputComplemento" name="dados[complemento]" type="text">
+								<input id="inputComplemento" maxlength="30" name="dados[complemento]" type="text">
 								<label for="inputComplemento">Complemento</label>
 							</div>
 							<div class="input-field col s12">
 								<i class="material-icons prefix">home</i>
-								<input required id="inputBairro" name="dados[bairro]" type="text">
+								<input required id="inputBairro" maxlength="50" name="dados[bairro]" type="text">
 								<label for="inputBairro">Bairro</label>
 							</div>
 							<div class="input-field col s12">
@@ -79,17 +79,17 @@ $ehtml = new Ehtml();
 							</div>
 							<div class="input-field col s12">
 								<i class="material-icons prefix">location_city</i>
-								<input required id="inputCidade" name="dados[cidade]" type="text">
+								<input required id="inputCidade" maxlength="30" name="dados[cidade]" type="text">
 								<label for="inputCidade">Cidade</label>
 							</div>
 							<div class="input-field col s12">
 								<i class="material-icons prefix">map</i>
-								<input required id="inputEstado" name="dados[estado]" type="text">
+								<input required id="inputEstado" maxlength="30" name="dados[estado]" type="text">
 								<label for="inputEstado">Estado</label>
 							</div>
 							<div class="input-field col s12">
 								<i class="material-icons prefix">more</i>
-								<input id="inputReferencia" name="dados[referencia]" type="text">
+								<input id="inputReferencia" maxlength="50" name="dados[referencia]" type="text">
 								<label for="inputReferencia">Referência</label>
 							</div>
 						</div>

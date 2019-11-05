@@ -48,7 +48,7 @@ $ehtml = new Ehtml();
 				<form action="..\..\controllers\produtos.php" enctype="multipart/form-data" method="post" class="col s12">
 					<div class="input-field col s12">
 						<i class="material-icons prefix">create</i>
-						<input required id="inputNome" name="dados[nome]" type="text">
+						<input required id="inputNome" maxlength="60" name="dados[nome]" type="text">
 						<input name="metodo" type="hidden" value="create">
 						<label for="inputNome">Nome</label>
 					</div>
