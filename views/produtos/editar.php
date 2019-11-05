@@ -96,8 +96,10 @@ $produto = $controller->read($_GET['id'])[0];
 	?>
 
 	<script src="..\..\assets\js\jquery-3.4.1.js"></script>
+	<script src="..\..\assets\js\jquery.mask.js"></script>
 	<script type="text/javascript" src="../../materialize/js/materialize.min.js"></script>
 	<script src="..\..\assets\js\main.js" crossorigin="anonymous"></script>
+	<script src="..\..\assets\js\masks\produtos.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

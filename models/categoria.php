@@ -11,10 +11,16 @@ class CategoriaModel extends Conexao{
 	}
 
 	function excluir($id){
-		$sql = 'DELETE FROM categorias WHERE id = '.$id;
-		$excluido = $this->executarQuery($sql);
+		$countProdutos = $this->getCountProdutos($id)[0]['count'];
+		$countProdutos = 0;
+		if($countProdutos){
+			$sql = 'DELETE FROM categorias WHERE id = '.$id;
+			$excluido = $this->executarQuery($sql);
 
-		return $excluido;
+			return $excluido;
+		}else{
+			return 2;
+		}
 	}
 
 	function getCount(){

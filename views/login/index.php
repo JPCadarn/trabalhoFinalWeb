@@ -139,7 +139,32 @@
 		</div>
 
     	<div class="section"></div>
-    	<div class="section"></div>
+		<div class="section"></div>
+		<?php
+			if(isset($_GET['erro'])){
+				switch ($_GET['erro']) {
+					case 2:
+						$mensagemErro = 'Usuário não encontrado';
+						break;
+					case 3:
+						$mensagemErro = 'A senha informada está incorreta';
+						break;
+					default:
+						$mensagemErro = 'Ocorreu um erro ao realizar o login';
+				}
+				echo "
+					<div id='modalErro' class='modal'>
+						<div class='modal-content center'>
+							<h4>Erro ao realizar login</h4>
+							<p>$mensagemErro</p>
+						</div>
+						<div class='modal-footer center'>
+							<a href='#!' class='btn-floating red modal-close waves-effect waves-light'><i class='material-icons'>close</i></a>
+						</div>
+					</div>
+				";
+			}
+		?>
 	</main>
 	  
 	<?php
@@ -147,8 +172,10 @@
 	?>
 
   	<script src="..\..\assets\js\jquery-3.4.1.js"></script>
+  	<script src="..\..\assets\js\jquery.mask.js"></script>
 	<script type="text/javascript" src="../../materialize/js/materialize.min.js"></script>
 	<script src="..\..\assets\js\main.js" crossorigin="anonymous"></script>
-	<script src="..\..\assets\js\login.js" crossorigin="anonymous"></script>
+	<script src="..\..\assets\js\usuarios.js" crossorigin="anonymous"></script>
+	<script src="..\..\assets\js\masks\usuarios.js" crossorigin="anonymous"></script>
   </body>
 </html>

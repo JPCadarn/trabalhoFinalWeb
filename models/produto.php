@@ -49,11 +49,23 @@ class ProdutoModel extends Conexao{
 		return $this->executarQuery($sql);
 	}
 
-	function excluir($id){
-		$sql = 'DELETE FROM produtos WHERE id = '.$id;
-		$excluido = $this->executarQuery($sql);
+	function excluirChavesEstrangeiras($id){
+		$sqlDestaques = 'DELETE FROM produtos_destaque WHERE produto_id = '.$id;
+		$sqlAcessos = 'DELETE FROM produtos_acessos WHERE produto_id = '.$id;
+		if($this->executarQuery($sqlDestaques) AND $this->executarQuery($sqlAcessos))
+			return true;
+		else
+			return false;
+	}
 
-		return $excluido;
+	function excluir($id){
+		if($this->excluirChavesEstrangeiras($id)){
+			$sql = 'DELETE FROM produtos WHERE id = '.$id;
+			$excluido = $this->executarQuery($sql);
+
+			return $excluido;
+		}else
+			return false;
 	}
 
 	function getDados($id){
@@ -71,7 +83,7 @@ class ProdutoModel extends Conexao{
 
 	function criar($dados){
 		$imagem = $_FILES['imagem'];
-		$imagem['name'] = password_hash($imagem['name'], PASSWORD_BCRYPT);
+		$imagem['name'] = str_replace(['.', ',', '/', '\\'], '_', password_hash($imagem['name'], PASSWORD_BCRYPT)).'.'.explode('/', $imagem['type'])[1];
 		$destino = explode('models', dirname(__FILE__))[0].'assets\\images\\'.$imagem['name'];
 
 		if(rename($imagem['tmp_name'], $destino)){
@@ -96,7 +108,7 @@ class ProdutoModel extends Conexao{
 
 	function editar($dados){
 		$imagem = $_FILES['imagem'];
-		$imagem['name'] = password_hash($imagem['name'], PASSWORD_BCRYPT);
+		$imagem['name'] = str_replace(['.', ',', '/', '\\'], '_', password_hash($imagem['name'], PASSWORD_BCRYPT)).'.'.explode('/', $imagem['type'])[1];
 		$destino = explode('models', dirname(__FILE__))[0].'assets\\images\\'.$imagem['name'];
 
 		if(rename($imagem['tmp_name'], $destino)){

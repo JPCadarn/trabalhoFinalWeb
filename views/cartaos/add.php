@@ -49,7 +49,7 @@ $ehtml = new Ehtml();
 						<div class="row center">
 							<div class="input-field col s12">
 								<i class="material-icons prefix">credit_card</i>
-								<input required id="inputNumero" name="dados[numero]" type="number">
+								<input required id="inputNumero" name="dados[numero]" type="text">
 								<label for="inputNumero">Número do Cartão</label>
 							</div>
 							<div class="input-field col s12">
@@ -92,9 +92,10 @@ $ehtml = new Ehtml();
 	?>
 
 	<script src="..\..\assets\js\jquery-3.4.1.js"></script>
+	<script src="..\..\assets\js\jquery.mask.js"></script>
 	<script type="text/javascript" src="../../materialize/js/materialize.min.js"></script>
 	<script src="..\..\assets\js\main.js"></script>
-	<script src="..\..\assets\js\usuarios.js"></script>
+	<script src="..\..\assets\js\masks\cartaos.js"></script>
 </body>
 
 </html>

@@ -138,13 +138,15 @@ class UsuarioModel extends Conexao{
 		$dadosUsuarioBD = $this->executarQuery("SELECT id, senha FROM usuarios WHERE email = '{$dados['email']}'")[0];
 		$passou = password_verify($dados['senha'], $dadosUsuarioBD['senha']);
 
-		
+		if(!$dadosUsuarioBD)
+			return 2;
+
 		if($passou){
 			$this->logAcesso($dadosUsuarioBD['id']);
 			$_SESSION['usuario'] = $this->getDados($dadosUsuarioBD['id'])[0];
 			return true;
 		}else
-			return false;
+			return 3;
 	}
 
 	function logout(){

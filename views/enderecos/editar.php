@@ -113,9 +113,10 @@ $ehtml = new Ehtml();
 	?>
 
 	<script src="..\..\assets\js\jquery-3.4.1.js"></script>
+	<script src="..\..\assets\js\jquery.mask.js"></script>
 	<script type="text/javascript" src="../../materialize/js/materialize.min.js"></script>
 	<script src="..\..\assets\js\main.js"></script>
-	<script src="..\..\assets\js\usuarios.js"></script>
+	<script src="..\..\assets\js\masks\enderecos.js"></script>
 </body>
 
 </html>

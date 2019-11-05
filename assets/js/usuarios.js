@@ -31,3 +31,10 @@ $('#inputConfirmaSenha').focusout(function(){
 $('input[type=password]').focusin(function(){
 	$('#btnSubmit').prop('disabled', true);
 });
+
+$(document).ready(function () {
+	let parametros = new URLSearchParams(window.location.search);
+	if(parametros.has('erro')){
+		$('#modalErro').modal('open');
+	}
+});

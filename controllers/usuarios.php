@@ -75,6 +75,9 @@ class UsuariosController{
 			$retorno = json_encode($retorno);
 
 			return $retorno;
+		}elseif($metodo == 'login'){
+			$retorno = $classe->$metodo($dados);
+			header('Location: ../views/login/index.php?erro='.$retorno);
 		}elseif($classe->$metodo($dados)){
 			header('Location: ../views/site');
 		}
