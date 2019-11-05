@@ -61,7 +61,19 @@
 								<input type='hidden' name='dados[produto_id]' value='{$_GET['id']}'>
 								<input type='hidden' name='dados[usuario_id]' value='{$usuarioId}'>
 								<input type='hidden' name='metodo' value='create'>
-								<div class='card-action center'>
+								<div class='card-action'>
+									<div class='input-field col s12 m8'>
+										<i class='material-icons prefix'>my_location</i>
+										<input required id='inputCep' type='text'>
+										<label for='inputNome'>Cep</label>
+										<div class='col s12 oculto'>
+										</div>
+									</div>
+									<div class='input-field col s12 m3 offset-m1'>
+										<span class='indigo darken-4 col s12 btn waves-effect waves-light'>
+											<i class='material-icons left'>local_shipping</i>Calcular Frete
+										</span>
+									</div>
 									<button $disabled type='submit' class='indigo darken-4 col s12 btn waves-effect waves-light'>
 										<i class='material-icons left'>shopping_cart</i>Comprar
 									</button>
