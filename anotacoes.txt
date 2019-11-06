@@ -11,6 +11,5 @@ ToDo:
 	-> Avaliações;
 	-> Tratar erros;
 	-> Esqueceu a senha;
-	-> Email de boas vindas;
 Web Service:
 	header('Access-Control-Allow-Origin: *');

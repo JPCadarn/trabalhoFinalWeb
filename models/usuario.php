@@ -1,6 +1,8 @@
 <?php
 
 require_once(dirname(__FILE__).'/../controllers/conexao.php');
+require_once(dirname(__FILE__).'/../assets/phpmailer/class.phpmailer.php');
+
 
 class UsuarioModel extends Conexao{
 	function salvar($dados){
@@ -65,7 +67,36 @@ class UsuarioModel extends Conexao{
 			)
 		";
 		
-		return $this->executarQuery($sql);
+		$retornoQuery = $this->executarQuery($sql);
+		if($retornoQuery)
+			$this->emailBoasVindas($dados['dados']['email'], $dados['dados']['nome']);
+
+		return $retornoQuery;
+	}
+
+	function emailBoasVindas($email, $nome){
+		global $error;
+		$mail = new PHPMailer();
+		$mail->CharSet = 'UTF-8';
+		$mail->IsSMTP();
+		$mail->SMTPDebug = 0;
+		$mail->SMTPAuth = true;
+		$mail->SMTPSecure = 'tls';
+		$mail->Host = 'smtp.gmail.com';
+		$mail->Port = 587;
+		$mail->Username = 'golebebidaschapeco@gmail.com';
+		$mail->Password = 'mariotti281';
+		$mail->SetFrom('golebebidaschapeco@gmail.com', 'Gole Bebidas Chapecó');
+		$mail->Subject = 'Boas Vindas';
+		$mail->Body = 'Olá, '.$nome.PHP_EOL.
+					  'Seja bem vindo(a) à Gole Bebidas.'.PHP_EOL.
+					  'Esperamos que você possa encontrar em nosso site tudo o que procura quando o assunto é bebidas.';
+		$mail->AddAddress($email);
+		if(!$mail->Send()) {
+			$error = 'Mail error: '.$mail->ErrorInfo; 
+		} else {
+			$error = 'Mensagem enviada!';
+		}
 	}
 
 	function criarAdmin($dados){
