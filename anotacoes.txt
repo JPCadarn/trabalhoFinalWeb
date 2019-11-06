@@ -4,7 +4,6 @@ CLIENTE:
 _______________________________________________________
 Ternário: $icone = $pedido['cartao_id'] ? 'credit_card' : 'money';
 ToDo:
-	-> Adicionar cálculo de frete na página de produto;
 	-> Criar thumb das imagens no momento do upload;
 	-> Fazer link dos produtos nos sliders;
 	-> Ícone tab do navegador;
