@@ -34,7 +34,7 @@ function requestFrete(cep, tipo){
 						break;
 				}
 			}else{
-				
+				console.log(frete.MsgErro)
 			}
 			mostrarValores();
 		});
