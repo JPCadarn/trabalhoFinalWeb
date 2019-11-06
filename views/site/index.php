@@ -6,6 +6,7 @@
 	<link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.min.css"  media="screen,projection"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link rel="stylesheet" href="..\..\assets\css\main.css">
+	<link rel="icon" href="..\..\assets\images\icone.png">
 </head>
   
 <?php
@@ -35,11 +36,13 @@
 		foreach($destaques as $destaque){
 			$tagSlide = "
 				<li>
-					<img src='../../assets/images/".$destaque['imagem']."'>
-					<div class='caption left-align'>
-						<h3 class='grey-text text-darken-3'>".$destaque['nome']."</h3>
-						<h5 class='grey-text text-darken-3'>R$ ".$destaque['valor']."</h5>
-					</div>
+					<a href='produto.php?id=".$destaque['produto_id']."'>
+						<img src='../../assets/images/".$destaque['imagem']."'>
+						<div class='caption left-align'>
+							<h3 class='grey-text text-darken-3'>".$destaque['nome']."</h3>
+							<h5 class='grey-text text-darken-3'>R$ ".$destaque['valor']."</h5>
+						</div>
+					</a>
 				</li>
 			";
 			echo $tagSlide;
@@ -58,11 +61,13 @@
 			$maisVendido = $controllerProdutos->read($maisVendido['produto_id'])[0];
 			$tagSlide = "
 				<li>
-					<img src='../../assets/images/".$maisVendido['imagem']."'>
-					<div class='caption left-align'>
-						<h3 class='grey-text text-darken-3'>".$maisVendido['nome']."</h3>
-						<h5 class='grey-text text-darken-3'>R$ ".$maisVendido['valor']."</h5>
-					</div>
+					<a href='produto.php?id=".$destaque['produto_id']."'>
+						<img src='../../assets/images/".$maisVendido['imagem']."'>
+						<div class='caption left-align'>
+							<h3 class='grey-text text-darken-3'>".$maisVendido['nome']."</h3>
+							<h5 class='grey-text text-darken-3'>R$ ".$maisVendido['valor']."</h5>
+						</div>
+					</a>
 				</li>
 			";
 			echo $tagSlide;
@@ -81,11 +86,13 @@
 			$maisAcessado = $controllerProdutos->read($maisAcessado['produto_id'])[0];
 			$tagSlide = "
 				<li>
-					<img src='../../assets/images/".$maisAcessado['imagem']."'>
-					<div class='caption left-align'>
-						<h3 class='grey-text text-darken-3'>".$maisAcessado['nome']."</h3>
-						<h5 class='grey-text text-darken-3'>R$ ".$maisAcessado['valor']."</h5>
-					</div>
+					<a href='produto.php?id=".$destaque['produto_id']."'>
+						<img src='../../assets/images/".$maisAcessado['imagem']."'>
+						<div class='caption left-align'>
+							<h3 class='grey-text text-darken-3'>".$maisAcessado['nome']."</h3>
+							<h5 class='grey-text text-darken-3'>R$ ".$maisAcessado['valor']."</h5>
+						</div>
+					</a>
 				</li>
 			";
 			echo $tagSlide;

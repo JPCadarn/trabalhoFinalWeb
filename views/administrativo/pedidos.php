@@ -7,6 +7,7 @@
 	<link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.min.css" media="screen,projection" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="..\..\assets\css\main.css">
+	<link rel="icon" href="..\..\assets\images\icone.png">
 </head>
 
 <?php
