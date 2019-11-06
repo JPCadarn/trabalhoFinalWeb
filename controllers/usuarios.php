@@ -64,16 +64,28 @@ class UsuariosController{
 
 		echo json_encode($model->validarSenha($dados));
 	}
+
+	function validaEmail($email){
+		$model = new UsuarioModel();
+
+		echo json_encode($model->validarEmail($email));
+	}
+
+	function esqueceuSenha($email){
+		$model = new UsuarioModel();
+
+		return $model->esqueceuSenha($email);
+	}
 }
 	if(isset($_POST) and !empty($_POST)){
 		$classe = new UsuariosController();
 		$metodo = $_POST['metodo'];
 		unset($_POST['metodo']);
 		$dados = $_POST;
-		if($metodo == 'validaSenha'){
+		if($metodo == 'validaSenha' OR $metodo == 'validaEmail'){
 			$retorno = $classe->$metodo($dados);
 			$retorno = json_encode($retorno);
-
+			
 			return $retorno;
 		}elseif($metodo == 'login'){
 			$retorno = $classe->$metodo($dados);

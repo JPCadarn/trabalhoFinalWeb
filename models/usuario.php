@@ -99,6 +99,62 @@ class UsuarioModel extends Conexao{
 		}
 	}
 
+	function emailNovaSenha($email, $nome, $senha){
+		global $error;
+		$mail = new PHPMailer();
+		$mail->CharSet = 'UTF-8';
+		$mail->IsSMTP();
+		$mail->SMTPDebug = 0;
+		$mail->SMTPAuth = true;
+		$mail->SMTPSecure = 'tls';
+		$mail->Host = 'smtp.gmail.com';
+		$mail->Port = 587;
+		$mail->Username = 'golebebidaschapeco@gmail.com';
+		$mail->Password = 'mariotti281';
+		$mail->SetFrom('golebebidaschapeco@gmail.com', 'Gole Bebidas Chapecó');
+		$mail->Subject = 'Nova Senha';
+		$mail->Body = 'Olá, '.$nome.PHP_EOL.
+					  'Conforme solicitado, sua nova senha é:'.PHP_EOL.
+					  $senha;
+		$mail->AddAddress($email);
+		if(!$mail->Send()) {
+			$error = 'Mail error: '.$mail->ErrorInfo; 
+		} else {
+			$error = 'Mensagem enviada!';
+		}
+	}
+
+	function esqueceuSenha($email){
+		$sqlUsuario = "SELECT id, email, nome FROM usuarios WHERE email = '{$email['email']}'";
+		$dadosUsuario = $this->executarQuery($sqlUsuario);
+
+		if($dadosUsuario){
+			$novaSenha = $this->updateSenha($dadosUsuario[0]['id']);
+			if($novaSenha){
+				$this->emailNovaSenha($dadosUsuario[0]['email'], $dadosUsuario[0]['nome'], $novaSenha);
+				return true;
+			}else
+				return 4;
+		}else
+			return 2;
+	}
+
+	function updateSenha($id){
+		$novaSenha = '';
+		$caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+		for($i = 0; $i < 8; $i++){
+			$random[] = $caracteres[rand(0, strlen($caracteres))];
+			$novaSenha = implode($random);
+		}
+		$novaSenhaCripto = password_hash($novaSenha, PASSWORD_BCRYPT);
+		$sql = "UPDATE usuarios SET senha = '$novaSenhaCripto' WHERE id = $id";
+
+		if($this->executarQuery($sql))
+			return $novaSenha;
+		else
+			return false;
+	}
+
 	function criarAdmin($dados){
 		$dados['dados']['senha'] = password_hash($dados['dados']['senha'], PASSWORD_BCRYPT);
 		
@@ -160,6 +216,13 @@ class UsuarioModel extends Conexao{
 			return true;
 		else
 			return false;
+	}
+
+	function validarEmail($dados){
+		$sql = "SELECT id FROM usuarios WHERE email = '{$dados['email']}'";
+		$emailValido = $this->executarQuery($sql);
+		
+		return !empty($emailValido);
 	}
 
 	function login($dados){

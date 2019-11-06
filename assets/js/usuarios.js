@@ -1,3 +1,27 @@
+$('#inputEmailEsqueci').focusout(function(){
+	var email = $('#inputEmailEsqueci').val();
+	var dados = {
+		email: email,
+		metodo: 'validaEmail'
+	}
+	$.post("http://localhost/trabalhoFinalWeb/controllers/usuarios.php", dados, function(data){
+		
+	}).done(function(data){
+		console.log(JSON.parse(data));
+		if(JSON.parse(data) === true){
+			$('#inputEmailEsqueci').removeClass('invalid');
+			$('#btnSubmitEsqueci').prop('disabled', false);
+		}else{
+			$('#inputEmailEsqueci').addClass('invalid');
+			$('#inputEmailEsqueci').val('');
+		}
+	});
+});
+
+$('input[name="email"]').focusin(function(){
+	$('#btnSubmitEsqueci').prop('disabled', true);
+});
+
 $('#inputConfirmaSenha').focusout(function(){
 	var senha = $('#inputSenha').val();
 	var confirmaSenha = $('#inputConfirmaSenha').val();

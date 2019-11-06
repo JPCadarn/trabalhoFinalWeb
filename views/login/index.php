@@ -63,7 +63,7 @@
 								<label for='senha'>Senha</label>
 							</div>
 							<label style='float: right;'>
-								<a class='indigo-text' href='#!'><b>Esqueceu sua senha?</b></a>
+								<a class='indigo-text modal-trigger' data-target="esqueciModal" href='#!'><b>Esqueceu sua senha?</b></a>
 							</label>
 						</div>
 
@@ -77,7 +77,32 @@
 					</form>
        			</div>
       		</div>
-    	</center>
+		</center>
+		
+		<div id="esqueciModal" class="modal valign-wrapper">
+			<div class="modal-title">
+				<h4 class="center">Esqueci minha senha</h4>
+			</div>
+			<div class="modal-content">
+				<div class="row">
+					<form action="..\..\controllers\usuarios.php" method="post" class="col s12">
+						<div class="row center">
+							<div class="input-field col s12">
+								<i class="material-icons prefix">email</i>
+								<input required id="inputEmailEsqueci" maxlength="60" name="email" type="text">
+								<label for="inputEmailEsqueci">Email</label>
+								<input type="hidden" name="metodo" value="esqueceuSenha">
+							</div>
+						</div>
+						<div class="right">
+							<button disabled class="btn-floating btn-large indigo darken-4" id="btnSubmitEsqueci" type="submit" value="Create">
+								<i class="large material-icons">check</i>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 
 		<div id="addModal" class="modal valign-wrapper">
 			<div class="modal-title">

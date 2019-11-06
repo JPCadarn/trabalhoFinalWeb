@@ -1,13 +1,8 @@
-CLIENTE:
-- Enviar email de boas vindas após o cadastro;
-- Esqueci minha senha;
-_______________________________________________________
 Ternário: $icone = $pedido['cartao_id'] ? 'credit_card' : 'money';
 ToDo:
 	-> Criar thumb das imagens no momento do upload;
 	-> Categorias responsivo na navbar;
 	-> Avaliações;
 	-> Tratar erros;
-	-> Esqueceu a senha;
 Web Service:
 	header('Access-Control-Allow-Origin: *');
