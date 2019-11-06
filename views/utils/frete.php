@@ -4,7 +4,7 @@
 	$parametros['nCdEmpresa'] = '';
 	$parametros['sDsSenha'] = '';
 	$parametros['sCepOrigem'] = '98460000';
-	$parametros['sCepDestino'] = '89803660';
+	$parametros['sCepDestino'] = $_POST['cep'];
 	$parametros['nVlPeso'] = '1.5';
 	$parametros['nCdFormato'] = '1';
 	$parametros['nVlComprimento'] = '20';
@@ -20,7 +20,7 @@
 	40010	 SEDEX
 	41106	 PAC
 */
-	$parametros['nCdServico'] = '41106';
+	$parametros['nCdServico'] = $_POST['tipo'];
 	
 	
 	$parametros = http_build_query($parametros);

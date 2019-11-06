@@ -65,14 +65,37 @@
 									<div class='input-field col s12 m8'>
 										<i class='material-icons prefix'>my_location</i>
 										<input required id='inputCep' type='text'>
-										<label for='inputNome'>Cep</label>
-										<div class='col s12 oculto'>
-										</div>
+										<label for='inputCep'>Cep</label>
 									</div>
 									<div class='input-field col s12 m3 offset-m1'>
-										<span class='indigo darken-4 col s12 btn waves-effect waves-light'>
+										<span id='btnFrete' class='indigo darken-4 col s12 btn waves-effect waves-light'>
 											<i class='material-icons left'>local_shipping</i>Calcular Frete
 										</span>
+									</div>
+									<div id='valoresFrete' class='col s12 oculto'>
+										<table class='highlight'>
+											<thead>
+												<tr>
+													<th>Modalidade</th>
+													<th>Prazo</th>
+													<th>Valor</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th>PAC</th>
+													<th id='prazoPAC'></th>
+													<th id='valorPAC'></th>
+												</tr>
+												<tr>
+													<th>Sedex</th>
+													<th id='prazoSedex'></th>
+													<th id='valorSedex'></th>
+												</tr>
+											</tbody>
+										</table>
+										<br>
+										<br>
 									</div>
 									<button $disabled type='submit' class='indigo darken-4 col s12 btn waves-effect waves-light'>
 										<i class='material-icons left'>shopping_cart</i>Comprar
@@ -88,7 +111,9 @@
 	?>
 
   	<script src="..\..\assets\js\jquery-3.4.1.js"></script>
+  	<script src="..\..\assets\js\jquery.mask.js"></script>
 	<script type="text/javascript" src="../../materialize/js/materialize.min.js"></script>
 	<script src="..\..\assets\js\main.js" crossorigin="anonymous"></script>
+	<script src="..\..\assets\js\frete.js" crossorigin="anonymous"></script>
   </body>
 </html>
