@@ -18,6 +18,15 @@
 				echo $tagListaCategorias;
 			}
 			echo "</ul>";
+
+			echo "<ul id='dropdownCategoriasMobile' class='dropdown-content'>";
+			foreach($categorias as $categoria){
+				$tagListaCategorias = "
+					<li><a href='../site/categoria.php?id={$categoria['id']}'>{$categoria['nome']}</a></li>
+				";
+				echo $tagListaCategorias;
+			}
+			echo "</ul>";
 			
 			if(isset($_SESSION['usuario']['admin']) AND $_SESSION['usuario']['admin']){
 				$tagLoginOuConta = "
@@ -65,8 +74,8 @@
 						<i class='material-icons right'>arrow_drop_down</i>
 					</a>
 				</li>
-				<li><a href='sass.html'>Minha Conta</a></li>
-				<li><a href='badges.html'> <i class='material-icons'>shopping_cart</i></a></li>
+				$tagLoginOuConta
+				<li><a href='../../views/site/carrinho.php'> <i class='material-icons white-text'>shopping_cart</i></a></li>
 			</ul>
 			";
 		}
