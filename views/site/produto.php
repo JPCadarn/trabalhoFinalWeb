@@ -33,13 +33,12 @@
 			echo $ehtml->navBar('');
 		echo "</header>";
 		echo "<main>";
-			$linkCategoria = trim($_SERVER['HTTP_REFERER']);
 		echo "
 			<nav>
 				<div class='nav-wrapper indigo darken-4 center'>
 				<div class='col s12'>
 					<a href='../site/' class='breadcrumb'>Página Inicial</a>
-					<a href='$linkCategoria' class='breadcrumb'>Produtos</a>
+					<a href='categoria.php?id=".$produto['categoria_id']."' class='breadcrumb'>Produtos</a>
 					<span class='breadcrumb ativo'>{$produto['nome']}</span>
 				</div>
 				</div>
