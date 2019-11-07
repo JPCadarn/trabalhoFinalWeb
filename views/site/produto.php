@@ -77,21 +77,21 @@
 										<table class='highlight'>
 											<thead>
 												<tr>
-													<th>Modalidade</th>
-													<th>Prazo</th>
-													<th>Valor</th>
+													<th class='center'>Modalidade</th>
+													<th class='center'>Prazo</th>
+													<th class='center'>Valor</th>
 												</tr>
 											</thead>
 											<tbody>
 												<tr>
-													<th>PAC</th>
-													<th id='prazoPAC'></th>
-													<th id='valorPAC'></th>
+													<th class='center'>Normal</th>
+													<th id='prazoNormal' class='center'></th>
+													<th id='valorNormal' class='center'></th>
 												</tr>
 												<tr>
-													<th>Sedex</th>
-													<th id='prazoSedex'></th>
-													<th id='valorSedex'></th>
+													<th class='center'>Expresso</th>
+													<th id='prazoExpresso' class='center'></th>
+													<th id='valorExpresso' class='center'></th>
 												</tr>
 											</tbody>
 										</table>

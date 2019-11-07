@@ -4,5 +4,6 @@ ToDo:
 	-> Categorias responsivo na navbar;
 	-> Avaliações;
 	-> Tratar erros;
+	-> Verificar HTTP_REFERER nos arquivos;
 Web Service:
 	header('Access-Control-Allow-Origin: *');
