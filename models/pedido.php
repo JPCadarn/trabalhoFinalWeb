@@ -11,6 +11,17 @@ class PedidoModel extends Conexao{
 			return $this->criar($dados);
 	}
 
+	function usuarioComprouProduto($produtoId, $usuarioId){
+		$sql = "
+			SELECT pi.id
+			FROM pedidos_itens pi
+			JOIN pedidos p ON p.id = pi.pedido_id
+			WHERE p.usuario_id = $usuarioId AND pi.produto_id = $produtoId
+		";
+
+		return !empty($this->executarQuery($sql));
+	}
+
 	function excluir($id){
 		$sql = 'DELETE FROM pedidos WHERE id = '.$id;
 		$excluido = $this->executarQuery($sql);

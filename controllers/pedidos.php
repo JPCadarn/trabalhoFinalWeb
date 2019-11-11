@@ -12,6 +12,12 @@ class PedidosController{
 		return $model->editar($dados);
 	}
 
+	function usuarioComprouProduto($produtoId, $usuarioId){
+		$model = new PedidoModel();
+		
+		return $model->usuarioComprouProduto($produtoId, $usuarioId);
+	}
+
 	function getCount(){
 		$model = new PedidoModel();
 

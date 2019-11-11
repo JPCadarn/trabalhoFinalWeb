@@ -10,6 +10,12 @@ class AvaliacaoModel extends Conexao{
 			return $this->criar($dados);
 	}
 
+	function getAvaliacaosProduto($produtoId){
+		$sql = "SELECT * FROM avaliacaos WHERE produto_id = $produtoId";
+
+		return $this->executarQuery($sql);
+	}
+
 	function excluir($id){
 		$sql = 'DELETE FROM avaliacaos WHERE id = '.$id;
 		$excluido = $this->executarQuery($sql);
@@ -29,12 +35,13 @@ class AvaliacaoModel extends Conexao{
 	function criar($dados){
 		$sql = "
 			INSERT INTO avaliacaos
-			(usuario_id, produto_id, texto)
+			(usuario_id, produto_id, texto, nota)
 			VALUES 
 			(
 				{$dados['dados']['usuario_id']}, 
 				{$dados['dados']['produto_id']},
-				'{$dados['dados']['texto']}'
+				'{$dados['dados']['texto']}',
+				{$dados['dados']['nota']}
 			)
 		";
 		

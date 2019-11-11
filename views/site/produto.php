@@ -11,14 +11,19 @@
   
 <?php
 	require_once('../../controllers/produtos.php');
+	require_once('../../controllers/avaliacaos.php');
+	require_once('../../controllers/pedidos.php');
 	require_once('../../controllers/log_produtos.php');
 	require_once('../utils/ehtml.php');
 	date_default_timezone_set("America/Sao_Paulo");
 	$controllerProdutos = new ProdutosController();
+	$controllerPedidos = new PedidosController();
+	$controllerAvaliacaos = new AvaliacaosController();
 	$controllerLogs = new LogProdutosController();
 	$controllerLogs->create(['id' => $_GET['id'], 'metodo' => 'create']);
 	$produto = $controllerProdutos->read($_GET['id'])[0];
 	$ehtml = new Ehtml();
+	$avaliacoes = $controllerAvaliacaos->readProduto($_GET['id']);
 	if(!isset($_SESSION['usuario']['id'])){
 		$disabled = 'disabled';
 		$usuarioId = 0;
@@ -26,6 +31,7 @@
 		$usuarioId = $_SESSION['usuario']['id'];
 		$disabled = '';
 	}
+	$comprouProduto = $controllerPedidos->usuarioComprouProduto($_GET['id'], $_SESSION['usuario']['id']);
 ?>
 <body>
 	<?php
@@ -105,6 +111,61 @@
 					</form>
 				</div>
 			</div>";
+		if(!$comprouProduto){
+			echo "<div class='row'>
+					<div class='col s12'>
+						<div class='card hoverable'>
+							<div class='card-content'>
+								<span class='card-title center'>Avalie este produto</span>
+								<br>
+								<span class='col s2 offset-s2 center'>Nota:</span>
+								<div class='col offset-s3 s2 center'>
+									<input type='hidden' name='dados[nota]' id='inputNota'>
+									<i id='estrela1' class='material-icons estrela'>star</i>
+									<i id='estrela2' class='material-icons estrela'>star</i>
+									<i id='estrela3' class='material-icons estrela'>star</i>
+									<i id='estrela4' class='material-icons estrela'>star</i>
+									<i id='estrela5' class='material-icons estrela'>star</i>
+								</div>
+								<div class='row'>
+									<form class='col s12'>
+										<div class='row'>
+											<div class='input-field col s12'>
+												<textarea id='textarea' class='materialize-textarea'></textarea>
+												<label for='textarea'>Avaliação</label>
+											</div>
+										</div>
+										<a id='btnAvaliar' class='btn-floating btn-large indigo right'>
+											<i class='large material-icons'>check</i>
+										</a>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>";
+		}
+		echo "<h3 class='center'>Avaliações</h3>";
+		echo "<div class='row'>";
+		foreach($avaliacoes as $avaliacao){
+			echo "
+				<div class='col s12 m4'>
+					<div class='card hoverable'>
+						<div class='card-content'>
+							";
+							for($i = 1; $i <= 5; $i++){
+								if($i <= $avaliacao['nota'])
+									echo "<i class='material-icons indigo-text'>star</i>";
+								else
+									echo "<i class='material-icons'>star</i>";
+							}
+							echo "<p>{$avaliacao['texto']}</p>
+						</div>
+					</div>
+				</div>
+			";
+		}
+		echo "</div>";
 		echo "</main>";
 
 		echo $ehtml->footer();
@@ -115,5 +176,6 @@
 	<script type="text/javascript" src="../../materialize/js/materialize.min.js"></script>
 	<script src="..\..\assets\js\main.js" crossorigin="anonymous"></script>
 	<script src="..\..\assets\js\frete.js" crossorigin="anonymous"></script>
+	<script src="..\..\assets\js\avaliacao.js" crossorigin="anonymous"></script>
   </body>
 </html>

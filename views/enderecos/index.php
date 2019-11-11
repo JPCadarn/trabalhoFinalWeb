@@ -57,7 +57,7 @@ $ehtml = new Ehtml();
 							<p>{$endereco['destinatario']}</p>
 						</div>
 						<div class='card-action'>
-							<button class='waves-effect waves-circle waves-light btn-floating btn-small waves-effect waves-light indigo tooltipped' data-position='bottom' data-tooltip='Excluir Endereço' href=''> 
+							<button class='waves-effect waves-circle waves-light btn-floating btn-small waves-effect waves-light indigo tooltipped' data-position='bottom' data-tooltip='Editar Endereço' href=''> 
 								<a class='tooltipped' data-position='bottom' data-tooltip='Editar Endereço' href='editar.php?id={$endereco['id']}'> <i class='material-icons white-text'>edit</i></a>
 							</button>
 							<button id='btnExcluir".$endereco['id']."'class='waves-effect waves-circle waves-light btn-floating btn-small waves-effect waves-light indigo tooltipped' data-position='bottom' data-tooltip='Excluir Endereço' href=''> <i class='material-icons white-text'>delete</i></button>

@@ -64,6 +64,7 @@ CREATE TABLE carrinhos (
 
 CREATE TABLE avaliacaos (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	nota INT NOT NULL,
 	usuario_id INT NOT NULL REFERENCES usuarios(id),
 	produto_id INT NOT NULL REFERENCES produtos(id),
 	texto TEXT NOT NULL
