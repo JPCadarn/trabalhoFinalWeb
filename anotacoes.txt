@@ -1,7 +1,6 @@
 Ternário: $icone = $pedido['cartao_id'] ? 'credit_card' : 'money';
 ToDo:
 	-> Criar thumb das imagens no momento do upload;
-	-> Avaliações;
 	-> Tratar erros;
 Web Service:
 	header('Access-Control-Allow-Origin: *');
