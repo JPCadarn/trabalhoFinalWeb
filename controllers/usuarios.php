@@ -89,7 +89,7 @@ class UsuariosController{
 			return $retorno;
 		}elseif($metodo == 'login'){
 			$retorno = $classe->$metodo($dados);
-			header('Location: ../views/login/index.php?erro='.$retorno);
+			header('Location: ../views/login/index.php');
 		}elseif($classe->$metodo($dados)){
 			header('Location: ../views/site');
 		}
