@@ -111,7 +111,7 @@
 					</form>
 				</div>
 			</div>";
-		if(!$comprouProduto){
+		if($comprouProduto){
 			echo "<div class='row'>
 					<div class='col s12'>
 						<div class='card hoverable'>
@@ -146,7 +146,7 @@
 				</div>";
 		}
 		echo "<h3 class='center'>Avaliações</h3>";
-		echo "<div class='row'>";
+		echo "<div id='avaliacaos' class='row'>";
 		foreach($avaliacoes as $avaliacao){
 			echo "
 				<div class='col s12 m4'>

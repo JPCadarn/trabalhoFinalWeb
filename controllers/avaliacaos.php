@@ -29,7 +29,10 @@ class AvaliacaosController{
 		if(!array_key_exists('dados', $dados))
 			return false;
 
-		echo json_encode($model->salvar($dados));
+		$retorno['insert'] = $model->salvar($dados);
+		$retorno['dados'] = $dados['dados'];
+
+		echo json_encode($retorno);
 	}
 	
 	function delete($id){
