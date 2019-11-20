@@ -244,6 +244,8 @@ class UsuarioModel extends Conexao{
 	}
 
 	function logout(){
+		if(session_status() <> PHP_SESSION_ACTIVE)
+			session_start();
 		return session_unset();
 	}
 }
