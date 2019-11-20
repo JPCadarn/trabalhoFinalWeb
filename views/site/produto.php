@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
-	<link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.min.css"  media="screen,projection"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<link rel="stylesheet" href="..\..\assets\css\main.css">
-	<link rel="icon" href="..\..\assets\images\icone.png">
-</head>
-  
 <?php
 	require_once('../../controllers/produtos.php');
 	require_once('../../controllers/avaliacaos.php');
@@ -31,8 +20,23 @@
 		$usuarioId = $_SESSION['usuario']['id'];
 		$disabled = '';
 	}
-	$comprouProduto = $controllerPedidos->usuarioComprouProduto($_GET['id'], $_SESSION['usuario']['id']);
+	$comprouProduto = false;
+	if(isset($_SESSION['usuario']))
+		$comprouProduto = $controllerPedidos->usuarioComprouProduto($_GET['id'], $_SESSION['usuario']['id']);
 ?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title><?php echo $produto['nome'] ?> - Gole Bebidas</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.min.css"  media="screen,projection"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="..\..\assets\css\main.css">
+	<link rel="icon" href="..\..\assets\images\icone.png">
+</head>
+  
 <body>
 	<?php
 		echo "<header>";

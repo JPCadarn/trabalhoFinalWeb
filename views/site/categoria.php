@@ -1,7 +1,17 @@
+<?php
+	require_once('../../controllers/categorias.php');
+	require_once('../utils/ehtml.php');
+	$controllerCategorias = new CategoriasController();
+	$categoria = $controllerCategorias->read($_GET['id'])[0];
+	$produtos = $controllerCategorias->readProdutos($_GET['id']);
+	$ehtml = new Ehtml();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
+	<title><?php echo $categoria['nome']?> - Gole Bebidas</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.min.css" media="screen,projection" />
@@ -9,15 +19,6 @@
 	<link rel="stylesheet" href="..\..\assets\css\main.css">
 	<link rel="icon" href="..\..\assets\images\icone.png">
 </head>
-
-<?php
-require_once('../../controllers/categorias.php');
-require_once('../utils/ehtml.php');
-$controllerCategorias = new CategoriasController();
-$categoria = $controllerCategorias->read($_GET['id'])[0];
-$produtos = $controllerCategorias->readProdutos($_GET['id']);
-$ehtml = new Ehtml();
-?>
 
 <body>
 	<header>
