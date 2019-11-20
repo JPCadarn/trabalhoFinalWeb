@@ -111,24 +111,22 @@
 				<div class="hoverable card-content">
 					<span class="card-title center"><h5>Recebe ofertas e descontos exclusivos</h5></span>
 					<div class="row">
-						<form>
-							<div class="input-field col s6">
-								<i class="material-icons prefix">edit</i>
-								<input required id="inputNome" name="dados[nome]" type="text">
-								<label for="inputNome">Nome</label>
-							</div>
-							<div class="input-field col s6">
-								<i class="material-icons prefix">email</i>
-								<input required id="inputEmail" name="dados[email]" type="text">
-								<label for="inputEmail">Email</label>
-								<input type="hidden" name="metodo" value="boasVindasCupons">
-							</div>
-							<div class="right">
-								<button class="waves-effect waves-circle waves-light btn-floating btn-large indigo darken-4" type="submit" value="Create">
-									<i class="large material-icons">check</i>
-								</button>
-							</div>
-						</form>
+						<div class="input-field col s6">
+							<i class="material-icons prefix">edit</i>
+							<input required id="inputNome" name="dados[nome]" type="text">
+							<label for="inputNome">Nome</label>
+						</div>
+						<div class="input-field col s6">
+							<i class="material-icons prefix">email</i>
+							<input required id="inputEmail" name="dados[email]" type="text">
+							<label for="inputEmail">Email</label>
+							<input type="hidden" name="metodo" value="boasVindasCupons">
+						</div>
+						<div class="right">
+							<button class="waves-effect waves-circle waves-light btn-floating btn-large indigo darken-4" type="submit" value="Create">
+								<a href="index.php"><i class="large material-icons">check</i></a>
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
