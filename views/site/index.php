@@ -30,29 +30,31 @@
 
 		echo "<main>";
 
-		echo "
-			<div id='slider' class='slider'>
-				<ul class='slides'>";
+		if(!empty($destaques)){
+			echo "
+				<div id='slider' class='slider'>
+					<ul class='slides'>";
 
-		foreach($destaques as $destaque){
-			$tagSlide = "
-				<li>
-					<a href='produto.php?id=".$destaque['produto_id']."'>
-						<img src='../../assets/images/".$destaque['imagem']."'>
-						<div class='caption left-align'>
-							<h3 class='grey-text text-darken-3'>".$destaque['nome']."</h3>
-							<h5 class='grey-text text-darken-3'>R$ ".$destaque['valor']."</h5>
-						</div>
-					</a>
-				</li>
+			foreach($destaques as $destaque){
+				$tagSlide = "
+					<li>
+						<a href='produto.php?id=".$destaque['produto_id']."'>
+							<img src='../../assets/images/".$destaque['imagem']."'>
+							<div class='caption left-align'>
+								<h3 class='grey-text text-darken-3'>".$destaque['nome']."</h3>
+								<h5 class='grey-text text-darken-3'>R$ ".$destaque['valor']."</h5>
+							</div>
+						</a>
+					</li>
+				";
+				echo $tagSlide;
+			}
+			echo "
+					</ul>
+					<label class='black-text' for='slider'>Produtos em Destaque</label>
+				</div>
 			";
-			echo $tagSlide;
 		}
-		echo "
-				</ul>
-				<label class='black-text' for='slider'>Produtos em Destaque</label>
-			</div>
-		";
 
 		if(!empty($maisVendidos)){
 			echo "
