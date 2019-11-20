@@ -54,55 +54,59 @@
 			</div>
 		";
 
-		echo "
-			<div id='slider' class='slider'>
-				<ul class='slides'>";
+		if(!empty($maisVendidos)){
+			echo "
+				<div id='slider' class='slider'>
+					<ul class='slides'>";
 
-		foreach($maisVendidos as $maisVendido){
-			$maisVendido = $controllerProdutos->read($maisVendido['produto_id'])[0];
-			$tagSlide = "
-				<li>
-					<a href='produto.php?id=".$destaque['produto_id']."'>
-						<img src='../../assets/images/".$maisVendido['imagem']."'>
-						<div class='caption left-align'>
-							<h3 class='grey-text text-darken-3'>".$maisVendido['nome']."</h3>
-							<h5 class='grey-text text-darken-3'>R$ ".$maisVendido['valor']."</h5>
-						</div>
-					</a>
-				</li>
+			foreach($maisVendidos as $maisVendido){
+				$maisVendido = $controllerProdutos->read($maisVendido['produto_id'])[0];
+				$tagSlide = "
+					<li>
+						<a href='produto.php?id=".$destaque['produto_id']."'>
+							<img src='../../assets/images/".$maisVendido['imagem']."'>
+							<div class='caption left-align'>
+								<h3 class='grey-text text-darken-3'>".$maisVendido['nome']."</h3>
+								<h5 class='grey-text text-darken-3'>R$ ".$maisVendido['valor']."</h5>
+							</div>
+						</a>
+					</li>
+				";
+				echo $tagSlide;
+			}
+			echo "
+					</ul>
+					<label class='black-text' for='slider'>Mais Vendidos</label>
+				</div>
+			";		
+			}
+		
+		if(!empty($maisAcessados)){
+			echo "
+				<div id='slider' class='slider'>
+					<ul class='slides'>";
+
+			foreach($maisAcessados as $maisAcessado){
+				$maisAcessado = $controllerProdutos->read($maisAcessado['produto_id'])[0];
+				$tagSlide = "
+					<li>
+						<a href='produto.php?id=".$destaque['produto_id']."'>
+							<img src='../../assets/images/".$maisAcessado['imagem']."'>
+							<div class='caption left-align'>
+								<h3 class='grey-text text-darken-3'>".$maisAcessado['nome']."</h3>
+								<h5 class='grey-text text-darken-3'>R$ ".$maisAcessado['valor']."</h5>
+							</div>
+						</a>
+					</li>
+				";
+				echo $tagSlide;
+			}
+			echo "
+					</ul>
+					<label class='black-text' for='slider'>Mais Acessados</label>
+				</div>
 			";
-			echo $tagSlide;
 		}
-		echo "
-				</ul>
-				<label class='black-text' for='slider'>Mais Vendidos</label>
-			</div>
-		";
-
-		echo "
-			<div id='slider' class='slider'>
-				<ul class='slides'>";
-
-		foreach($maisAcessados as $maisAcessado){
-			$maisAcessado = $controllerProdutos->read($maisAcessado['produto_id'])[0];
-			$tagSlide = "
-				<li>
-					<a href='produto.php?id=".$destaque['produto_id']."'>
-						<img src='../../assets/images/".$maisAcessado['imagem']."'>
-						<div class='caption left-align'>
-							<h3 class='grey-text text-darken-3'>".$maisAcessado['nome']."</h3>
-							<h5 class='grey-text text-darken-3'>R$ ".$maisAcessado['valor']."</h5>
-						</div>
-					</a>
-				</li>
-			";
-			echo $tagSlide;
-		}
-		echo "
-				</ul>
-				<label class='black-text' for='slider'>Mais Acessados</label>
-			</div>
-		";
 	?>
 
 	<div class="row valign-wrapper">
